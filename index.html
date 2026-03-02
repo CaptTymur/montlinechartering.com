@@ -235,9 +235,52 @@
             line-height: 1.7;
         }
 
+        /* About */
+        .about {
+            background: var(--bg-secondary);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+        }
+
+        .stat-card .number {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-card .label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
         /* Services */
         .services {
-            background: var(--bg-secondary);
+            background: var(--bg-primary);
         }
 
         .services-grid {
@@ -555,6 +598,10 @@
                 grid-template-columns: 1fr;
             }
 
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
             .segments-grid,
             .team-grid {
                 grid-template-columns: 1fr;
@@ -611,6 +658,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
             </button>
             <ul>
+                <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#segments">Segments</a></li>
                 <li><a href="#trading-area">Trading Area</a></li>
@@ -631,6 +679,39 @@
                 Contact Us
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/></svg>
             </a>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about">
+        <div class="section-inner">
+            <div class="section-label">Who We Are</div>
+            <h2 class="section-title">About Montline Chartering</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Montline Chartering is an independent dry bulk brokerage founded by two captains who spent years commanding vessels before transitioning to the commercial side of shipping.</p>
+                    <p>We combine hands-on operational experience with deep market knowledge to connect cargo owners with the right tonnage — efficiently, transparently, and with a practical understanding that only comes from time at sea.</p>
+                    <p>Our approach is built on direct relationships with vessel owners and operators, real-time market intelligence, and a commitment to finding the best solution for every fixture.</p>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="number">238+</div>
+                        <div class="label">Vessels in Database</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="number">70+</div>
+                        <div class="label">Vessel Owners</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="number">6</div>
+                        <div class="label">Trading Regions</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="number">24/7</div>
+                        <div class="label">Availability</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -735,7 +816,7 @@
                 </div>
                 <div class="team-card">
                     <div class="team-role">Co-Founder</div>
-                    <h3>Yaroslav Godzhek</h3>
+                    <h3>Capt. Yaroslav Godzhek</h3>
                     <p>Captain with a Juris Doctor degree, bringing a unique combination of maritime command experience and legal expertise to commercial management and Handysize+ chartering operations.</p>
                     <div class="team-tags">
                         <span class="team-tag">Captain</span>
