@@ -475,13 +475,49 @@
         .team-card h3 {
             font-size: 1.3rem;
             font-weight: 700;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.35rem;
+        }
+
+        .team-card .team-email {
+            display: inline-block;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.92rem;
+            font-weight: 500;
+            margin-bottom: 0.4rem;
+        }
+
+        .team-card .team-email:hover {
+            color: var(--text-primary);
+        }
+
+        .team-card .team-phone {
+            display: block;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.88rem;
+            margin-bottom: 0.95rem;
+        }
+
+        .team-card .team-phone:hover {
+            color: var(--text-primary);
         }
 
         .team-card p {
             font-size: 0.9rem;
             color: var(--text-secondary);
             line-height: 1.7;
+        }
+
+        .team-card .team-duties {
+            margin: 1rem 0 0;
+            padding-left: 1.1rem;
+            color: var(--text-secondary);
+        }
+
+        .team-card .team-duties li {
+            margin-bottom: 0.45rem;
+            line-height: 1.6;
         }
 
         .team-card .team-tags {
@@ -561,6 +597,17 @@
 
         .contact-card a:hover {
             color: var(--accent);
+        }
+
+        .contact-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 0.45rem;
+            align-items: center;
+        }
+
+        .contact-stack a span {
+            color: var(--text-secondary);
         }
 
         /* Footer */
@@ -695,11 +742,11 @@
                 </div>
                 <div class="stats-grid">
                     <div class="stat-card">
-                        <div class="number">238+</div>
+                        <div class="number">767</div>
                         <div class="label">Vessels in Database</div>
                     </div>
                     <div class="stat-card">
-                        <div class="number">70+</div>
+                        <div class="number">50</div>
                         <div class="label">Vessel Owners</div>
                     </div>
                     <div class="stat-card">
@@ -802,11 +849,12 @@
         <div class="section-inner">
             <div class="section-label">Our People</div>
             <h2 class="section-title">Team</h2>
-            <p class="section-desc">Experienced maritime professionals with hands-on operational background and deep market expertise.</p>
+            <p class="section-desc">Experienced maritime and post-fixture professionals with hands-on operational background and practical dry bulk market focus.</p>
             <div class="team-grid">
                 <div class="team-card">
                     <div class="team-role">Co-Founder</div>
                     <h3>Capt. Tymur Rudov</h3>
+                    <a class="team-email" href="mailto:broker@capt-tymur.com">broker@capt-tymur.com</a>
                     <p>Master Mariner with extensive seagoing experience on dry cargo vessels in the Black Sea and Mediterranean trades. Combines operational knowledge with commercial expertise to deliver value for owners and charterers alike.</p>
                     <div class="team-tags">
                         <span class="team-tag">Master Mariner</span>
@@ -815,8 +863,29 @@
                     </div>
                 </div>
                 <div class="team-card">
+                    <div class="team-role">Post-Fixture Manager</div>
+                    <h3>Viktoria Vasilyeva</h3>
+                    <a class="team-email" href="mailto:vd@montlinechartering.com">vd@montlinechartering.com</a>
+                    <a class="team-phone" href="tel:+995591056973">+995 591 056973</a>
+                    <p>Handles post-fixture management across the voyage cycle, keeping owners, charterers, documents, and time-related exposure aligned after fixture.</p>
+                    <ul class="team-duties">
+                        <li>Coordination between owners and charterers</li>
+                        <li>Monitoring NOR and laytime</li>
+                        <li>Reviewing Statements of Facts</li>
+                        <li>Laytime, demurrage, and despatch calculations</li>
+                        <li>Coordinating freight invoicing and cargo documentation</li>
+                        <li>Assisting with disputes during the voyage</li>
+                    </ul>
+                    <div class="team-tags">
+                        <span class="team-tag">Post-Fixture</span>
+                        <span class="team-tag">Laytime Control</span>
+                        <span class="team-tag">Voyage Support</span>
+                    </div>
+                </div>
+                <div class="team-card">
                     <div class="team-role">Co-Founder</div>
-                    <h3>Capt. Yaroslav Godzhek</h3>
+                    <h3>Capt. Iaroslav Godzhek</h3>
+                    <a class="team-email" href="mailto:godzhek@montlinechartering.com">godzhek@montlinechartering.com</a>
                     <p>Captain with a Juris Doctor degree, bringing a unique combination of maritime command experience and legal expertise to commercial management and Handysize+ chartering operations.</p>
                     <div class="team-tags">
                         <span class="team-tag">Captain</span>
@@ -840,21 +909,24 @@
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
                     </div>
                     <h3>Email</h3>
-                    <a href="mailto:info@montlinechartering.com">info@montlinechartering.com</a>
+                    <a href="mailto:info@montline-chartering.com">info@montline-chartering.com</a>
                 </div>
                 <div class="contact-card">
                     <div class="icon">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
                     </div>
-                    <h3>Phone / WhatsApp</h3>
-                    <a href="https://wa.me/35797617412">+357 97 617 412</a>
+                    <h3>Direct Lines</h3>
+                    <div class="contact-stack">
+                        <a href="tel:+35797617412"><span>Timur / WhatsApp:</span> +357 97 617 412</a>
+                        <a href="tel:+41799533604"><span>Iaroslav:</span> +41 79 953 36 04</a>
+                    </div>
                 </div>
                 <div class="contact-card">
                     <div class="icon">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 0115 0z"/></svg>
                     </div>
                     <h3>Location</h3>
-                    <p class="value">Tbilisi, Georgia</p>
+                    <p class="value">Gorgasali Str. 51/53, Office 9, Tbilisi 0114, Georgia</p>
                 </div>
                 <div class="contact-card">
                     <div class="icon">
