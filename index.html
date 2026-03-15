@@ -584,6 +584,66 @@
             line-height: 1.5;
         }
 
+        /* News Feed */
+        .news {
+            background: var(--bg-secondary);
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            max-height: 600px;
+            overflow-y: auto;
+            padding-right: 0.5rem;
+        }
+
+        .news-grid::-webkit-scrollbar { width: 6px; }
+        .news-grid::-webkit-scrollbar-track { background: var(--bg-primary); border-radius: 3px; }
+        .news-grid::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+        .news-grid::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+        .news-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.25rem 1.5rem;
+            transition: border-color 0.2s;
+        }
+
+        .news-card:hover {
+            border-color: var(--accent);
+        }
+
+        .news-date {
+            font-size: 0.75rem;
+            color: var(--accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-text {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            white-space: pre-line;
+        }
+
+        .news-link {
+            display: inline-block;
+            margin-top: 0.75rem;
+            font-size: 0.8rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .news-link:hover {
+            color: var(--text-primary);
+        }
+
         /* Team */
         .team {
             background: var(--bg-primary);
@@ -793,6 +853,10 @@
                 grid-template-columns: 1fr;
             }
 
+            .news-grid {
+                max-height: 400px;
+            }
+
             .segments-grid,
             .team-grid,
             .circulation-content {
@@ -854,6 +918,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
             </button>
             <ul>
+                <li><a href="#news">News</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#segments">Segments</a></li>
@@ -876,6 +941,24 @@
                 Contact Us
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/></svg>
             </a>
+        </div>
+    </section>
+
+    <!-- Market News -->
+    <section class="news" id="news">
+        <div class="section-inner">
+            <div class="section-label">Market Intelligence</div>
+            <h2 class="section-title">Shipping News</h2>
+            <p class="section-desc">Latest updates from the dry bulk shipping market, sourced from industry channels and translated for our network.</p>
+            <div id="news-feed" class="news-grid">
+                <p style="color: var(--text-secondary);">Loading latest news...</p>
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="https://t.me/shipping_commercial" target="_blank" rel="noopener" class="hero-cta" style="font-size: 0.85rem; padding: 0.6rem 1.4rem;">
+                    Follow on Telegram
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
+                </a>
+            </div>
         </div>
     </section>
 
@@ -1170,6 +1253,37 @@
             </div>
         </div>
     </section>
+
+    <script>
+    (function() {
+        var feed = document.getElementById('news-feed');
+        if (!feed) return;
+        fetch('news.json')
+            .then(function(r) { return r.ok ? r.json() : Promise.reject(r.status); })
+            .then(function(data) {
+                if (!data.posts || data.posts.length === 0) {
+                    feed.innerHTML = '<p style="color:var(--text-secondary)">No news available at the moment.</p>';
+                    return;
+                }
+                var html = '';
+                data.posts.forEach(function(post) {
+                    var d = new Date(post.date);
+                    var dateStr = d.toLocaleDateString('en-GB', {day:'numeric', month:'short', year:'numeric'})
+                        + ' \u2022 ' + d.toLocaleTimeString('en-GB', {hour:'2-digit', minute:'2-digit'});
+                    var text = post.text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+                    html += '<div class="news-card">'
+                        + '<div class="news-date">' + dateStr + '</div>'
+                        + '<div class="news-text">' + text + '</div>'
+                        + '<a class="news-link" href="' + post.url + '" target="_blank" rel="noopener">View original &rarr;</a>'
+                        + '</div>';
+                });
+                feed.innerHTML = html;
+            })
+            .catch(function() {
+                feed.innerHTML = '<p style="color:var(--text-secondary)">Unable to load news feed.</p>';
+            });
+    })();
+    </script>
 
     <!-- Footer -->
     <footer>
