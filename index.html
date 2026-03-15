@@ -1270,7 +1270,7 @@
                     var d = new Date(post.date);
                     var dateStr = d.toLocaleDateString('en-GB', {day:'numeric', month:'short', year:'numeric'})
                         + ' \u2022 ' + d.toLocaleTimeString('en-GB', {hour:'2-digit', minute:'2-digit'});
-                    var text = post.text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+                    var text = (post.text_en || post.text_ru || post.text || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
                     html += '<div class="news-card">'
                         + '<div class="news-date">' + dateStr + '</div>'
                         + '<div class="news-text">' + text + '</div>'
