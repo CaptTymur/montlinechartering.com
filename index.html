@@ -589,25 +589,25 @@
             background: var(--bg-secondary);
         }
 
-        .news-feed {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            max-height: 700px;
+        .news-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            max-height: 600px;
             overflow-y: auto;
             padding-right: 0.5rem;
         }
 
-        .news-feed::-webkit-scrollbar { width: 6px; }
-        .news-feed::-webkit-scrollbar-track { background: var(--bg-primary); border-radius: 3px; }
-        .news-feed::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
-        .news-feed::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+        .news-grid::-webkit-scrollbar { width: 6px; }
+        .news-grid::-webkit-scrollbar-track { background: var(--bg-primary); border-radius: 3px; }
+        .news-grid::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+        .news-grid::-webkit-scrollbar-thumb:hover { background: var(--accent); }
 
         .news-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: 10px;
-            overflow: hidden;
+            padding: 1.25rem 1.5rem;
             transition: border-color 0.2s;
         }
 
@@ -615,76 +615,33 @@
             border-color: var(--accent);
         }
 
-        .news-card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.75rem 1.25rem;
-            border-bottom: 1px solid var(--border);
-        }
-
         .news-date {
             font-size: 0.75rem;
             color: var(--accent);
             font-weight: 600;
-            letter-spacing: 0.05em;
-        }
-
-        .news-link {
-            font-size: 0.78rem;
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .news-link:hover {
-            color: var(--accent);
-        }
-
-        .news-panels {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-        }
-
-        .news-panel {
-            padding: 1rem 1.25rem;
-        }
-
-        .news-panel:first-child {
-            border-right: 1px solid var(--border);
-        }
-
-        .news-panel-label {
-            font-size: 0.65rem;
-            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: var(--text-secondary);
+            letter-spacing: 0.05em;
             margin-bottom: 0.5rem;
-            opacity: 0.6;
         }
 
         .news-text {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             color: var(--text-secondary);
             line-height: 1.7;
             white-space: pre-line;
         }
 
-        .news-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.4rem;
-            padding: 0 1.25rem 0.85rem;
+        .news-link {
+            display: inline-block;
+            margin-top: 0.75rem;
+            font-size: 0.8rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
         }
 
-        .news-tag {
-            font-size: 0.7rem;
-            font-weight: 500;
-            color: var(--accent);
-            background: var(--accent-dim);
-            padding: 0.2rem 0.6rem;
-            border-radius: 100px;
+        .news-link:hover {
+            color: var(--text-primary);
         }
 
         /* Team */
@@ -896,17 +853,8 @@
                 grid-template-columns: 1fr;
             }
 
-            .news-feed {
-                max-height: 500px;
-            }
-
-            .news-panels {
-                grid-template-columns: 1fr;
-            }
-
-            .news-panel:first-child {
-                border-right: none;
-                border-bottom: 1px solid var(--border);
+            .news-grid {
+                max-height: 400px;
             }
 
             .segments-grid,
@@ -1001,8 +949,8 @@
         <div class="section-inner">
             <div class="section-label">Market Intelligence</div>
             <h2 class="section-title">Shipping News</h2>
-            <p class="section-desc">Latest updates from the dry bulk shipping market — original Russian and English translation side by side.</p>
-            <div id="news-feed" class="news-feed">
+            <p class="section-desc">Latest updates from the dry bulk shipping market, sourced from industry channels and translated for our network.</p>
+            <div id="news-feed" class="news-grid">
                 <p style="color: var(--text-secondary);">Loading latest news...</p>
             </div>
             <div style="text-align: center; margin-top: 2rem;">
@@ -1310,7 +1258,6 @@
     (function() {
         var feed = document.getElementById('news-feed');
         if (!feed) return;
-        function esc(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
         fetch('news.json')
             .then(function(r) { return r.ok ? r.json() : Promise.reject(r.status); })
             .then(function(data) {
@@ -1323,30 +1270,11 @@
                     var d = new Date(post.date);
                     var dateStr = d.toLocaleDateString('en-GB', {day:'numeric', month:'short', year:'numeric'})
                         + ' \u2022 ' + d.toLocaleTimeString('en-GB', {hour:'2-digit', minute:'2-digit'});
-                    var textEn = esc(post.text_en || post.text || '');
-                    var textRu = esc(post.text_ru || post.text || '');
-                    var tags = '';
-                    if (post.tags && post.tags.length) {
-                        tags = '<div class="news-tags">';
-                        post.tags.forEach(function(t) { tags += '<span class="news-tag">' + esc(t) + '</span>'; });
-                        tags += '</div>';
-                    }
+                    var text = post.text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
                     html += '<div class="news-card">'
-                        + '<div class="news-card-header">'
-                        +   '<span class="news-date">' + dateStr + '</span>'
-                        +   '<a class="news-link" href="' + post.url + '" target="_blank" rel="noopener">source &rarr;</a>'
-                        + '</div>'
-                        + '<div class="news-panels">'
-                        +   '<div class="news-panel">'
-                        +     '<div class="news-panel-label">English</div>'
-                        +     '<div class="news-text">' + textEn + '</div>'
-                        +   '</div>'
-                        +   '<div class="news-panel">'
-                        +     '<div class="news-panel-label">\u0420\u0443\u0441\u0441\u043a\u0438\u0439</div>'
-                        +     '<div class="news-text">' + textRu + '</div>'
-                        +   '</div>'
-                        + '</div>'
-                        + tags
+                        + '<div class="news-date">' + dateStr + '</div>'
+                        + '<div class="news-text">' + text + '</div>'
+                        + '<a class="news-link" href="' + post.url + '" target="_blank" rel="noopener">View original &rarr;</a>'
                         + '</div>';
                 });
                 feed.innerHTML = html;
