@@ -1431,14 +1431,7 @@
 
             <!-- Shipowner Form -->
             <div class="inquiry-panel active" id="panel-owner">
-                <form class="inquiry-form" action="https://formsubmit.co/broker@capt-tymur.com" method="POST">
-                    <input type="hidden" name="_subject" value="Vessel Inquiry from montlinechartering.com">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_next" value="https://montlinechartering.com/?thanks=1">
-                    <input type="text" name="_honey" style="display:none">
-                    <input type="hidden" name="Form Type" value="VESSEL POSITION">
-
+                <form class="inquiry-form" id="form-owner" onsubmit="return submitVessel(this)">
                     <div class="form-row">
                         <div class="form-group">
                             <label>Company Name *</label>
@@ -1446,7 +1439,7 @@
                         </div>
                         <div class="form-group">
                             <label>Contact Person *</label>
-                            <input type="text" name="Contact Person" required placeholder="Full name">
+                            <input type="text" name="Contact" required placeholder="Full name">
                         </div>
                     </div>
                     <div class="form-row">
@@ -1462,11 +1455,11 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label>Vessel Name *</label>
-                            <input type="text" name="Vessel Name" required placeholder="M/V ...">
+                            <input type="text" name="Vessel" required placeholder="M/V ...">
                         </div>
                         <div class="form-group">
                             <label>Vessel Type *</label>
-                            <select name="Vessel Type" required>
+                            <select name="Type" required>
                                 <option value="" disabled selected>Select type</option>
                                 <option>Bulk Carrier</option>
                                 <option>General Cargo</option>
@@ -1491,11 +1484,11 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label>Open Area / Port *</label>
-                            <input type="text" name="Open Area" required placeholder="e.g. Canakkale, Black Sea">
+                            <input type="text" name="OpenArea" required placeholder="e.g. Canakkale, Black Sea">
                         </div>
                         <div class="form-group">
                             <label>Open Date *</label>
-                            <input type="text" name="Open Date" required placeholder="e.g. 25-30 March 2026">
+                            <input type="text" name="OpenDate" required placeholder="e.g. 25-30 March 2026">
                         </div>
                     </div>
                     <div class="form-row">
@@ -1508,20 +1501,13 @@
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"/></svg>
                         Submit Vessel Position
                     </button>
-                    <p class="form-note">We typically respond within 2-4 hours during business days.</p>
+                    <p class="form-note">Opens your email client with pre-filled enquiry. We typically respond within 2-4 hours.</p>
                 </form>
             </div>
 
             <!-- Cargo / Broker Form -->
             <div class="inquiry-panel" id="panel-cargo">
-                <form class="inquiry-form" action="https://formsubmit.co/broker@capt-tymur.com" method="POST">
-                    <input type="hidden" name="_subject" value="Cargo Inquiry from montlinechartering.com">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_next" value="https://montlinechartering.com/?thanks=1">
-                    <input type="text" name="_honey" style="display:none">
-                    <input type="hidden" name="Form Type" value="CARGO ENQUIRY">
-
+                <form class="inquiry-form" id="form-cargo" onsubmit="return submitCargo(this)">
                     <div class="form-row">
                         <div class="form-group">
                             <label>Company Name *</label>
@@ -1529,7 +1515,7 @@
                         </div>
                         <div class="form-group">
                             <label>Contact Person *</label>
-                            <input type="text" name="Contact Person" required placeholder="Full name">
+                            <input type="text" name="Contact" required placeholder="Full name">
                         </div>
                     </div>
                     <div class="form-row">
@@ -1555,11 +1541,11 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label>Loading Port / Area *</label>
-                            <input type="text" name="Load Port" required placeholder="e.g. Novorossiysk, Russia">
+                            <input type="text" name="LoadPort" required placeholder="e.g. Novorossiysk, Russia">
                         </div>
                         <div class="form-group">
                             <label>Discharge Port / Area *</label>
-                            <input type="text" name="Disch Port" required placeholder="e.g. Mersin, Turkey">
+                            <input type="text" name="DischPort" required placeholder="e.g. Mersin, Turkey">
                         </div>
                     </div>
                     <div class="form-row">
@@ -1569,7 +1555,7 @@
                         </div>
                         <div class="form-group">
                             <label>Freight Idea</label>
-                            <input type="text" name="Freight Idea" placeholder="e.g. USD 18 PMT or USD 15,000/day">
+                            <input type="text" name="FreightIdea" placeholder="e.g. USD 18 PMT or USD 15,000/day">
                         </div>
                     </div>
                     <div class="form-row">
@@ -1582,7 +1568,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"/></svg>
                         Submit Cargo Enquiry
                     </button>
-                    <p class="form-note">We typically respond within 2-4 hours during business days.</p>
+                    <p class="form-note">Opens your email client with pre-filled enquiry. We typically respond within 2-4 hours.</p>
                 </form>
             </div>
         </div>
@@ -1631,15 +1617,59 @@
     </section>
 
     <script>
+    var INQUIRY_EMAIL = 'broker@capt-tymur.com';
+
     function switchTab(type) {
         document.querySelectorAll('.inquiry-tab').forEach(function(t) { t.classList.remove('active'); });
         document.querySelectorAll('.inquiry-panel').forEach(function(p) { p.classList.remove('active'); });
         document.getElementById('panel-' + type).classList.add('active');
         event.target.classList.add('active');
     }
-    if (window.location.search.indexOf('thanks=1') !== -1) {
-        alert('Thank you! Your enquiry has been received. We will respond shortly.');
-        history.replaceState(null, '', window.location.pathname + '#inquiry');
+
+    function val(form, name) { var el = form.elements[name]; return el ? el.value.trim() : ''; }
+
+    function submitVessel(form) {
+        var subj = 'Vessel Position: ' + val(form,'Vessel') + ' / ' + val(form,'DWT') + ' DWT';
+        var body = 'VESSEL POSITION ENQUIRY\n'
+            + '========================\n\n'
+            + 'Company: ' + val(form,'Company') + '\n'
+            + 'Contact: ' + val(form,'Contact') + '\n'
+            + 'Email: ' + val(form,'Email') + '\n'
+            + 'Phone: ' + val(form,'Phone') + '\n\n'
+            + 'Vessel: ' + val(form,'Vessel') + '\n'
+            + 'Type: ' + val(form,'Type') + '\n'
+            + 'DWT: ' + val(form,'DWT') + '\n'
+            + 'Built: ' + val(form,'Built') + '\n'
+            + 'Open Area: ' + val(form,'OpenArea') + '\n'
+            + 'Open Date: ' + val(form,'OpenDate') + '\n\n'
+            + 'Details:\n' + val(form,'Details') + '\n\n'
+            + '---\nSent from montlinechartering.com';
+        window.location.href = 'mailto:' + INQUIRY_EMAIL
+            + '?subject=' + encodeURIComponent(subj)
+            + '&body=' + encodeURIComponent(body);
+        return false;
+    }
+
+    function submitCargo(form) {
+        var subj = 'Cargo Enquiry: ' + val(form,'Cargo') + ' / ' + val(form,'Quantity') + ' / ' + val(form,'LoadPort');
+        var body = 'CARGO ENQUIRY\n'
+            + '========================\n\n'
+            + 'Company: ' + val(form,'Company') + '\n'
+            + 'Contact: ' + val(form,'Contact') + '\n'
+            + 'Email: ' + val(form,'Email') + '\n'
+            + 'Phone: ' + val(form,'Phone') + '\n\n'
+            + 'Cargo: ' + val(form,'Cargo') + '\n'
+            + 'Quantity: ' + val(form,'Quantity') + '\n'
+            + 'Load Port: ' + val(form,'LoadPort') + '\n'
+            + 'Disch Port: ' + val(form,'DischPort') + '\n'
+            + 'Laycan: ' + val(form,'Laycan') + '\n'
+            + 'Freight Idea: ' + val(form,'FreightIdea') + '\n\n'
+            + 'Details:\n' + val(form,'Details') + '\n\n'
+            + '---\nSent from montlinechartering.com';
+        window.location.href = 'mailto:' + INQUIRY_EMAIL
+            + '?subject=' + encodeURIComponent(subj)
+            + '&body=' + encodeURIComponent(body);
+        return false;
     }
     (function() {
         var feed = document.getElementById('news-feed');
