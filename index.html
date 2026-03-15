@@ -1167,8 +1167,8 @@
         </div>
     </section>
 
-    <!-- About -->
-    <section class="about" id="about">
+    <!-- About (hidden from main flow, accessible via nav) -->
+    <section class="about" id="about" style="display:none">
         <div class="section-inner">
             <div class="section-label">Who We Are</div>
             <h2 class="section-title">About Montline Chartering</h2>
@@ -1617,6 +1617,20 @@
     </section>
 
     <script>
+    // About section toggle
+    document.querySelectorAll('a[href="#about"]').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            var section = document.getElementById('about');
+            if (section.style.display === 'none') {
+                section.style.display = '';
+            }
+        });
+    });
+    if (window.location.hash === '#about') {
+        var s = document.getElementById('about');
+        if (s) s.style.display = '';
+    }
+
     var INQUIRY_EMAIL = 'broker@capt-tymur.com';
 
     function switchTab(type) {
