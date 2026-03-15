@@ -1201,7 +1201,7 @@
     </section>
 
     <!-- Services -->
-    <section class="services" id="services">
+    <section class="services" id="services" style="display:none">
         <div class="section-inner">
             <div class="section-label">What We Do</div>
             <h2 class="section-title">Services</h2>
@@ -1618,7 +1618,7 @@
 
     <script>
     // Hidden sections toggle (About, Team)
-    ['about','team'].forEach(function(id) {
+    ['about','services','team'].forEach(function(id) {
         document.querySelectorAll('a[href="#'+id+'"]').forEach(function(link) {
             link.addEventListener('click', function() {
                 var section = document.getElementById(id);
