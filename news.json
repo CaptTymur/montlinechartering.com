@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-21T13:00:02.230551+00:00",
+  "updated_at": "2026-03-21T15:00:02.945777+00:00",
   "channel": "Capt_tymur",
   "channel_url": "https://t.me/Capt_tymur",
   "posts": [
@@ -23,6 +23,17 @@
       ],
       "date": "2026-03-20T07:24:24+00:00",
       "url": "https://t.me/Capt_tymur/3039"
+    },
+    {
+      "id": 3035,
+      "text_en": "Read the news. Shipping has accepted that Hormuz is a serious issue for the long term. The discussion is now about contingency planning, i.e. what to do, rather than alarmist reactions.",
+      "text_ru": "прочитал новости.\n\nсудоходство смирилось с тем что ормуз это всерьез и надолго. обсуждается континженси (что делать) а не  ой ой ой что же делается.",
+      "tags": [
+        "#war",
+        "#legal"
+      ],
+      "date": "2026-03-16T10:13:49+00:00",
+      "url": "https://t.me/Capt_tymur/3035"
     }
   ]
 }
