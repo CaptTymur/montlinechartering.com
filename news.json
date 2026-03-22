@@ -1,8 +1,21 @@
 {
-  "updated_at": "2026-03-21T17:00:03.129437+00:00",
+  "updated_at": "2026-03-22T03:00:03.044855+00:00",
   "channel": "Capt_tymur",
   "channel_url": "https://t.me/Capt_tymur",
   "posts": [
+    {
+      "id": 3042,
+      "text_en": "Researchers in Singapore from the Rudra team have identified a chain of vulnerabilities in SmartShipWeb, a cloud platform used by shore teams to manage ship systems.\n\nThe issue was said to affect chemical tankers, bulk carriers and container ships across Asia, Europe and the Middle East.\n\nAccording to the disclosure, remote access from a standard browser could have exposed the main engine, navigation, power supply, ballast, steering and fire systems.\n\nThe weakness reportedly began with a password reset mechanism that generated tokens client-side, which could be intercepted by any network observer. From there, access to the vessel file system was reportedly possible.\n\nThe vulnerabilities were closed at the end of 2025, and no in-the-wild exploitation was detected.\n\nThis underlines how deeply connected ordinary ships already are, and the operational risk that can arise when shore platforms reach into onboard control systems.",
+      "text_ru": "Сингапурские исследователи из команды Rudra обнаружили\n  цепочку уязвимостей в платформе SmartShipWeb — облачной\n  системе через которую берег управляет судовыми системами.\n  Химовозы, балкеры, контейнеровозы в Азии, Европе и на\n  Ближнем Востоке.\n\n  Что можно было захватить удалённо, из обычного браузера:\n  — главный двигатель\n  — навигацию\n  — электропитание\n  — балласт\n  — рулевое управление\n  — пожарную систему\n\n  Всё начинается с механизма сброса пароля который генерирует\n  токены на стороне клиента. Перехватить может любой\n  наблюдатель в сети. Дальше — полный доступ к файловой\n  системе судна.\n\n  Уязвимости закрыты в конце 2025 года, эксплуатации в дикой\n  природе не обнаружено.\n\n  Но вот что интересно: капитан думает что он управляет\n  судном. А в реальности IoT-платформа имеет доступ к\n  исполнительным механизмам о которых экипаж может даже не\n  знать. И если эту платформу взломать — руль перестаёт\n  слушаться, двигатель останавливается, и команда на мостике\n  не понимает почему.\n\n  Это не автономные суда. Это обычные суда которые уже\n  подключены к интернету гораздо глубже чем кажется тем кто на\n   них ходит.\n\n  Морские кибер-инциденты выросли на 103% за 2025 год. На фоне\n   того что происходит в Ормузе — это уже не академическая\n  проблема. Это оружие.",
+      "tags": [
+        "#drybulk",
+        "#war",
+        "#legal",
+        "#crew"
+      ],
+      "date": "2026-03-20T07:52:09+00:00",
+      "url": "https://t.me/Capt_tymur/3042"
+    },
     {
       "id": 3040,
       "text_en": "One third of the urea imported by various countries came from the Persian Gulf. The fertiliser market is also in shock.",
@@ -42,6 +55,43 @@
       "tags": [],
       "date": "2026-03-14T08:36:24+00:00",
       "url": "https://t.me/Capt_tymur/3033"
+    },
+    {
+      "id": 3032,
+      "text_en": "mt Dignity (IMO 9283241, Russian flag, owned by Argo Tanker Group) has appealed to the media for assistance.\n\nSituation reported:\n- The vessel has been detained at anchorage off Suez since late September 2025, for almost six months.\n- The crew comprises nine Russian seafarers; passports and seafarer books have been confiscated.\n- More than four months without food supplies, with assistance provided only by the Arab Seafarers' Union.\n- More than one month without fuel; electricity is available for only two hours a day, and at night the vessel is fully without power.\n- Wage payments are delayed by more than two months.\n- Notifications were sent to the agent, insurer, port, shipowner, crewing company, the Russian Ministry of Foreign Affairs in Egypt, the prosecutor's office and RMRS, with no practical assistance reported.\n- The crew intended to leave the vessel on 16 March 2026.",
+      "text_ru": "mt Dignity (IMO 9283241, флаг РФ, судовладелец\n   Argo Tanker Group) Обратились к СМИ с просьбой о помощи.\n\n  Ситуация:\n  - Судно арестовано на рейде Суэца с конца сентября 2025 (почти 6 месяцев)\n  - Экипаж — 9 россиян, изъяты паспорта и мореходные книжки\n  - 4+ месяца без поставки продовольствия (помог только арабский профсоюз моряков)\n  - 1+ месяц без топлива — электричество 2 часа/день, ночью судно полностью обесточено\n  - 2+ месяца задержки зарплаты\n  - Уведомили всех (агента, страховщика, порт, судовладельца, крюинг, МИД РФ в Египте,\n  прокуратуру, РМРС) — никакой реальной помощи\n  - 16 марта 2026 экипаж намерен покинуть судно",
+      "tags": [
+        "#tanker",
+        "#bunkering",
+        "#legal",
+        "#ports",
+        "#crew"
+      ],
+      "date": "2026-03-13T14:47:07+00:00",
+      "url": "https://t.me/Capt_tymur/3032"
+    },
+    {
+      "id": 3029,
+      "text_en": "The Strait of Hormuz is closed. Since the breach attempt was blocked, 16 vessels have been damaged. Mining of the strait continues. Clearance work will take months.",
+      "text_ru": "Ормуз закрыт. С момента блокировки пробива были повреждены 16 судов. Минирование пролива продолжается.  Разминирование - месяцы",
+      "tags": [
+        "#war",
+        "#legal"
+      ],
+      "date": "2026-03-13T06:58:35+00:00",
+      "url": "https://t.me/Capt_tymur/3029"
+    },
+    {
+      "id": 3025,
+      "text_en": "When I work with students in seafaring classes, my guidance to future masters includes the following: there is nothing terrible in being relieved from a ship; there is nothing terrible in making a mistake or forgetting a document; there is nothing terrible in setting your boundaries and insisting that they are respected; there is nothing terrible in suffering losses.\n\nBut there are red flags. There are moments when compromise is not possible:\n\n- the safety of life, the vessel and the cargo\n- criminal liability\n\nThe story of the chief mate Ali is a clear example of how a seafarer can be caught in the criminal justice system. Everyone else was released, even the master was exchanged, but Ali remains in custody. His wife spent several years seeking his release on any terms. There had been hope that a supreme court would free him from prison, but the court upheld the 30-year sentence.\n\nTake care and stay alert.",
+      "text_ru": "Когда я работаю со слушателями мореходных классов - мои наставления будущим капитанам звучат среди прочего так:\n\n• Ничего страшного если вас спишут\n• Ниего страшного если вы ошибетесь иили забудете о документе\n• Ничего страшногоо в том чтобы обозначить свои границы и заставить их придерживаться.\n• Ничего страшного если у были приченены убытки.\n\nНО… ЕСТЬ КРАСНЫЕ ФЛАГИ.  МОМЕНТ КОГДА КОМПРОМИНИСА БЫТЬ НЕ МОЖЕТ.\n\n• БЕЗОПАСНОСТЬ ЖИЗНИ, СУДНА. И ГРУЗА\n• УГОЛОВКА\n\nИстория старпома Али - это яркий пример того как моряк может попасть в угловные жернова. \n\nВсех отпустили, даже капитана обменяли - Али сидит.  Его жена несколько лет билась за его освобождение на любых условиях. Надежда была на некий верховный суд, который как ожидалось выпустит его из тюрьмы. Но… суд подтвердил приговор в 30 лет. \n\n\nСледи за собой, будь осторожен.\n\nhttps://www.seatrade-maritime.com/crewing/turkish-court-upholds-30-year-sentences-on-phoenician-m-seafarers",
+      "tags": [
+        "#safety",
+        "#legal",
+        "#crew"
+      ],
+      "date": "2026-03-10T04:45:44+00:00",
+      "url": "https://t.me/Capt_tymur/3025"
     }
   ]
 }
