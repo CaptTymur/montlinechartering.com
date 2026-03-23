@@ -1,8 +1,18 @@
 {
-  "updated_at": "2026-03-23T11:00:02.732591+00:00",
+  "updated_at": "2026-03-23T13:00:02.893099+00:00",
   "channel": "Capt_tymur",
   "channel_url": "https://t.me/Capt_tymur",
   "posts": [
+    {
+      "id": 3047,
+      "text_en": "LNG disruption in Thailand has prompted the reopening of mothballed coal mines. Coal should not be written off yet.",
+      "text_ru": "Перебои с СПГ - в Тайланде запустили расконсервированные угольные шахты. Уголь рано списывать со счетов.",
+      "tags": [
+        "#coal"
+      ],
+      "date": "2026-03-23T09:55:34+00:00",
+      "url": "https://t.me/Capt_tymur/3047"
+    },
     {
       "id": 3042,
       "text_en": "Researchers in Singapore from the Rudra team have identified a chain of vulnerabilities in SmartShipWeb, a cloud platform used by shore teams to manage ship systems.\n\nThe issue was said to affect chemical tankers, bulk carriers and container ships across Asia, Europe and the Middle East.\n\nAccording to the disclosure, remote access from a standard browser could have exposed the main engine, navigation, power supply, ballast, steering and fire systems.\n\nThe weakness reportedly began with a password reset mechanism that generated tokens client-side, which could be intercepted by any network observer. From there, access to the vessel file system was reportedly possible.\n\nThe vulnerabilities were closed at the end of 2025, and no in-the-wild exploitation was detected.\n\nThis underlines how deeply connected ordinary ships already are, and the operational risk that can arise when shore platforms reach into onboard control systems.",
