@@ -1,8 +1,19 @@
 {
-  "updated_at": "2026-03-26T05:00:01.709201+00:00",
+  "updated_at": "2026-03-26T07:00:02.254476+00:00",
   "channel": "Capt_tymur",
   "channel_url": "https://t.me/Capt_tymur",
   "posts": [
+    {
+      "id": 3048,
+      "text_en": "Chief officer reportedly sentenced to 30 years. Fundraising and petition links attached concerning a Finnish seafarer and the captain.",
+      "text_ru": "https://www.gofundme.com/f/chief-officer-illegally-sentenced-to-30-years? \n\nhttps://www.change.org/p/a-finnish-seafarer-faces-30-years-in-prison-while-the-captain-is-free-justice-for-ali",
+      "tags": [
+        "#legal",
+        "#crew"
+      ],
+      "date": "2026-03-23T17:07:59+00:00",
+      "url": "https://t.me/Capt_tymur/3048"
+    },
     {
       "id": 3047,
       "text_en": "LNG disruption in Thailand has prompted the reopening of mothballed coal mines. Coal should not be written off yet.",
