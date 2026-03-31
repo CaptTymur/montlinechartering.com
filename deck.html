@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Montline Chartering — Presentation</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9875;</text></svg>">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0a0e17;
+            --bg-soft: #111827;
+            --card: #182133;
+            --text: #e8edf5;
+            --muted: #8b95a8;
+            --accent: #10b981;
+            --accent-dim: rgba(16, 185, 129, 0.12);
+            --border: #1e293b;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            -webkit-font-smoothing: antialiased;
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        /* ── Password Gate ── */
+        #gate {
+            position: fixed;
+            inset: 0;
+            background: var(--bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        #gate.hidden { display: none; }
+
+        .gate-box {
+            text-align: center;
+            max-width: 360px;
+            padding: 0 24px;
+        }
+
+        .gate-box img {
+            width: 180px;
+            filter: invert(1);
+            margin-bottom: 32px;
+        }
+
+        .gate-box p {
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .gate-box input {
+            width: 100%;
+            padding: 14px 18px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: var(--bg-soft);
+            color: var(--text);
+            font-size: 16px;
+            text-align: center;
+            letter-spacing: 0.1em;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .gate-box input:focus { border-color: var(--accent); }
+
+        .gate-box input::placeholder { color: var(--muted); letter-spacing: 0; }
+
+        .gate-error {
+            color: #ef4444;
+            font-size: 13px;
+            margin-top: 12px;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .gate-error.visible { opacity: 1; }
+
+        /* ── Presentation ── */
+        #deck { display: none; height: 100vh; width: 100vw; position: relative; }
+        #deck.active { display: block; }
+
+        .slide {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px 80px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        .slide.active { opacity: 1; pointer-events: auto; }
+
+        /* ── Progress bar ── */
+        .progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+            z-index: 50;
+        }
+
+        /* ── Nav hint ── */
+        .nav-hint {
+            position: fixed;
+            bottom: 24px;
+            right: 32px;
+            color: var(--muted);
+            font-size: 13px;
+            opacity: 0.5;
+            z-index: 50;
+            user-select: none;
+        }
+
+        .slide-counter {
+            position: fixed;
+            bottom: 24px;
+            left: 32px;
+            color: var(--muted);
+            font-size: 13px;
+            opacity: 0.5;
+            z-index: 50;
+            user-select: none;
+        }
+
+        /* ── Slide typography ── */
+        .slide .eyebrow {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 999px;
+            background: var(--accent-dim);
+            color: var(--accent);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            width: fit-content;
+        }
+
+        .slide h1 {
+            font-size: 52px;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 16px;
+        }
+
+        .slide h2 {
+            font-size: 38px;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            margin-bottom: 20px;
+        }
+
+        .slide .subtitle {
+            font-size: 22px;
+            color: var(--muted);
+            line-height: 1.5;
+            max-width: 800px;
+        }
+
+        .slide p {
+            font-size: 20px;
+            line-height: 1.6;
+            color: var(--muted);
+            max-width: 860px;
+        }
+
+        .slide .highlight {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .slide .white { color: var(--text); }
+
+        /* ── Grid layouts ── */
+        .cols {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-top: 8px;
+        }
+
+        .cols-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 24px;
+            margin-top: 8px;
+        }
+
+        .col-card {
+            border: 1px solid var(--border);
+            background: var(--card);
+            border-radius: 18px;
+            padding: 28px;
+        }
+
+        .col-card h3 {
+            font-size: 20px;
+            margin-bottom: 14px;
+            letter-spacing: -0.01em;
+        }
+
+        .col-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .col-card li {
+            color: var(--muted);
+            font-size: 17px;
+            line-height: 1.55;
+            padding: 6px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .col-card li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 14px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent);
+            opacity: 0.6;
+        }
+
+        /* ── Stat boxes ── */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 12px;
+        }
+
+        .stat-box {
+            border: 1px solid var(--border);
+            background: var(--card);
+            border-radius: 16px;
+            padding: 24px;
+        }
+
+        .stat-box .label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--muted);
+            margin-bottom: 10px;
+        }
+
+        .stat-box .value {
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        /* ── List slides ── */
+        .item-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 4px;
+        }
+
+        .item-list li {
+            font-size: 20px;
+            line-height: 1.5;
+            color: var(--muted);
+            padding: 12px 0;
+            padding-left: 28px;
+            position: relative;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+
+        .item-list li:last-child { border-bottom: none; }
+
+        .item-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 20px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--accent);
+            opacity: 0.5;
+        }
+
+        .item-list li strong { color: var(--text); font-weight: 600; }
+
+        /* ── Title slide ── */
+        .title-slide {
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(ellipse at center, rgba(16, 185, 129, 0.06) 0%, transparent 60%);
+        }
+
+        .title-slide img {
+            width: 240px;
+            filter: invert(1);
+            margin-bottom: 36px;
+        }
+
+        .title-slide h1 { font-size: 56px; margin-bottom: 20px; }
+        .title-slide .subtitle { max-width: 640px; text-align: center; }
+
+        /* ── Contact slide ── */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            margin-top: 8px;
+        }
+
+        .contact-person {
+            border: 1px solid var(--border);
+            background: var(--card);
+            border-radius: 18px;
+            padding: 28px;
+        }
+
+        .contact-person h3 {
+            font-size: 22px;
+            margin-bottom: 4px;
+        }
+
+        .contact-person .role {
+            color: var(--accent);
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 18px;
+        }
+
+        .contact-person .detail {
+            color: var(--muted);
+            font-size: 17px;
+            line-height: 2;
+        }
+
+        .contact-person .detail span {
+            color: var(--text);
+        }
+
+        /* ── Final slide ── */
+        .final-slide {
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(ellipse at center, rgba(16, 185, 129, 0.08) 0%, transparent 55%);
+        }
+
+        .final-slide h1 {
+            font-size: 48px;
+            margin-bottom: 24px;
+        }
+
+        .final-slide p {
+            text-align: center;
+            max-width: 600px;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 1024px) {
+            .slide { padding: 40px 40px; }
+            .slide h1 { font-size: 40px; }
+            .slide h2 { font-size: 30px; }
+            .slide .subtitle { font-size: 18px; }
+            .slide p { font-size: 17px; }
+            .cols, .contact-grid { grid-template-columns: 1fr; }
+            .cols-3 { grid-template-columns: 1fr 1fr; }
+            .stats-row { grid-template-columns: 1fr 1fr; }
+            .title-slide img { width: 180px; }
+            .title-slide h1 { font-size: 40px; }
+        }
+
+        @media (max-width: 600px) {
+            .slide { padding: 32px 24px; }
+            .slide h1 { font-size: 32px; }
+            .slide h2 { font-size: 24px; }
+            .cols-3 { grid-template-columns: 1fr; }
+            .stats-row { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Password Gate -->
+<div id="gate">
+    <div class="gate-box">
+        <img src="logo.png" alt="Montline Chartering">
+        <p>Restricted area. Please enter access code.</p>
+        <input type="password" id="passInput" placeholder="Access code" autofocus>
+        <div class="gate-error" id="gateError">Incorrect code</div>
+    </div>
+</div>
+
+<!-- Presentation -->
+<div id="deck">
+    <div class="progress" id="progress"></div>
+    <div class="slide-counter" id="counter"></div>
+    <div class="nav-hint" id="navHint"></div>
+
+    <!-- Slide 1: Title -->
+    <div class="slide title-slide" data-slide="0">
+        <img src="logo.png" alt="Montline Chartering">
+        <h1>Montline Chartering</h1>
+        <div class="subtitle">Независимый фрахтовый брокер<br>Сухогрузное фрахтование &middot; Dry Bulk Brokerage</div>
+    </div>
+
+    <!-- Slide 2: Who We Are -->
+    <div class="slide" data-slide="1">
+        <div class="eyebrow">О компании</div>
+        <h2>Кто мы</h2>
+        <p>Независимая dry bulk brokerage из Тбилиси. Работаем на стыке <span class="highlight">судовладельцев</span> и <span class="highlight">грузовладельцев</span> по сухогрузному фрахтованию.</p>
+        <div class="stats-row">
+            <div class="stat-box">
+                <div class="label">Формат</div>
+                <div class="value">Независимый брокер</div>
+            </div>
+            <div class="stat-box">
+                <div class="label">Сегмент</div>
+                <div class="value">Dry cargo &mdash; от коастеров до Supramax+</div>
+            </div>
+            <div class="stat-box">
+                <div class="label">География</div>
+                <div class="value">Black Sea, Med, Baltic, River-Sea</div>
+            </div>
+            <div class="stat-box">
+                <div class="label">Принцип</div>
+                <div class="value">Relationship-first, data-assisted</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 3: Our Edge -->
+    <div class="slide" data-slide="2">
+        <div class="eyebrow">Преимущество</div>
+        <h2>Почему мы</h2>
+        <div class="cols">
+            <div class="col-card">
+                <h3>Морской бэкграунд</h3>
+                <ul>
+                    <li>Основатель &mdash; действующий капитан дальнего плавания (Master Mariner)</li>
+                    <li>Практическое понимание грузовых операций, портовых ограничений и документооборота</li>
+                    <li>Опыт технического менеджмента судовладельца</li>
+                </ul>
+            </div>
+            <div class="col-card">
+                <h3>Intelligence и скорость</h3>
+                <ul>
+                    <li>Собственные базы данных по судам и грузовым потокам</li>
+                    <li>Круглосуточный мониторинг рынка с AI-усилением</li>
+                    <li>Быстрый revert по fit-кейсам &mdash; минуты, не дни</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 4: For Shipowners -->
+    <div class="slide" data-slide="3">
+        <div class="eyebrow">Owner-side</div>
+        <h2>Что мы даём судовладельцам</h2>
+        <ul class="item-list">
+            <li><strong>Дополнительный брокерский маршрут</strong> &mdash; не замена вашим текущим каналам, а рабочий резервный контур</li>
+            <li><strong>Адресный market screening</strong> &mdash; подбираем грузы под ваш конкретный тоннаж, географию и сроки</li>
+            <li><strong>Быстрая квалификация</strong> &mdash; не присылаем всё подряд; каждый кейс проверен на practicability</li>
+            <li><strong>Прозрачная работа</strong> &mdash; чёткая фиксация комиссии, recap, документарное сопровождение до и после fixture</li>
+            <li><strong>Понимание порта и груза</strong> &mdash; мы знаем, как загружается судно, что такое NOR, SOF, laytime и demurrage изнутри</li>
+        </ul>
+    </div>
+
+    <!-- Slide 5: For Cargo Owners -->
+    <div class="slide" data-slide="4">
+        <div class="eyebrow">Cargo-side</div>
+        <h2>Что мы даём грузовладельцам</h2>
+        <ul class="item-list">
+            <li><strong>Доступ к судовладельцам</strong> &mdash; прямые контакты с owners и operators, не посредники посредников</li>
+            <li><strong>Подбор судна под задачу</strong> &mdash; размер, тип, gear, intake, ice class, port restrictions</li>
+            <li><strong>Market check</strong> &mdash; актуальная оценка ставок и доступности тоннажа для вашего маршрута</li>
+            <li><strong>Экспортная логика</strong> &mdash; помогаем структурировать морскую часть экспортной цепочки</li>
+            <li><strong>Резервный канал</strong> &mdash; когда ваш основной контур перегружен или не даёт результата</li>
+        </ul>
+    </div>
+
+    <!-- Slide 6: How We Work -->
+    <div class="slide" data-slide="5">
+        <div class="eyebrow">Как мы работаем</div>
+        <h2>Рабочий цикл</h2>
+        <div class="cols-3">
+            <div class="col-card">
+                <h3>1. Сигнал</h3>
+                <ul>
+                    <li>Получаем ваш запрос &mdash; груз или открытый тоннаж</li>
+                    <li>Квалифицируем: маршрут, сроки, ограничения, экономика</li>
+                </ul>
+            </div>
+            <div class="col-card">
+                <h3>2. Подбор</h3>
+                <ul>
+                    <li>Ищем match по нашей базе и рыночным каналам</li>
+                    <li>Проверяем позицию, intake, compliance</li>
+                    <li>Даём workable basis, не пустую идею</li>
+                </ul>
+            </div>
+            <div class="col-card">
+                <h3>3. Фиксация</h3>
+                <ul>
+                    <li>Offer &rarr; Counter &rarr; Main terms &rarr; Subjects &rarr; Recap</li>
+                    <li>Post-fixture: NOR, SOF, B/L, freight, demurrage</li>
+                    <li>Полное сопровождение до закрытия рейса</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 7: Market Segments -->
+    <div class="slide" data-slide="6">
+        <div class="eyebrow">Сегменты</div>
+        <h2>Рыночный фокус</h2>
+        <div class="cols">
+            <div class="col-card">
+                <h3>Тоннаж</h3>
+                <ul>
+                    <li>Коастеры и river-sea до 10,000 DWT</li>
+                    <li>Handysize 25,000&ndash;40,000 DWT</li>
+                    <li>Supramax 40,000&ndash;65,000 DWT</li>
+                    <li>Крупнее &mdash; по отдельным кейсам с полным intelligence</li>
+                </ul>
+            </div>
+            <div class="col-card">
+                <h3>Грузы</h3>
+                <ul>
+                    <li>Зерно и сельхозпродукция</li>
+                    <li>Сталь, HRC, металлопрокат</li>
+                    <li>Удобрения</li>
+                    <li>Лес и целлюлоза</li>
+                    <li>Генеральные и project cargo</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 8: Geography -->
+    <div class="slide" data-slide="7">
+        <div class="eyebrow">География</div>
+        <h2>Торговые коридоры</h2>
+        <div class="stats-row">
+            <div class="stat-box">
+                <div class="label">Чёрное море</div>
+                <div class="value">Одесса, Николаев, Азов, Ростов, Новороссийск, Констанца, Варна</div>
+            </div>
+            <div class="stat-box">
+                <div class="label">Средиземноморье</div>
+                <div class="value">Турция (Мраморное), Египет, Адриатика, Греция, Италия</div>
+            </div>
+            <div class="stat-box">
+                <div class="label">Балтика</div>
+                <div class="value">Санкт-Петербург, Усть-Луга, Рига, Клайпеда, финские порты</div>
+            </div>
+            <div class="stat-box">
+                <div class="label">River-Sea</div>
+                <div class="value">Дунай, Волго-Дон, Волго-Балт, Керченский пролив</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 9: Team -->
+    <div class="slide" data-slide="8">
+        <div class="eyebrow">Команда</div>
+        <h2>Кто ведёт работу</h2>
+        <div class="contact-grid">
+            <div class="contact-person">
+                <h3>Capt. Tymur Rudov</h3>
+                <div class="role">Основатель &middot; Commercial Lead</div>
+                <div class="detail">
+                    Капитан дальнего плавания. Ведёт owner-side и cargo-side переговоры, управляет intelligence-контуром и всем брокерским циклом.<br><br>
+                    <span>broker@capt-tymur.com</span><br>
+                    <span>+357 97 617 412</span> (WhatsApp)
+                </div>
+            </div>
+            <div class="contact-person">
+                <h3>Alexander Chernev</h3>
+                <div class="role">Freight Broker &middot; Полевой представитель РФ</div>
+                <div class="detail">
+                    Старший помощник капитана (LPG/LNG). Обеспечивает личные встречи с судовладельцами и грузовладельцами в России.<br><br>
+                    <span>alexander@montlinechartering.com</span><br>
+                    <span>+7 911 005 68 43</span><br>
+                    <span>+7 911 319 80 01</span> (WhatsApp / Telegram)
+                </div>
+            </div>
+            <div class="contact-person">
+                <h3>Viktoria</h3>
+                <div class="role">Post-Fixture Manager</div>
+                <div class="detail">
+                    Морской агент. Опыт экспедирования в российских портах (Азов, Ростов). Ведёт документарное сопровождение после фиксации сделки.
+                </div>
+            </div>
+            <div class="contact-person">
+                <h3>Montline Chartering</h3>
+                <div class="role">Офис &middot; Тбилиси, Грузия</div>
+                <div class="detail">
+                    <span>info@montlinechartering.com</span><br>
+                    <span>montlinechartering.com</span><br><br>
+                    Gorgasali Str. 51/53, Office 9<br>
+                    Tbilisi 0114, Georgia
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 10: CTA -->
+    <div class="slide final-slide" data-slide="9">
+        <img src="logo.png" alt="Montline Chartering" style="width:200px;filter:invert(1);margin-bottom:32px;">
+        <h1>Давайте обсудим, чем мы можем быть полезны</h1>
+        <p style="font-size:20px;">Нас интересует не абстрактное сотрудничество, а конкретный practical fit &mdash; есть ли у вас ситуация, где внешний фрахтовый брокер реально добавляет value.</p>
+        <div style="margin-top:36px;color:var(--accent);font-size:18px;font-weight:600;">
+            broker@capt-tymur.com &middot; +357 97 617 412
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    const CODE = '8f3a2c';
+    const HASH = 'montline';
+    const gate = document.getElementById('gate');
+    const deck = document.getElementById('deck');
+    const input = document.getElementById('passInput');
+    const error = document.getElementById('gateError');
+    const progress = document.getElementById('progress');
+    const counter = document.getElementById('counter');
+    const navHint = document.getElementById('navHint');
+
+    // Check session
+    if (sessionStorage.getItem('deck_auth') === '1') unlock();
+
+    input.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            const v = input.value.trim().toLowerCase();
+            if (v === CODE || v === HASH) {
+                sessionStorage.setItem('deck_auth', '1');
+                unlock();
+            } else {
+                error.classList.add('visible');
+                input.value = '';
+                setTimeout(function() { error.classList.remove('visible'); }, 2000);
+            }
+        }
+    });
+
+    function unlock() {
+        gate.classList.add('hidden');
+        deck.classList.add('active');
+        initDeck();
+    }
+
+    function initDeck() {
+        const slides = document.querySelectorAll('.slide');
+        const total = slides.length;
+        let current = 0;
+
+        function show(n) {
+            if (n < 0 || n >= total) return;
+            slides[current].classList.remove('active');
+            current = n;
+            slides[current].classList.add('active');
+            progress.style.width = ((current + 1) / total * 100) + '%';
+            counter.textContent = (current + 1) + ' / ' + total;
+            navHint.textContent = current === 0 ? '\u2192 or Space' : current === total - 1 ? '\u2190 Back' : '\u2190  \u2192';
+        }
+
+        show(0);
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+                e.preventDefault();
+                show(current + 1);
+            } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+                e.preventDefault();
+                show(current - 1);
+            } else if (e.key === 'Home') {
+                e.preventDefault();
+                show(0);
+            } else if (e.key === 'End') {
+                e.preventDefault();
+                show(total - 1);
+            }
+        });
+
+        // Click/tap navigation
+        deck.addEventListener('click', function(e) {
+            if (e.target.closest('a')) return;
+            const x = e.clientX / window.innerWidth;
+            if (x > 0.5) show(current + 1);
+            else show(current - 1);
+        });
+
+        // Touch swipe
+        let touchX = 0;
+        deck.addEventListener('touchstart', function(e) { touchX = e.touches[0].clientX; });
+        deck.addEventListener('touchend', function(e) {
+            const dx = e.changedTouches[0].clientX - touchX;
+            if (Math.abs(dx) > 50) {
+                if (dx < 0) show(current + 1);
+                else show(current - 1);
+            }
+        });
+    }
+})();
+</script>
+</body>
+</html>
