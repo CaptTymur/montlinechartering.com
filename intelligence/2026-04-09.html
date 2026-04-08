@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alpha Signals Brief — 9 April 2026 | Montline Chartering</title>
+    <meta name="description" content="Montline alpha signals: Brent speculative flush, GSCPI supply chain warning, private credit mispricing, CMBS distress, institutional options flow, and asymmetric bets for 9 April 2026.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9875;</text></svg>">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-primary: #0a0e17;
+            --bg-secondary: #111827;
+            --bg-card: #1a2236;
+            --text-primary: #e8edf5;
+            --text-secondary: #8b95a8;
+            --accent: #10b981;
+            --accent-hover: #059669;
+            --accent-dim: rgba(16, 185, 129, 0.12);
+            --border: #1e293b;
+            --signal-red: #ef4444;
+            --signal-amber: #f59e0b;
+            --signal-green: #10b981;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        nav {
+            position: fixed; top: 0; width: 100%;
+            background: rgba(10, 14, 23, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            z-index: 100; padding: 0 2rem;
+        }
+        nav .nav-inner {
+            max-width: 900px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center; height: 60px;
+        }
+        nav a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        nav a:hover { color: var(--accent); }
+        nav .logo img { height: 32px; filter: invert(1); }
+        .brief {
+            max-width: 900px; margin: 0 auto; padding: 100px 2rem 4rem;
+        }
+        .brief-header {
+            border-bottom: 1px solid var(--border); padding-bottom: 2rem; margin-bottom: 2.5rem;
+        }
+        .brief-label {
+            font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em;
+            color: var(--accent); font-weight: 600; margin-bottom: 0.5rem;
+        }
+        .brief-title {
+            font-size: 2rem; font-weight: 700; line-height: 1.2; margin-bottom: 0.75rem;
+        }
+        .brief-meta {
+            color: var(--text-secondary); font-size: 0.85rem;
+        }
+        .signal {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem;
+            border-left: 3px solid var(--accent);
+        }
+        .signal.critical { border-left-color: var(--signal-red); }
+        .signal.warning { border-left-color: var(--signal-amber); }
+        .signal h3 {
+            font-size: 1.1rem; font-weight: 600; margin-bottom: 0.75rem;
+            display: flex; align-items: center; gap: 0.5rem;
+        }
+        .signal-number {
+            background: var(--accent-dim); color: var(--accent);
+            font-size: 0.75rem; font-weight: 700; padding: 0.15rem 0.5rem;
+            border-radius: 4px; min-width: 24px; text-align: center;
+        }
+        .signal.critical .signal-number { background: rgba(239,68,68,0.12); color: var(--signal-red); }
+        .signal.warning .signal-number { background: rgba(245,158,11,0.12); color: var(--signal-amber); }
+        .signal p { margin-bottom: 0.6rem; color: var(--text-secondary); font-size: 0.92rem; }
+        .signal strong { color: var(--text-primary); }
+        .detail-grid {
+            display: grid; grid-template-columns: auto 1fr; gap: 0.3rem 1rem;
+            font-size: 0.85rem; margin-top: 0.75rem;
+        }
+        .detail-grid dt { color: var(--text-secondary); white-space: nowrap; }
+        .detail-grid dd { color: var(--text-primary); }
+        .section-divider {
+            border: none; border-top: 1px solid var(--border);
+            margin: 3rem 0 2rem;
+        }
+        .section-label-inline {
+            font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em;
+            color: var(--accent); font-weight: 600; margin-bottom: 1.25rem;
+        }
+        .contrarian-card {
+            background: var(--bg-secondary); border: 1px solid var(--border);
+            border-radius: 10px; padding: 1.2rem; margin-bottom: 1rem;
+        }
+        .contrarian-card h4 { font-size: 0.95rem; margin-bottom: 0.5rem; }
+        .contrarian-card p { font-size: 0.88rem; color: var(--text-secondary); }
+        .calendar-table {
+            width: 100%; border-collapse: collapse; font-size: 0.88rem; margin-top: 1rem;
+        }
+        .calendar-table th {
+            text-align: left; padding: 0.6rem 1rem; border-bottom: 1px solid var(--border);
+            color: var(--text-secondary); font-weight: 600; font-size: 0.78rem;
+            text-transform: uppercase; letter-spacing: 0.08em;
+        }
+        .calendar-table td {
+            padding: 0.6rem 1rem; border-bottom: 1px solid var(--border);
+        }
+        .calendar-table tr:last-child td { border-bottom: none; }
+        .tag-critical { color: var(--signal-red); font-weight: 600; }
+        .tag-high { color: var(--signal-amber); font-weight: 600; }
+        .asym-table {
+            width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-top: 1rem;
+        }
+        .asym-table th {
+            text-align: left; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border);
+            color: var(--text-secondary); font-weight: 600; font-size: 0.75rem;
+            text-transform: uppercase; letter-spacing: 0.08em;
+        }
+        .asym-table td {
+            padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); vertical-align: top;
+        }
+        .asym-table tr:last-child td { border-bottom: none; }
+        footer {
+            text-align: center; padding: 2rem; color: var(--text-secondary);
+            font-size: 0.8rem; border-top: 1px solid var(--border);
+        }
+        @media (max-width: 640px) {
+            .brief { padding: 80px 1rem 2rem; }
+            .brief-title { font-size: 1.4rem; }
+            .detail-grid { grid-template-columns: 1fr; }
+            .asym-table { font-size: 0.78rem; }
+            .asym-table th, .asym-table td { padding: 0.4rem; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a href="../" class="logo"><img src="../logo.png" alt="Montline Chartering"></a>
+        <a href="../#news">Back to Market Intelligence</a>
+    </div>
+</nav>
+
+<article class="brief">
+    <header class="brief-header">
+        <div class="brief-label">Alpha Signals Brief</div>
+        <h1 class="brief-title">Supply Chain Pressure, Speculative Flush, and What Credit Markets Are Hiding</h1>
+        <div class="brief-meta">9 April 2026 &middot; Montline Chartering &middot; 14-source X/Twitter synthesis</div>
+    </header>
+
+    <div class="signal critical">
+        <h3><span class="signal-number">1</span> GSCPI at +0.68 &mdash; the hidden inflation bomb nobody is discussing</h3>
+        <p>NY Fed Global Supply Chain Pressure Index hit <strong>+0.68 in March</strong> &mdash; highest since early 2023. ISM Prices Paid surged +7.8 to <strong>78.3</strong> (highest since June 2022). Supplier deliveries slowed to <strong>58.9</strong> (slowest since 2022).</p>
+        <p>GSCPI leads PPI/CPI by 3&ndash;6 months. While X chases oil and ceasefire headlines, procurement teams are already rebuilding safety stocks and locking freight contracts. This means: inflation returns to reports in Q3&ndash;Q4, JIT margins compress, and the Fed may have to reverse its dovish pivot.</p>
+        <dl class="detail-grid">
+            <dt>Who profits</dt><dd>Logistics operators, freight equities, commodity hedgers, inventory-rebuild plays</dd>
+            <dt>Who bleeds</dt><dd>JIT manufacturers, thin-margin retailers, cost-unhedged corporates</dd>
+            <dt>Confirms</dt><dd>April GSCPI &gt;0.65, ISM deliveries &gt;57</dd>
+            <dt>Kills</dt><dd>Sharp GSCPI reversal below +0.50</dd>
+        </dl>
+    </div>
+
+    <div class="signal critical">
+        <h3><span class="signal-number">2</span> Brent: 470M barrel speculative long vs 10% physical Hormuz traffic</h3>
+        <p>Ole Hansen (Saxo, Apr 8): <strong>470M barrel gross long, long-short ratio 11.7</strong>. Brent crashed from $109 to ~$94 &mdash; biggest single-day drop since 2020. But physical Hormuz traffic remains at <strong>10&ndash;15 ships/day versus 100&ndash;120 normal</strong>.</p>
+        <p>Hansen's exact words: "additional price weakness would reflect a <strong>speculative flush rather than underlying fundamentals</strong>." The paper barrel equivalent of those longs: ~235 VLCCs worth of positions with no physical cargo behind them.</p>
+        <dl class="detail-grid">
+            <dt>Who profits</dt><dd>Shorts, commercial hedgers, volatility sellers</dd>
+            <dt>Who bleeds</dt><dd>Managed-money longs, oil equity bulls caught in the flush</dd>
+            <dt>Confirms</dt><dd>Further COT long reduction, price below $90, no Hormuz volume spike</dd>
+            <dt>Kills</dt><dd>Rebound above $105 on verified physical reopening (&gt;50 ships/day)</dd>
+        </dl>
+    </div>
+
+    <div class="signal critical">
+        <h3><span class="signal-number">3</span> Dimon warned about $1.8T private credit &mdash; market ignored it</h3>
+        <p>JPMorgan CEO annual letter (Apr 6): <strong>weakening credit standards, optimistic marks, actual losses running above market-implied levels</strong> in the $1.8T private credit market. Low transparency masks the problem.</p>
+        <p>Meanwhile HY spreads sit at <strong>3.05% OAS</strong> (post-crisis tights), CMBS delinquency hit <strong>7.55%</strong> (office 11.71%, multifamily 7.15% &mdash; new highs), and HY/IG funds saw outflows for the <strong>8th consecutive week</strong>.</p>
+        <p>Credit says "everything is fine." Delinquencies, fund flows, and the CEO of the largest US bank say otherwise. Credit leads equity.</p>
+        <dl class="detail-grid">
+            <dt>Who profits</dt><dd>Distressed desks, relative-value HF, patient institutional buyers</dd>
+            <dt>Who bleeds</dt><dd>Private credit LPs, HY carry traders, junior CMBS holders</dd>
+            <dt>Confirms</dt><dd>HY OAS back above 3.5%, rising private fund markdowns</dd>
+            <dt>Kills</dt><dd>Sustained compression with no loss realization</dd>
+        </dl>
+    </div>
+
+    <div class="signal warning">
+        <h3><span class="signal-number">4</span> $134M in AVGO July 300 calls &mdash; institutional bet on AI semiconductors</h3>
+        <p>Broadcom Jul 2026 $300 calls: <strong>22,500&ndash;25,000 contracts, ~$134M premium, 393x normal daily volume</strong>. Same day: $24M swept into QQQ Apr 13 573 puts as a hedge. MRVL and HOOD calls also active.</p>
+        <p>This is not retail. Someone is making a <strong>directional bet on AI/semiconductor continuation with an index hedge</strong>. The combination says: long specific names, short the broad market risk.</p>
+        <dl class="detail-grid">
+            <dt>Who profits</dt><dd>Informed call buyers if AVGO breaks above 250&ndash;260</dd>
+            <dt>Who bleeds</dt><dd>Short call sellers on delta/gamma; QQQ longs if hedge triggers</dd>
+            <dt>Timeline</dt><dd>Weeks (QQQ puts Apr 13) to quarters (AVGO calls Jul 2026)</dd>
+        </dl>
+    </div>
+
+    <div class="signal warning">
+        <h3><span class="signal-number">5</span> CMBS delinquency 7.55% + $1.35B fund raised to buy the distress</h3>
+        <p>Trepp March data: delinquency <strong>+41bps to 7.55%</strong>. Office <strong>11.71%</strong>. Multifamily <strong>7.15%</strong> (new record). <strong>$5.1B</strong> fresh delinquent balances. KBRA: Q1 issuance <strong>-12.4% YoY</strong>, distress rate <strong>12.07%</strong>.</p>
+        <p>Smart money response: Carmel Partners closed <strong>$1.35B Fund IX</strong> targeting exactly these distressed multifamily assets at high-teens IRR. The sellers are forced by refinancing walls; the buyers are picking up assets at discount.</p>
+        <dl class="detail-grid">
+            <dt>Who profits</dt><dd>Distressed debt funds, special servicers, value-add PE</dd>
+            <dt>Who bleeds</dt><dd>CMBS junior tranches, CRE REITs, forced sellers</dd>
+            <dt>Confirms</dt><dd>April delinquency &gt;7.8%, accelerated deal flow</dd>
+        </dl>
+    </div>
+
+    <div class="signal">
+        <h3><span class="signal-number">6</span> SEC/CFTC crypto clarity &mdash; structural regulatory shift</h3>
+        <p>Joint guidance (Apr 8) removed crypto from "special risk category" and provided DeFi/staking clarity. Tied to <strong>GENIUS Act 2025</strong> and pending <strong>Clarity Act 2026</strong>. This is not a token announcement &mdash; it is a compliance cost collapse for the entire sector. Institutional inflows follow within weeks.</p>
+    </div>
+
+    <div class="signal">
+        <h3><span class="signal-number">7</span> Section 232 tariffs &mdash; quiet supply chain repricing</h3>
+        <p>Effective Apr 6: <strong>50% on steel, 25% on aluminum/copper</strong> (full customs value). <strong>100% on patented pharma</strong> ingredients from July. No carve-outs. DOJ defended in court Apr 6&ndash;7. Domestic producers get protected margins. Importers absorb 25&ndash;100% cost spikes. This reprices real supply chains for quarters.</p>
+    </div>
+
+    <hr class="section-divider">
+
+    <div class="section-label-inline">Asymmetric Bets</div>
+
+    <table class="asym-table">
+        <thead>
+            <tr><th>Trade</th><th>Entry</th><th>Risk</th><th>Upside</th><th>Catalyst</th></tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Short Brent</strong></td>
+                <td>Futures or Apr/May puts</td>
+                <td>Rebound &gt;$105</td>
+                <td>8&ndash;15% down on flush</td>
+                <td>COT long reduction, no physical flows</td>
+            </tr>
+            <tr>
+                <td><strong>Long distressed multifamily</strong></td>
+                <td>Secondary CMBS loans, B-piece</td>
+                <td>Rapid delinquency reversal</td>
+                <td>High-teens IRR</td>
+                <td>Delinquency &gt;7.8% in April</td>
+            </tr>
+            <tr>
+                <td><strong>Long BTC/ETH</strong></td>
+                <td>Spot ETF or near-term calls</td>
+                <td>Reversal of SEC guidance</td>
+                <td>Institutional inflow wave</td>
+                <td>First DeFi approvals by May</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr class="section-divider">
+
+    <div class="section-label-inline">Where Consensus Is Probably Wrong</div>
+
+    <div class="contrarian-card">
+        <h4>1. "HY spreads at tights means credit is healthy"</h4>
+        <p>3.05% OAS ignores CMBS delinquency at 7.55%, 8-week fund outflows, and Dimon's explicit warning about $1.8T private credit. Credit markets are mispricing realized losses that are already running above implied levels.</p>
+    </div>
+
+    <div class="contrarian-card">
+        <h4>2. "Oil priced in the ceasefire correctly"</h4>
+        <p>470M barrels of speculative longs flushed on a headline, not on physical supply. Hormuz at 10% capacity. The price moved 16% on paper positioning, not cargo. If Islamabad talks fail, this reverses.</p>
+    </div>
+
+    <div class="contrarian-card">
+        <h4>3. "Supply chains are stable, GDP consensus holds"</h4>
+        <p>GSCPI at +0.68 is the highest since 2023 and leads GDP/PPI by 3&ndash;6 months. ISM Prices Paid at 78.3. The crowd is not watching this because it doesn't fit a tweet. It will show up in earnings in Q3.</p>
+    </div>
+
+    <hr class="section-divider">
+
+    <div class="section-label-inline">Watch This Week</div>
+
+    <table class="calendar-table">
+        <thead>
+            <tr><th>What</th><th>When</th><th>Why It Matters</th></tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>COT Report (Brent)</td>
+                <td>14&ndash;15 Apr</td>
+                <td><span class="tag-critical">Critical</span> &mdash; scale of speculative long flush</td>
+            </tr>
+            <tr>
+                <td>EPFR Fund Flows</td>
+                <td>14 Apr</td>
+                <td><span class="tag-high">High</span> &mdash; equity/bond &gt;$8B confirms risk-on trend</td>
+            </tr>
+            <tr>
+                <td>Trepp CMBS Delinquency</td>
+                <td>13&ndash;15 Apr</td>
+                <td><span class="tag-critical">Critical</span> &mdash; &gt;7.8% confirms CRE distress acceleration</td>
+            </tr>
+            <tr>
+                <td>Hormuz Vessel Tracking</td>
+                <td>Daily</td>
+                <td><span class="tag-critical">Critical</span> &mdash; need &gt;50 ships/day for pricing to hold</td>
+            </tr>
+            <tr>
+                <td>Form 4 Insider Clusters</td>
+                <td>Daily</td>
+                <td><span class="tag-high">High</span> &mdash; CMTV, FUL, OSCR buys; AIP sells</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr class="section-divider">
+
+    <div class="section-label-inline">Bottom Line</div>
+    <div class="signal" style="border-left-color: var(--text-secondary);">
+        <p style="color: var(--text-primary); font-size: 1rem;">The market is living in <strong>three different realities simultaneously</strong>: equities celebrate a ceasefire that has not physically materialized, credit pretends everything is fine while delinquencies hit records, and supply chain data quietly signals that inflation will return in 3&ndash;6 months. Those who read GSCPI and COT are ahead. Those who read headlines are catching up.</p>
+    </div>
+</article>
+
+<footer>
+    <p>&copy; 2026 Montline Chartering. All rights reserved. &middot; <a href="../" style="color: var(--accent); text-decoration: none;">montlinechartering.com</a></p>
+</footer>
+
+</body>
+</html>
