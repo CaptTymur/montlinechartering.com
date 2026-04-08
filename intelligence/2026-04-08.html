@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Intelligence Brief — 8 April 2026 | Montline Chartering</title>
+    <meta name="description" content="Montline daily market intelligence: Hormuz ceasefire, Black Sea enforcement, tanker rate collapse, central bank pivot, and key contrarian signals for 8 April 2026.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9875;</text></svg>">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-primary: #0a0e17;
+            --bg-secondary: #111827;
+            --bg-card: #1a2236;
+            --text-primary: #e8edf5;
+            --text-secondary: #8b95a8;
+            --accent: #10b981;
+            --accent-hover: #059669;
+            --accent-dim: rgba(16, 185, 129, 0.12);
+            --border: #1e293b;
+            --signal-red: #ef4444;
+            --signal-amber: #f59e0b;
+            --signal-green: #10b981;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        nav {
+            position: fixed; top: 0; width: 100%;
+            background: rgba(10, 14, 23, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            z-index: 100; padding: 0 2rem;
+        }
+        nav .nav-inner {
+            max-width: 900px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center; height: 60px;
+        }
+        nav a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        nav a:hover { color: var(--accent); }
+        nav .logo img { height: 32px; filter: invert(1); }
+        .brief {
+            max-width: 900px; margin: 0 auto; padding: 100px 2rem 4rem;
+        }
+        .brief-header {
+            border-bottom: 1px solid var(--border); padding-bottom: 2rem; margin-bottom: 2.5rem;
+        }
+        .brief-label {
+            font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em;
+            color: var(--accent); font-weight: 600; margin-bottom: 0.5rem;
+        }
+        .brief-title {
+            font-size: 2rem; font-weight: 700; line-height: 1.2; margin-bottom: 0.75rem;
+        }
+        .brief-meta {
+            color: var(--text-secondary); font-size: 0.85rem;
+        }
+        .signal {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem;
+            border-left: 3px solid var(--accent);
+        }
+        .signal.critical { border-left-color: var(--signal-red); }
+        .signal.warning { border-left-color: var(--signal-amber); }
+        .signal h3 {
+            font-size: 1.1rem; font-weight: 600; margin-bottom: 0.75rem;
+            display: flex; align-items: center; gap: 0.5rem;
+        }
+        .signal-number {
+            background: var(--accent-dim); color: var(--accent);
+            font-size: 0.75rem; font-weight: 700; padding: 0.15rem 0.5rem;
+            border-radius: 4px; min-width: 24px; text-align: center;
+        }
+        .signal.critical .signal-number { background: rgba(239,68,68,0.12); color: var(--signal-red); }
+        .signal.warning .signal-number { background: rgba(245,158,11,0.12); color: var(--signal-amber); }
+        .signal p { margin-bottom: 0.6rem; color: var(--text-secondary); font-size: 0.92rem; }
+        .signal strong { color: var(--text-primary); }
+        .detail-grid {
+            display: grid; grid-template-columns: auto 1fr; gap: 0.3rem 1rem;
+            font-size: 0.85rem; margin-top: 0.75rem;
+        }
+        .detail-grid dt { color: var(--text-secondary); white-space: nowrap; }
+        .detail-grid dd { color: var(--text-primary); }
+        .section-divider {
+            border: none; border-top: 1px solid var(--border);
+            margin: 3rem 0 2rem;
+        }
+        .section-label-inline {
+            font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em;
+            color: var(--accent); font-weight: 600; margin-bottom: 1.25rem;
+        }
+        .contrarian-card {
+            background: var(--bg-secondary); border: 1px solid var(--border);
+            border-radius: 10px; padding: 1.2rem; margin-bottom: 1rem;
+        }
+        .contrarian-card h4 { font-size: 0.95rem; margin-bottom: 0.5rem; }
+        .contrarian-card p { font-size: 0.88rem; color: var(--text-secondary); }
+        .calendar-table {
+            width: 100%; border-collapse: collapse; font-size: 0.88rem; margin-top: 1rem;
+        }
+        .calendar-table th {
+            text-align: left; padding: 0.6rem 1rem; border-bottom: 1px solid var(--border);
+            color: var(--text-secondary); font-weight: 600; font-size: 0.78rem;
+            text-transform: uppercase; letter-spacing: 0.08em;
+        }
+        .calendar-table td {
+            padding: 0.6rem 1rem; border-bottom: 1px solid var(--border);
+        }
+        .calendar-table tr:last-child td { border-bottom: none; }
+        .tag-critical { color: var(--signal-red); font-weight: 600; }
+        .tag-high { color: var(--signal-amber); font-weight: 600; }
+        footer {
+            text-align: center; padding: 2rem; color: var(--text-secondary);
+            font-size: 0.8rem; border-top: 1px solid var(--border);
+        }
+        @media (max-width: 640px) {
+            .brief { padding: 80px 1rem 2rem; }
+            .brief-title { font-size: 1.4rem; }
+            .detail-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a href="../" class="logo"><img src="../logo.png" alt="Montline Chartering"></a>
+        <a href="../#news">Back to Market Intelligence</a>
+    </div>
+</nav>
+
+<article class="brief">
+    <header class="brief-header">
+        <div class="brief-label">Daily Intelligence Brief</div>
+        <h1 class="brief-title">Hormuz Ceasefire, Black Sea Squeeze, and the Gap Between Price and Physics</h1>
+        <div class="brief-meta">8 April 2026 &middot; Montline Chartering &middot; 14-source synthesis</div>
+    </header>
+
+    <div class="signal critical">
+        <h3><span class="signal-number">1</span> Markets priced in full Hormuz reopening &mdash; but only 20% of vessels are actually transiting</h3>
+        <p>Futures dropped oil 13&ndash;16% (Brent to $94&ndash;95), equities surged 3&ndash;5%, VIX collapsed 20%. But <strong>AIS data shows only 11&ndash;13 vessels in 24 hours versus a pre-crisis norm of 40+</strong>. No confirmed VLCC loadings. The market is trading expectations, not physical reality.</p>
+        <p>VLCC Gulf-Asia rates collapsed 40&ndash;50% intraday from peaks above $400k/day. LNG carrier charters dropped 30&ndash;40%. Anyone who fixed at the top is now underwater. Anyone waiting may find rates snap back if the April 10 Islamabad talks stall.</p>
+        <dl class="detail-grid">
+            <dt>Winners</dt><dd>Asian/European refiners, airlines, petrochemical sector, cyclical equities</dd>
+            <dt>Losers</dt><dd>US shale, Saudi/Russian revenue, tanker owners on peak fixtures, war-risk insurers</dd>
+            <dt>Verification</dt><dd>48-hour transit data by April 11; must exceed 30 vessels/day for pricing to hold</dd>
+            <dt>Key date</dt><dd>10 April &mdash; Islamabad permanent deal negotiations</dd>
+        </dl>
+    </div>
+
+    <div class="signal critical">
+        <h3><span class="signal-number">2</span> Black Sea export route is being squeezed while the world watches the Gulf</h3>
+        <p>Three simultaneous enforcement actions hit Russian crude exports through the Bosphorus:</p>
+        <p><strong>Turkey</strong> detained shadow-fleet tankers Altura and Yaroslavl at Marmara anchorage for missing beneficial-ownership documentation and P&I war-risk coverage. <strong>EU</strong> designated two maritime management companies and three individuals for price-cap circumvention. <strong>LMA</strong> tightened hull war-risk exclusions, pushing premiums up 15&ndash;25%.</p>
+        <p>Simultaneously, Ukrainian drones struck Novorossiysk terminals (Sheskharis and CPC), suspending foreign tanker loadings &mdash; approximately <strong>1.5% of global daily oil exports</strong>. Force majeure expected within 48 hours.</p>
+        <dl class="detail-grid">
+            <dt>Impact</dt><dd>1.5&ndash;2M bbl/day Russian crude route getting harder and more expensive</dd>
+            <dt>Winners</dt><dd>Compliant tanker owners, Western insurers, non-sanctioned crude suppliers</dd>
+            <dt>Losers</dt><dd>Russian exporters, shadow-fleet operators, Novorossiysk users</dd>
+            <dt>Key date</dt><dd>10 April &mdash; new Turkish Straits transit circular expected</dd>
+        </dl>
+    </div>
+
+    <div class="signal warning">
+        <h3><span class="signal-number">3</span> Aramco raised OSPs to record highs &mdash; OPEC does not believe the peace narrative</h3>
+        <p>While markets celebrate the ceasefire, Saudi Aramco <strong>increased Arab Light differentials to all-time highs</strong> for May loadings. This directly contradicts the futures curve that prices in full supply normalization.</p>
+        <p>The signal: OPEC+ sees persistent physical tightness regardless of the two-week ceasefire window.</p>
+        <dl class="detail-grid">
+            <dt>Winners</dt><dd>Saudi fiscal revenues; spot-market refiners outside long-term contracts</dd>
+            <dt>Losers</dt><dd>Asian term-contract buyers locked into premium pricing</dd>
+        </dl>
+    </div>
+
+    <div class="signal warning">
+        <h3><span class="signal-number">4</span> OFAC quietly returned sanctioned oil to Asia</h3>
+        <p>Three new general licenses authorize Philippines, South Korea, and India to import stranded Russian ESPO and Iranian crude. Venezuelan energy licenses renewed. <strong>~1.2M bbl/day of sanctioned barrels</strong> re-enter Asian markets without secondary-sanctions exposure.</p>
+        <p>The US is trading sanctions enforcement for supply stability. Waivers are time-limited and tied to April 10 outcomes.</p>
+        <dl class="detail-grid">
+            <dt>Winners</dt><dd>Asian refiners &mdash; discounted feedstock; sanctioned exporters &mdash; hard currency</dd>
+            <dt>Losers</dt><dd>US shale and compliant Gulf producers &mdash; market share loss</dd>
+        </dl>
+    </div>
+
+    <div class="signal warning">
+        <h3><span class="signal-number">5</span> Five central banks pivoted dovish in 48 hours</h3>
+        <p><strong>Fed</strong> (Goolsbee/Bostic): at least two cuts by September. <strong>ECB</strong> (Cipollone): "clear disinflationary impulses." <strong>PBOC</strong>: MLF cut 10bp + CNY 200B injection. <strong>Banxico</strong>: shifted to neutral bias. <strong>BCB Brazil</strong>: 50bp cut signaled for May.</p>
+        <p>This is the beginning of a coordinated easing cycle driven by energy deflation. Dollar losing safe-haven status, EM receiving inflows. <strong>Test: US CPI on April 9.</strong></p>
+    </div>
+
+    <div class="signal">
+        <h3><span class="signal-number">6</span> Lebanon excluded from ceasefire &mdash; Eastern Med risk stays</h3>
+        <p>Israel explicitly stated the Hormuz deal does not apply to Hezbollah. Fresh IDF strikes on Tyre and Sidon continue. Eastern Mediterranean shipping lanes and Israeli ports retain localized war-risk premium. The market has largely ignored this.</p>
+    </div>
+
+    <div class="signal">
+        <h3><span class="signal-number">7</span> China launched trade probes against US &mdash; first concrete 2026 escalation</h3>
+        <p>MOFCOM opened investigations into US restrictions on semiconductors, EVs, solar, and batteries. Six-month timeline before the planned May Trump-Xi summit. Supply-chain rerouting via Vietnam and Mexico accelerating.</p>
+    </div>
+
+    <div class="signal">
+        <h3><span class="signal-number">8</span> Black Sea grain corridor premiums spike +15&ndash;20% on drone risk</h3>
+        <p>Weekly Ukrainian exports stable at ~1.8M tonnes, but war-risk insurance quotes surged after the Novorossiysk strikes. This compresses farmer margins and raises delivered costs for North Africa and Asia.</p>
+    </div>
+
+    <hr class="section-divider">
+
+    <div class="section-label-inline">Where Consensus Is Probably Wrong</div>
+
+    <div class="contrarian-card">
+        <h4>1. "Hormuz is open" &mdash; not yet</h4>
+        <p>11&ndash;13 vessels versus a norm of 40+. No VLCC loadings confirmed. The ceasefire is two weeks, not permanent. If Islamabad talks stall, everything reverses.</p>
+    </div>
+
+    <div class="contrarian-card">
+        <h4>2. "Global de-risking" &mdash; Black Sea is tightening</h4>
+        <p>While attention is on the Gulf, Turkish detentions, EU designations, and LMA tightening are squeezing the alternative Russian export channel. This creates a supply floor that offsets some Hormuz relief.</p>
+    </div>
+
+    <div class="contrarian-card">
+        <h4>3. "Full regional de-escalation" &mdash; Lebanon says otherwise</h4>
+        <p>Israel explicitly excluded Hezbollah from the deal. Active strikes continue. Eastern Med shipping risk is not priced out.</p>
+    </div>
+
+    <hr class="section-divider">
+
+    <div class="section-label-inline">Critical Dates</div>
+
+    <table class="calendar-table">
+        <thead>
+            <tr><th>Date</th><th>Event</th><th>Impact</th></tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>9 Apr</td>
+                <td>US March CPI + Personal Income &amp; Spending</td>
+                <td><span class="tag-critical">Critical</span> &mdash; tests disinflation thesis, shapes Fed path</td>
+            </tr>
+            <tr>
+                <td>10 Apr</td>
+                <td>US-Iran talks in Islamabad</td>
+                <td><span class="tag-critical">Critical</span> &mdash; permanent deal or reversion to blockade risk</td>
+            </tr>
+            <tr>
+                <td>10 Apr</td>
+                <td>Turkey: updated Straits transit circular</td>
+                <td><span class="tag-high">High</span> &mdash; shadow-fleet compliance and Russian crude flows</td>
+            </tr>
+            <tr>
+                <td>11 Apr</td>
+                <td>48-hour Hormuz transit data (Clarksons/AIS)</td>
+                <td><span class="tag-critical">Critical</span> &mdash; physical verification of reopening</td>
+            </tr>
+            <tr>
+                <td>15 Apr</td>
+                <td>EIA Weekly Petroleum Status Report</td>
+                <td><span class="tag-high">High</span> &mdash; first hard read on actual flow normalization</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr class="section-divider">
+
+    <div class="section-label-inline">Bottom Line</div>
+    <div class="signal" style="border-left-color: var(--text-secondary);">
+        <p style="color: var(--text-primary); font-size: 1rem;">The market traded <strong>hope</strong> today, not facts. Physical Hormuz flows are at 20% of normal. Black Sea is getting harder for Russian crude. Saudi doesn't believe the peace narrative enough to lower prices. The next 72 hours &mdash; CPI, Islamabad, transit data &mdash; will determine whether today's repricing holds or snaps back.</p>
+    </div>
+</article>
+
+<footer>
+    <p>&copy; 2026 Montline Chartering. All rights reserved. &middot; <a href="../" style="color: var(--accent); text-decoration: none;">montlinechartering.com</a></p>
+</footer>
+
+</body>
+</html>
