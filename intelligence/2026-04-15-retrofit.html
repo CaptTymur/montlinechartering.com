@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Quiet Revolution: Retrofit vs Newbuild — 15 April 2026 | Montline Chartering</title>
+    <meta name="description" content="Why $3M retrofit beats $65M dual-fuel newbuild on ROI. Rotor sails, Mewis Ducts, bulbous bow upgrades — the real economics of CII compliance in 2026.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9875;</text></svg>">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-primary: #0a0e17;
+            --bg-secondary: #111827;
+            --bg-card: #1a2236;
+            --text-primary: #e8edf5;
+            --text-secondary: #8b95a8;
+            --accent: #10b981;
+            --accent-hover: #059669;
+            --accent-dim: rgba(16, 185, 129, 0.12);
+            --border: #1e293b;
+            --signal-red: #ef4444;
+            --signal-amber: #f59e0b;
+            --signal-green: #10b981;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        nav {
+            position: fixed; top: 0; width: 100%;
+            background: rgba(10, 14, 23, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            z-index: 100; padding: 0 2rem;
+        }
+        nav .nav-inner {
+            max-width: 900px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center; height: 60px;
+        }
+        nav a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        nav a:hover { color: var(--accent); }
+        nav .logo img { height: 32px; filter: invert(1); }
+        .brief {
+            max-width: 900px; margin: 0 auto; padding: 100px 2rem 4rem;
+        }
+        .brief-header {
+            border-bottom: 1px solid var(--border); padding-bottom: 2rem; margin-bottom: 2.5rem;
+        }
+        .brief-label {
+            font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em;
+            color: var(--accent); font-weight: 600; margin-bottom: 0.5rem;
+        }
+        .brief-title {
+            font-size: 2rem; font-weight: 700; line-height: 1.2; margin-bottom: 0.75rem;
+        }
+        .brief-meta {
+            color: var(--text-secondary); font-size: 0.85rem;
+        }
+        .content-block {
+            margin-bottom: 2rem; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.8;
+        }
+        .content-block p { margin-bottom: 1rem; }
+        .content-block strong { color: var(--text-primary); }
+        .highlight-box {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-left: 3px solid var(--accent);
+            border-radius: 12px; padding: 1.5rem; margin: 2rem 0;
+        }
+        .highlight-box.red { border-left-color: var(--signal-red); }
+        .highlight-box.amber { border-left-color: var(--signal-amber); }
+        .highlight-box h3 {
+            font-size: 1.05rem; font-weight: 600; margin-bottom: 0.75rem; color: var(--text-primary);
+        }
+        .highlight-box p { color: var(--text-secondary); font-size: 0.92rem; margin-bottom: 0.5rem; }
+        .compare-table {
+            width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 1.5rem 0;
+        }
+        .compare-table th {
+            text-align: left; padding: 0.7rem 1rem; border-bottom: 1px solid var(--border);
+            color: var(--text-secondary); font-weight: 600; font-size: 0.78rem;
+            text-transform: uppercase; letter-spacing: 0.08em;
+        }
+        .compare-table td {
+            padding: 0.7rem 1rem; border-bottom: 1px solid var(--border);
+        }
+        .compare-table tr:last-child td { border-bottom: none; }
+        .compare-table .val-good { color: var(--signal-green); font-weight: 600; }
+        .compare-table .val-bad { color: var(--signal-red); font-weight: 600; }
+        .case-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0;
+        }
+        .case-card {
+            background: var(--bg-secondary); border: 1px solid var(--border);
+            border-radius: 10px; padding: 1.2rem;
+        }
+        .case-card h4 { font-size: 0.92rem; margin-bottom: 0.5rem; color: var(--text-primary); }
+        .case-card p { font-size: 0.84rem; color: var(--text-secondary); margin-bottom: 0.3rem; }
+        .case-card .metric { color: var(--accent); font-weight: 700; font-size: 1.1rem; }
+        .section-divider {
+            border: none; border-top: 1px solid var(--border);
+            margin: 2.5rem 0 2rem;
+        }
+        .section-label-inline {
+            font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em;
+            color: var(--accent); font-weight: 600; margin-bottom: 1.25rem;
+        }
+        .source-list {
+            list-style: none; padding: 0; margin: 1rem 0;
+        }
+        .source-list li {
+            font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 0.4rem;
+            padding-left: 1rem; border-left: 2px solid var(--border);
+        }
+        .source-list li a { color: var(--accent); text-decoration: none; }
+        .source-list li a:hover { text-decoration: underline; }
+        .pullquote {
+            border-left: 3px solid var(--signal-amber);
+            padding: 1rem 1.5rem; margin: 2rem 0;
+            font-size: 1.05rem; font-style: italic; color: var(--text-primary);
+            background: rgba(245, 158, 11, 0.04);
+        }
+        footer {
+            text-align: center; padding: 2rem; color: var(--text-secondary);
+            font-size: 0.8rem; border-top: 1px solid var(--border);
+        }
+        @media (max-width: 640px) {
+            .brief { padding: 80px 1rem 2rem; }
+            .brief-title { font-size: 1.4rem; }
+            .case-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a href="../" class="logo"><img src="../logo.png" alt="Montline Chartering"></a>
+        <a href="../#news">Back to Market Intelligence</a>
+    </div>
+</nav>
+
+<article class="brief">
+    <header class="brief-header">
+        <div class="brief-label">Structural Analysis</div>
+        <h1 class="brief-title">The Quiet Revolution: Why $3M Retrofit Beats $65M Newbuild on ROI</h1>
+        <div class="brief-meta">15 April 2026 &middot; Montline Chartering &middot; Verified sources</div>
+    </header>
+
+    <div class="content-block">
+        <p>Everyone is discussing the green fleet through the lens of new orders. <strong>45 alt-fuel vessels ordered in Q1 2026. In March &mdash; just 5.</strong> That is a 40% year-on-year collapse. Owners are hitting the brakes. But quietly, without press releases, something else is happening.</p>
+
+        <p>Oldendorff is fitting rotor sails to a 15-year-old bulker. Union Maritime &mdash; to 4 product tankers. MOL &mdash; to an entire series. <strong>Maersk Pelican sailed for a year with two Norsepower rotors and saved 8.2% on fuel</strong> &mdash; independently verified, 1,400 tonnes of CO2 eliminated.</p>
+
+        <p>Becker Mewis Duct delivers up to 10% fuel savings and installs during a routine dry docking. A new bulbous bow &mdash; 3&ndash;13%. Propeller boss cap fins &mdash; another 2&ndash;3%. <strong>Combined package: $2&ndash;5M instead of $65M for a newbuild, payback under two years, and CII rating moves from D to B.</strong></p>
+    </div>
+
+    <div class="pullquote">
+        Regulation does not ban old ships. It makes them poor. Retrofit makes them competitive again &mdash; faster and cheaper than anyone expected.
+    </div>
+
+    <hr class="section-divider">
+
+    <div class="section-label-inline">The Economics: Retrofit vs Newbuild</div>
+
+    <table class="compare-table">
+        <thead>
+            <tr><th></th><th>Retrofit Package</th><th>Dual-Fuel Newbuild</th></tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Cost</strong></td>
+                <td class="val-good">$2&ndash;5M</td>
+                <td class="val-bad">$55&ndash;80M</td>
+            </tr>
+            <tr>
+                <td><strong>Fuel saving</strong></td>
+                <td>8&ndash;15%</td>
+                <td>20&ndash;40% (on alt-fuel)</td>
+            </tr>
+            <tr>
+                <td><strong>CII improvement</strong></td>
+                <td>D &rarr; B/C achievable</td>
+                <td>A/B guaranteed</td>
+            </tr>
+            <tr>
+                <td><strong>Delivery</strong></td>
+                <td class="val-good">2&ndash;4 weeks (dry dock)</td>
+                <td class="val-bad">2.5&ndash;3.5 years</td>
+            </tr>
+            <tr>
+                <td><strong>Payback</strong></td>
+                <td class="val-good">&lt; 2 years</td>
+                <td>8&ndash;12 years</td>
+            </tr>
+            <tr>
+                <td><strong>Fuel risk</strong></td>
+                <td class="val-good">None (same VLSFO, less of it)</td>
+                <td class="val-bad">High (methanol/ammonia availability)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr class="section-divider">
+
+    <div class="section-label-inline">Verified Case Studies</div>
+
+    <div class="case-grid">
+        <div class="case-card">
+            <h4>Maersk Pelican</h4>
+            <p>Product tanker, 2 &times; Norsepower 30m rotor sails</p>
+            <p>One year of monitored operation</p>
+            <div class="metric">&minus;8.2% fuel, &minus;1,400t CO2</div>
+            <p>Verified by third-party analysis</p>
+        </div>
+        <div class="case-card">
+            <h4>Sea-Cargo RoRo</h4>
+            <p>Norsepower rotor sail installation</p>
+            <p>North Sea routes, wind-favorable</p>
+            <div class="metric">Up to &minus;25% fuel</div>
+            <p>Best-case on favorable routes</p>
+        </div>
+        <div class="case-card">
+            <h4>MOL Shofu Maru</h4>
+            <p>Wind Challenger rigid sail, bulk carrier</p>
+            <p>Actual voyage measurement</p>
+            <div class="metric">Up to &minus;17% daily fuel</div>
+            <p>Plan: 25 vessels by 2030, 80 by 2035</p>
+        </div>
+        <div class="case-card">
+            <h4>Oldendorff / Teck</h4>
+            <p>Norsepower rotors on 15-year bulker</p>
+            <p>Coal and minerals trade</p>
+            <div class="metric">Retrofit, not newbuild</div>
+            <p>Operational fleet upgrade</p>
+        </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <div class="section-label-inline">The Retrofit Toolkit</div>
+
+    <div class="highlight-box">
+        <h3>Becker Mewis Duct</h3>
+        <p>Hydrodynamic duct fitted ahead of the propeller. <strong>Up to 10% fuel savings</strong> on tankers and bulkers. Installs during routine dry docking &mdash; propeller stays in place. 900+ installations worldwide. Improves both EEXI and CII.</p>
+    </div>
+
+    <div class="highlight-box">
+        <h3>Bulbous Bow Retrofit</h3>
+        <p>Redesigned bow optimised via CFD for current operating profile. <strong>3&ndash;13% main engine fuel reduction.</strong> Cost: $350&ndash;800K. Payback: 1&ndash;3 years depending on route and fuel price.</p>
+    </div>
+
+    <div class="highlight-box">
+        <h3>Propeller Boss Cap Fins (PBCF)</h3>
+        <p>Small fins on propeller hub cap that recover rotational energy. <strong>2&ndash;3% fuel saving.</strong> Cost: $50&ndash;150K. Installs in days. Thousands already in service.</p>
+    </div>
+
+    <div class="highlight-box">
+        <h3>Norsepower Rotor Sails</h3>
+        <p>Flettner rotors using the Magnus effect. <strong>8&ndash;25% fuel saving</strong> depending on route and wind. Cost: $1.5&ndash;3M for 2&ndash;4 rotors. Payback: 3&ndash;5 years (accelerating under EU ETS). 32 rotors on 18 vessels as of March 2025, 40+ planned.</p>
+    </div>
+
+    <hr class="section-divider">
+
+    <div class="section-label-inline">Why the Market Underprices This</div>
+
+    <div class="highlight-box amber">
+        <h3>The structural blind spot</h3>
+        <p><strong>Shipyards</strong> do not promote retrofit &mdash; a newbuild contract is $60M, a retrofit is $3M. Their marketing says "order new."</p>
+        <p><strong>Banks</strong> do not finance retrofit as a new asset &mdash; there is no fresh collateral. The financial system structurally favours newbuild.</p>
+        <p><strong>Analysts</strong> count the orderbook, not the retrofit pipeline. There is no public database of "how many Mewis Ducts were installed in Q1 2026." Only Lloyd&rsquo;s Register&rsquo;s estimate: demand has quadrupled since 2020.</p>
+        <p><strong>Result:</strong> the market sees 45 alt-fuel orders in Q1 and calls it a "green slowdown." The real green transition is happening below the waterline, one dry docking at a time.</p>
+    </div>
+
+    <hr class="section-divider">
+
+    <div class="section-label-inline">The Regulatory Context</div>
+
+    <div class="highlight-box red">
+        <h3>CII Phase 2 + FuelEU Maritime + EU ETS (all active in 2026)</h3>
+        <p><strong>CII Phase 2:</strong> 11% stricter reduction factor. D/E-rated vessels must submit corrective action plans by 30 April. Charterers already rejecting D/E tonnage for long-term fixtures.</p>
+        <p><strong>FuelEU Maritime:</strong> First full compliance cycle. Penalties EUR 300&ndash;400 per tonne CO2 equivalent. Pooling deadline 30 April.</p>
+        <p><strong>EU ETS:</strong> 70% phase-in for shipping. Direct cost per voyage on EU trades.</p>
+        <p><strong>Combined effect:</strong> 12&ndash;18% OPEX differential between compliant and conventional tonnage. A/B-rated vessels win longer contracts and easier financing. D/E vessels face rate discounts of 10&ndash;20%.</p>
+    </div>
+
+    <hr class="section-divider">
+
+    <div class="section-label-inline">Bottom Line</div>
+    <div class="highlight-box" style="border-left-color: var(--text-secondary);">
+        <p style="color: var(--text-primary); font-size: 1rem;">Everyone is waiting for the green revolution via new ships. The real revolution is quiet: owners are running the calculator and choosing a <strong>$3M retrofit with 18-month payback</strong> over a <strong>$65M newbuild with 3-year delivery</strong>. Propeller retrofits have quadrupled since 2020. Rotor sails are going from prototype to fleet-scale. And the economics only get better as EU ETS and FuelEU penalties rise.</p>
+        <p style="color: var(--text-primary); font-size: 1rem; margin-top: 0.75rem;">The fleet is not being replaced. It is being adapted. And the adaptation is winning.</p>
+    </div>
+
+    <hr class="section-divider">
+
+    <div class="section-label-inline">Sources</div>
+    <ul class="source-list">
+        <li><a href="https://www.norsepower.com/post/norsepower-rotor-sails-confirmed-savings-of-8-2-fuel-and-associated-co2-in-maersk-pelican-project/" target="_blank">Norsepower: Maersk Pelican confirmed 8.2% fuel savings</a></li>
+        <li><a href="https://shipandbunker.com/news/world/146120-norsepower-sees-fuel-savings-as-high-as-25-for-rotor-sail-installed-on-sea-cargo-ship" target="_blank">Ship &amp; Bunker: Sea-Cargo up to 25% savings</a></li>
+        <li><a href="https://www.mol.co.jp/en/pr/2024/24070.html" target="_blank">MOL: Wind propulsion on 7 vessels</a></li>
+        <li><a href="https://www.marinelog.com/technology/oldendorff-opts-for-norsepower-for-teck-rotor-sail-retrofit/" target="_blank">Marine Log: Oldendorff / Teck rotor sail retrofit</a></li>
+        <li><a href="https://www.lr.org/en/knowledge/press-room/press-listing/press-release/2025/demand-for-propeller-retrofits-surge-four-fold-but-adoption-remains-limited/" target="_blank">Lloyd's Register: Propeller retrofit demand surged 4x since 2020</a></li>
+        <li><a href="https://www.foreship.com/posts/roi-on-bulbous-bow-retrofit" target="_blank">Foreship: ROI on bulbous bow retrofit</a></li>
+        <li><a href="https://becker-marine-systems.com/products/energy-saving-device/becker-mewis-duct" target="_blank">Becker Marine: Mewis Duct &mdash; 900+ installations</a></li>
+        <li><a href="https://www.rivieramm.com/news-content-hub/news-content-hub/retrofit-wave-builds-below-the-waterline-85164" target="_blank">Riviera: Retrofit wave builds below the waterline</a></li>
+        <li><a href="https://www.dnv.com/services/eco-retrofit-vessel-efficiency-upgrades-2673/" target="_blank">DNV: ECO Retrofit vessel efficiency upgrades</a></li>
+        <li><a href="https://www.lr.org/en/knowledge/horizons/march-2025/financing-the-next-round-of-retrofits/" target="_blank">Lloyd's Register: Financing the next round of retrofits</a></li>
+    </ul>
+</article>
+
+<footer>
+    <p>&copy; 2026 Montline Chartering. All rights reserved. &middot; <a href="../" style="color: var(--accent); text-decoration: none;">montlinechartering.com</a></p>
+</footer>
+
+</body>
+</html>
