@@ -1,8 +1,18 @@
 {
-  "updated_at": "2026-04-26T13:00:02.730521+00:00",
+  "updated_at": "2026-04-26T15:00:02.259383+00:00",
   "channel": "Capt_tymur",
   "channel_url": "https://t.me/Capt_tymur",
   "posts": [
+    {
+      "id": 3132,
+      "text_en": "Tuapse. Around 7-10 tonnes of petroleum products entered the sea.",
+      "text_ru": "Туапсе. В море попало 7-10 к нефтепродуктов.",
+      "tags": [
+        "#tanker"
+      ],
+      "date": "2026-04-26T11:29:28+00:00",
+      "url": "https://t.me/Capt_tymur/3132"
+    },
     {
       "id": 3124,
       "text_en": "The container market faces significant headwinds. The vessels currently on order total 11.7 million TEU across 1,350 ships. At the same time, demolition remains sluggish. Over the whole of 2025, only 12 container ships of 8,000 TEU and above were scrapped, and 2026 is also shaping up to be weak. In a year's time, we may face an unprecedented oversupply of container tonnage. Older ships will be waiting in line for demolition.",
@@ -198,19 +208,6 @@
       ],
       "date": "2026-03-22T07:16:51+00:00",
       "url": "https://t.me/Capt_tymur/3046"
-    },
-    {
-      "id": 3042,
-      "text_en": "Researchers in Singapore from the Rudra team have identified a chain of vulnerabilities in SmartShipWeb, a cloud platform used by shore teams to manage ship systems.\n\nThe issue was said to affect chemical tankers, bulk carriers and container ships across Asia, Europe and the Middle East.\n\nAccording to the disclosure, remote access from a standard browser could have exposed the main engine, navigation, power supply, ballast, steering and fire systems.\n\nThe weakness reportedly began with a password reset mechanism that generated tokens client-side, which could be intercepted by any network observer. From there, access to the vessel file system was reportedly possible.\n\nThe vulnerabilities were closed at the end of 2025, and no in-the-wild exploitation was detected.\n\nThis underlines how deeply connected ordinary ships already are, and the operational risk that can arise when shore platforms reach into onboard control systems.",
-      "text_ru": "Сингапурские исследователи из команды Rudra обнаружили\n  цепочку уязвимостей в платформе SmartShipWeb — облачной\n  системе через которую берег управляет судовыми системами.\n  Химовозы, балкеры, контейнеровозы в Азии, Европе и на\n  Ближнем Востоке.\n\n  Что можно было захватить удалённо, из обычного браузера:\n  — главный двигатель\n  — навигацию\n  — электропитание\n  — балласт\n  — рулевое управление\n  — пожарную систему\n\n  Всё начинается с механизма сброса пароля который генерирует\n  токены на стороне клиента. Перехватить может любой\n  наблюдатель в сети. Дальше — полный доступ к файловой\n  системе судна.\n\n  Уязвимости закрыты в конце 2025 года, эксплуатации в дикой\n  природе не обнаружено.\n\n  Но вот что интересно: капитан думает что он управляет\n  судном. А в реальности IoT-платформа имеет доступ к\n  исполнительным механизмам о которых экипаж может даже не\n  знать. И если эту платформу взломать — руль перестаёт\n  слушаться, двигатель останавливается, и команда на мостике\n  не понимает почему.\n\n  Это не автономные суда. Это обычные суда которые уже\n  подключены к интернету гораздо глубже чем кажется тем кто на\n   них ходит.\n\n  Морские кибер-инциденты выросли на 103% за 2025 год. На фоне\n   того что происходит в Ормузе — это уже не академическая\n  проблема. Это оружие.",
-      "tags": [
-        "#drybulk",
-        "#war",
-        "#legal",
-        "#crew"
-      ],
-      "date": "2026-03-20T07:52:09+00:00",
-      "url": "https://t.me/Capt_tymur/3042"
     }
   ]
 }
