@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Montline Chartering — Company Profile</title>
+    <meta name="description" content="Montline Chartering company profile. Independent dry bulk brokerage based in Tbilisi with owner-side, cargo-side, and field representation in the Russian Federation.">
+    <style>
+        :root {
+            --bg: #0a0e17;
+            --bg-soft: #111827;
+            --card: #182133;
+            --text: #e8edf5;
+            --muted: #93a0b7;
+            --accent: #10b981;
+            --border: #243148;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+            background: linear-gradient(180deg, #09101b 0%, #0d1422 100%);
+            color: var(--text);
+            line-height: 1.55;
+        }
+
+        .wrap {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 36px 24px 48px;
+        }
+
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 28px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .topbar a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .hero {
+            border: 1px solid var(--border);
+            background: radial-gradient(circle at top right, rgba(16, 185, 129, 0.14), transparent 38%), var(--bg-soft);
+            border-radius: 22px;
+            padding: 34px 36px;
+            margin-bottom: 24px;
+        }
+
+        .hero img {
+            width: 220px;
+            max-width: 100%;
+            filter: invert(1);
+            margin-bottom: 20px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: rgba(16, 185, 129, 0.12);
+            color: var(--accent);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+
+        h1 {
+            margin: 0 0 10px;
+            font-size: 40px;
+            line-height: 1.08;
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+            max-width: 760px;
+            margin: 0;
+            color: var(--muted);
+            font-size: 18px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        .card {
+            border: 1px solid var(--border);
+            background: var(--card);
+            border-radius: 20px;
+            padding: 24px 24px 22px;
+        }
+
+        .card h2 {
+            margin: 0 0 14px;
+            font-size: 22px;
+            letter-spacing: -0.01em;
+        }
+
+        .card p {
+            margin: 0 0 12px;
+            color: var(--muted);
+        }
+
+        .list {
+            margin: 0;
+            padding-left: 18px;
+        }
+
+        .list li {
+            margin-bottom: 10px;
+            color: var(--muted);
+        }
+
+        .list strong {
+            color: var(--text);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+            margin-top: 18px;
+        }
+
+        .stat {
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 14px;
+            background: rgba(255,255,255,0.02);
+        }
+
+        .stat .k {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--muted);
+            margin-bottom: 8px;
+        }
+
+        .stat .v {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .section-title {
+            margin: 0 0 14px;
+            font-size: 24px;
+            letter-spacing: -0.01em;
+        }
+
+        .two {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        .contact-box {
+            display: grid;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .contact-box a,
+        .contact-box span {
+            color: var(--text);
+            text-decoration: none;
+            word-break: break-word;
+        }
+
+        .contact-box .label {
+            color: var(--muted);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .footer-note {
+            color: var(--muted);
+            font-size: 13px;
+            margin-top: 18px;
+        }
+
+        @media print {
+            body {
+                background: #ffffff;
+                color: #111111;
+            }
+
+            .wrap {
+                max-width: none;
+                padding: 0;
+            }
+
+            .topbar {
+                margin-bottom: 12px;
+                color: #4b5563;
+            }
+
+            .hero,
+            .card {
+                break-inside: avoid;
+                background: #ffffff;
+                color: #111111;
+                border-color: #d1d5db;
+            }
+
+            .hero img {
+                filter: none;
+            }
+
+            .hero p,
+            .card p,
+            .list li,
+            .stat .k,
+            .footer-note {
+                color: #4b5563;
+            }
+
+            .stat {
+                background: #f8fafc;
+                border-color: #e5e7eb;
+            }
+
+            a {
+                color: #111111;
+            }
+        }
+
+        @media (max-width: 860px) {
+            .grid,
+            .two {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="topbar">
+            <span>Independent dry bulk freight brokerage</span>
+            <a href="index.html">montlinechartering.com</a>
+        </div>
+
+        <section class="hero">
+            <div class="eyebrow">Company Profile</div>
+            <img src="logo.png" alt="Montline Chartering">
+            <h1>Montline Chartering</h1>
+            <p>Independent dry bulk brokerage based in Tbilisi, covering coaster, river-sea, and selected Handysize business across the Black Sea, Mediterranean, Baltic, and connected short-sea routes.</p>
+        </section>
+
+        <section class="grid">
+            <div class="card">
+                <h2>What We Actually Do</h2>
+                <p>We work on practical freight problems where cargo, tonnage, timing, and port reality all matter more than generic brokerage wording.</p>
+                <ul class="list">
+                    <li><strong>Owner-side:</strong> market screening, reduced cargo probing, cargo ideas, Baltic / Black Sea / Med cross-coverage.</li>
+                    <li><strong>Cargo-side:</strong> owner access, parcel-shipment structuring, broker-safe freight checks, routing logic.</li>
+                    <li><strong>Execution logic:</strong> practical understanding of loading, discharge, restrictions, documentation, laytime exposure, and follow-through after fixture.</li>
+                </ul>
+                <div class="stats">
+                    <div class="stat">
+                        <div class="k">Core Segment</div>
+                        <div class="v">Dry Cargo up to 10,000 DWT + selective larger business</div>
+                    </div>
+                    <div class="stat">
+                        <div class="k">Primary Corridors</div>
+                        <div class="v">Black Sea, Med, Baltic, river-sea and short-sea trades</div>
+                    </div>
+                    <div class="stat">
+                        <div class="k">Operating Style</div>
+                        <div class="v">Relationship-first, data-assisted</div>
+                    </div>
+                    <div class="stat">
+                        <div class="k">Base</div>
+                        <div class="v">Tbilisi, Georgia</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Why We Are Useful</h2>
+                <ul class="list">
+                    <li><strong>Sea-going background:</strong> hands-on operational understanding, not brochure-level shipping language.</li>
+                    <li><strong>Broker discipline:</strong> we do not present weak interest as firm business.</li>
+                    <li><strong>Field access:</strong> local presence can be arranged for targeted market entry and face-to-face qualification.</li>
+                    <li><strong>Intelligence layer:</strong> internal databases, live market signals, and structured follow-up systems support fast, practical screening.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="two">
+            <div class="card">
+                <h2 class="section-title">Who Leads the Work</h2>
+                <p><strong>Capt. Tymur Rudov</strong> leads commercial work on the brokerage side and handles owner-side, cargo-side, and negotiation-grade branches.</p>
+                <p>The company is built around practical freight execution rather than generic “consulting” language.</p>
+                <div class="contact-box">
+                    <span class="label">Direct Route</span>
+                    <a href="mailto:broker@capt-tymur.com">broker@capt-tymur.com</a>
+                    <a href="tel:+35797617412">+357 97 617 412</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2 class="section-title">Local Representation in the Russian Federation</h2>
+                <p><strong>Alexander Chernev</strong> acts as Montline’s local field representative in the Russian Federation, opening first contact, handling face-to-face introductions, and transferring workable routes into Tymur’s follow-up loop.</p>
+                <p><strong>Current travel window:</strong> Alexander is available for meetings in Saint Petersburg from <strong>30 March to 2 April 2026</strong> by prior arrangement.</p>
+                <div class="contact-box">
+                    <span class="label">Local Contact</span>
+                    <a href="mailto:alexander@montlinechartering.com">alexander@montlinechartering.com</a>
+                    <a href="tel:+79110056843">+7 911 005 68 43</a>
+                    <a href="https://wa.me/79113198001">WhatsApp / Telegram: +7 911 319 80 01</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2 class="section-title">Meeting Logic</h2>
+            <p>For a first meeting, we do not need a perfect cargo stem or an open vessel on the table. What matters is whether there is a real operational fit:</p>
+            <ul class="list">
+                <li>owners and operators who value an additional market route or cargo access layer;</li>
+                <li>exporters and logistics teams who may benefit from a reserve freight brokerage channel for parcel cargoes or short-sea business;</li>
+                <li>commercial people who prefer practical market talk over decorative networking.</li>
+            </ul>
+            <p class="footer-note">Montline Chartering does not present indicative market interest as firm business and does not disclose unnecessary cargo or vessel fingerprint before a workable basis exists.</p>
+        </section>
+    </div>
+</body>
+</html>
