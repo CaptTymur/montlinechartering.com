@@ -1,8 +1,19 @@
 {
-  "updated_at": "2026-05-24T07:00:03.331413+00:00",
+  "updated_at": "2026-05-24T09:00:04.466883+00:00",
   "channel": "Capt_tymur",
   "channel_url": "https://t.me/Capt_tymur",
   "posts": [
+    {
+      "id": 3175,
+      "text_en": "Ammonia bunkering activity is picking up in Singapore. It may be available next year. A 5,000 cbm ammonia bunkering vessel has already been ordered for this purpose, with delivery expected in September 2027.\n\nDNV also mentions that four ammonia-fuelled bulkers have been ordered.",
+      "text_ru": "В Сингапуре активизировались по части бункеровки Амиаком. Возможно в следующем году уже будет. под это дело уже заказали бункеровщик на 5000 кубов. приемка ожидается в сентябре 2027\n\nDNV упоминает что заказаны 4 балкера на амиаке.",
+      "tags": [
+        "#drybulk",
+        "#bunkering"
+      ],
+      "date": "2026-05-24T06:57:15+00:00",
+      "url": "https://t.me/Capt_tymur/3175"
+    },
     {
       "id": 3132,
       "text_en": "Tuapse. Around 7-10 tonnes of petroleum products entered the sea.",
