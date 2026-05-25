@@ -4,1216 +4,811 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Montline Chartering — Dry Bulk Freight Brokerage</title>
-    <meta name="description" content="Montline Chartering — dry bulk freight brokerage covering Black Sea, Mediterranean, Baltic, and beyond. Coasters, river-sea, and Handysize chartering.">
+    <meta name="description" content="Montline Chartering — independent dry bulk freight brokerage. Black Sea, Mediterranean, Baltic and beyond. Coasters, river-sea, Handysize chartering.">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9875;</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --bg-primary: #0a0e17;
-            --bg-secondary: #111827;
-            --bg-card: #1a2236;
-            --text-primary: #e8edf5;
-            --text-secondary: #8b95a8;
-            --accent: #10b981;
-            --accent-hover: #059669;
-            --accent-dim: rgba(16, 185, 129, 0.12);
-            --border: #1e293b;
+            --ink:        #0a1628;
+            --ink-soft:   #1c2d44;
+            --paper:      #ffffff;
+            --paper-alt:  #f5f7fa;
+            --line:       #e1e6ee;
+            --text:       #1c2d44;
+            --muted:      #5d6b80;
+            --accent:     #0b5c75;
+            --accent-hi:  #0a4d62;
+            --accent-soft:#e5f1f3;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
+        html { scroll-behavior: smooth; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--paper);
+            color: var(--text);
+            line-height: 1.65;
+            font-size: 16px;
             -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(10, 14, 23, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
+        img { max-width: 100%; display: block; }
+        a { color: var(--accent); text-decoration: none; transition: color .2s; }
+        a:hover { color: var(--accent-hi); }
+
+        /* ---------- Navigation ---------- */
+        .site-nav {
+            position: fixed; top: 0; left: 0; right: 0;
+            background: rgba(255,255,255,.96);
+            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--line);
             z-index: 100;
-            padding: 0 2rem;
         }
-
-        nav .nav-inner {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 60px;
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 1rem 2rem; height: 70px;
         }
-
-        nav .logo {
-            display: flex;
-            align-items: center;
+        .nav-logo img { height: 34px; }
+        .nav-menu { list-style: none; display: flex; gap: 2.25rem; }
+        .nav-menu a {
+            color: var(--ink); font-size: .88rem; font-weight: 500;
+            letter-spacing: .01em; text-decoration: none;
         }
-
-        nav .logo img {
-            height: 32px;
-            filter: invert(1);
+        .nav-menu a:hover { color: var(--accent); }
+        .nav-cta {
+            background: var(--accent); color: #fff !important;
+            padding: .55rem 1.1rem; border-radius: 3px;
+            font-size: .85rem; font-weight: 600;
         }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-        }
-
-        nav a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.875rem;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-
-        nav a:hover {
-            color: var(--text-primary);
-        }
-
-        /* Hamburger menu */
+        .nav-cta:hover { background: var(--accent-hi); color: #fff !important; }
         .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0.5rem;
+            display: none; background: none; border: none; cursor: pointer; padding: .25rem;
         }
+        .menu-toggle svg { width: 26px; height: 26px; color: var(--ink); }
 
-        .menu-toggle svg {
-            width: 24px;
-            height: 24px;
-            color: var(--text-primary);
-        }
-
-        /* Hero */
+        /* ---------- Hero ---------- */
         .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 6rem 2rem 4rem;
-            position: relative;
-            overflow: hidden;
+            min-height: 88vh;
+            display: flex; align-items: center;
+            padding: 8rem 2rem 5rem;
+            position: relative; overflow: hidden;
+            color: #fff;
+            background:
+                linear-gradient(135deg, rgba(10,22,40,.78) 0%, rgba(11,92,117,.55) 100%),
+                radial-gradient(ellipse at 20% 30%, #1a3a52 0%, #0a1628 60%),
+                #0a1628;
         }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -40%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, var(--accent-dim) 0%, transparent 70%);
+        .hero::after {
+            content: ''; position: absolute; inset: 0;
+            background:
+                repeating-linear-gradient(180deg, transparent 0, transparent 2px, rgba(255,255,255,.012) 2px, rgba(255,255,255,.012) 4px);
             pointer-events: none;
         }
-
-        .hero-content {
-            position: relative;
-            max-width: 750px;
+        .hero-inner {
+            max-width: 1200px; margin: 0 auto; width: 100%;
+            position: relative; z-index: 2;
         }
-
-        .hero-label {
-            display: inline-block;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--accent);
-            background: var(--accent-dim);
-            padding: 0.4rem 1rem;
-            border-radius: 100px;
-            margin-bottom: 1.5rem;
+        .hero-eyebrow {
+            font-size: .78rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: .25em;
+            color: #6fb8cc; margin-bottom: 1.5rem;
         }
-
-        .hero-logo {
-            max-width: 420px;
-            width: 100%;
-            filter: invert(1);
-            margin-bottom: 1.5rem;
-        }
-
         .hero h1 {
-            font-size: 3.2rem;
-            font-weight: 800;
-            line-height: 1.15;
-            margin-bottom: 0.75rem;
+            font-size: clamp(2.25rem, 5.5vw, 4.5rem);
+            font-weight: 600; line-height: 1.05;
             letter-spacing: -0.02em;
+            max-width: 18ch; margin-bottom: 1.5rem;
+        }
+        .hero-lead {
+            font-size: clamp(1rem, 1.4vw, 1.2rem);
+            color: #cdd5e0; font-weight: 400;
+            max-width: 56ch; margin-bottom: 2.5rem;
+            line-height: 1.65;
+        }
+        .hero-ctas { display: flex; flex-wrap: wrap; gap: 1rem; }
+        .btn {
+            display: inline-flex; align-items: center; gap: .55rem;
+            padding: .95rem 1.65rem;
+            font-size: .92rem; font-weight: 600;
+            border-radius: 3px;
+            border: 1px solid transparent;
+            cursor: pointer; transition: all .2s;
+            font-family: inherit;
+        }
+        .btn-primary { background: var(--accent); color: #fff; }
+        .btn-primary:hover { background: var(--accent-hi); color: #fff; }
+        .btn-ghost {
+            background: transparent; color: #fff;
+            border-color: rgba(255,255,255,.4);
+        }
+        .btn-ghost:hover {
+            background: rgba(255,255,255,.08); color: #fff;
+            border-color: rgba(255,255,255,.7);
         }
 
-        .hero h1 span {
-            color: var(--accent);
-        }
+        /* ---------- Sections ---------- */
+        section { padding: 6rem 2rem; }
+        .section-alt { background: var(--paper-alt); }
+        .section-dark { background: var(--ink); color: #cdd5e0; }
+        .section-dark .eyebrow { color: #6fb8cc; }
+        .section-dark .section-title { color: #fff; }
+        .section-dark .section-desc { color: #a3b0c4; }
+        .section-inner { max-width: 1200px; margin: 0 auto; }
 
-        .hero-subtitle {
-            font-size: 1.35rem;
-            color: var(--text-secondary);
-            font-weight: 500;
-            margin-bottom: 1rem;
+        .eyebrow {
+            display: block;
+            font-size: .75rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: .22em;
+            color: var(--accent); margin-bottom: 1rem;
         }
-
-        .hero p {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            max-width: 560px;
-            margin: 0 auto 2.5rem;
-            line-height: 1.7;
-        }
-
-        .hero-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--accent);
-            color: #fff;
-            padding: 0.8rem 1.8rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: background 0.2s, transform 0.2s;
-        }
-
-        .hero-cta:hover {
-            background: var(--accent-hover);
-            transform: translateY(-1px);
-        }
-
-        .hero-cta svg {
-            width: 18px;
-            height: 18px;
-        }
-
-        .hero-actions {
-            display: flex;
-            gap: 0.9rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .hero-cta.secondary {
-            background: transparent;
-            border: 1px solid var(--border);
-            color: var(--text-primary);
-        }
-
-        .hero-cta.secondary:hover {
-            background: rgba(255,255,255,0.04);
-        }
-
-        /* Section common */
-        section {
-            padding: 5rem 2rem;
-        }
-
-        .section-inner {
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .section-label {
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--accent);
-            margin-bottom: 0.75rem;
-        }
-
         .section-title {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            letter-spacing: -0.01em;
+            font-size: clamp(1.75rem, 3.2vw, 2.6rem);
+            font-weight: 600; line-height: 1.15;
+            letter-spacing: -0.015em;
+            color: var(--ink); margin-bottom: 1.25rem;
+            max-width: 28ch;
         }
-
         .section-desc {
-            color: var(--text-secondary);
-            max-width: 560px;
-            margin-bottom: 3rem;
-            line-height: 1.7;
+            font-size: 1.08rem; color: var(--muted);
+            max-width: 64ch; margin-bottom: 3rem; line-height: 1.65;
         }
 
-        /* About */
-        .about {
-            background: var(--bg-secondary);
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+        /* ---------- About ---------- */
+        .about-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
             align-items: start;
         }
-
         .about-text p {
-            color: var(--text-secondary);
-            line-height: 1.8;
-            margin-bottom: 1rem;
+            margin-bottom: 1.1rem;
+            color: var(--text); font-size: 1.02rem; line-height: 1.75;
+        }
+        .heritage-card {
+            background: var(--paper); border: 1px solid var(--line);
+            padding: 2.25rem; border-radius: 4px;
+            border-left: 3px solid var(--accent);
+        }
+        .heritage-card .year {
+            font-size: 3.5rem; font-weight: 600; color: var(--ink);
+            letter-spacing: -0.02em; line-height: 1; margin-bottom: .5rem;
+        }
+        .heritage-card .year-label {
+            font-size: .78rem; text-transform: uppercase; letter-spacing: .2em;
+            color: var(--muted); margin-bottom: 1.25rem;
+        }
+        .heritage-card p {
+            color: var(--text); line-height: 1.7;
         }
 
+        /* ---------- Stats band ---------- */
+        .stats-band {
+            background: var(--ink); color: #fff;
+            padding: 4.5rem 2rem;
+        }
         .stats-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
+            max-width: 1200px; margin: 0 auto;
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem;
+        }
+        .stat {
+            text-align: left;
+            padding: 0 1rem;
+            border-left: 1px solid rgba(255,255,255,.12);
+        }
+        .stat:first-child { border-left: none; padding-left: 0; }
+        .stat .num {
+            font-size: 3rem; font-weight: 600; color: #fff;
+            letter-spacing: -0.02em; line-height: 1; margin-bottom: .5rem;
+        }
+        .stat .lbl {
+            font-size: .78rem; text-transform: uppercase; letter-spacing: .18em;
+            color: #6fb8cc;
         }
 
-        .stat-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 1.5rem;
-        }
-
-        .stat-card .number {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--accent);
-            margin-bottom: 0.25rem;
-        }
-
-        .stat-card .label {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-        }
-
-        /* Services */
-        .services {
-            background: var(--bg-primary);
-        }
-
+        /* ---------- Services ---------- */
         .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
         }
-
-        .service-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 2rem;
-            transition: border-color 0.2s, transform 0.2s;
+        .service {
+            background: var(--paper); padding: 2.25rem;
+            border: 1px solid var(--line); border-radius: 4px;
+            transition: border-color .2s, transform .2s;
         }
-
-        .service-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-2px);
-        }
-
+        .service:hover { border-color: var(--accent); transform: translateY(-2px); }
         .service-icon {
-            width: 44px;
-            height: 44px;
-            background: var(--accent-dim);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.25rem;
+            width: 44px; height: 44px;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--accent); margin-bottom: 1.25rem;
+        }
+        .service-icon svg { width: 100%; height: 100%; }
+        .service h3 {
+            font-size: 1.15rem; font-weight: 600;
+            color: var(--ink); margin-bottom: .75rem;
+        }
+        .service p {
+            font-size: .95rem; color: var(--muted); line-height: 1.65;
         }
 
-        .service-icon svg {
-            width: 22px;
-            height: 22px;
-            color: var(--accent);
-        }
-
-        .service-card h3 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.6rem;
-        }
-
-        .service-card p {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        /* Market Segments */
-        .segments {
-            background: var(--bg-primary);
-        }
-
+        /* ---------- Segments ---------- */
         .segments-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
         }
-
-        .segment-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 2.5rem;
-            transition: border-color 0.2s;
+        .segment {
+            background: var(--paper); border: 1px solid var(--line);
+            padding: 2.5rem; border-radius: 4px;
         }
-
-        .segment-card:hover {
-            border-color: var(--accent);
-        }
-
-        .segment-card .segment-badge {
+        .segment-badge {
             display: inline-block;
-            font-size: 0.7rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--accent);
-            background: var(--accent-dim);
-            padding: 0.3rem 0.75rem;
-            border-radius: 100px;
+            font-size: .72rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: .15em;
+            color: var(--accent); background: var(--accent-soft);
+            padding: .35rem .8rem; border-radius: 3px;
             margin-bottom: 1rem;
         }
-
-        .segment-card h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
+        .segment h3 {
+            font-size: 1.4rem; font-weight: 600;
+            color: var(--ink); margin-bottom: .75rem;
+        }
+        .segment > p { color: var(--muted); margin-bottom: 1.25rem; line-height: 1.65; }
+        .segment ul { list-style: none; }
+        .segment ul li {
+            padding: .45rem 0 .45rem 1.25rem;
+            position: relative; color: var(--text);
+            font-size: .95rem; border-top: 1px solid var(--line);
+        }
+        .segment ul li:first-child { border-top: none; }
+        .segment ul li::before {
+            content: ''; position: absolute;
+            left: 0; top: 1.1rem;
+            width: 6px; height: 1px; background: var(--accent);
         }
 
-        .segment-card p {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-            margin-bottom: 1rem;
+        /* ---------- Trading area ---------- */
+        .area-tags {
+            display: flex; flex-wrap: wrap; gap: .6rem;
+            margin-top: 1rem;
         }
-
-        .segment-card ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .segment-card li {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            padding: 0.35rem 0;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .segment-card li::before {
-            content: '';
-            width: 6px;
-            height: 6px;
-            background: var(--accent);
-            border-radius: 50%;
-            flex-shrink: 0;
-        }
-
-        /* Trading Area */
-        .trading-area {
-            background: var(--bg-secondary);
-        }
-
-        .area-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 0.5rem;
-        }
-
         .area-tag {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 0.9rem 1.5rem;
-            font-size: 0.95rem;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            transition: border-color 0.2s;
+            display: inline-flex; align-items: center; gap: .5rem;
+            padding: .65rem 1.1rem;
+            background: var(--paper); border: 1px solid var(--line);
+            border-radius: 100px;
+            font-size: .9rem; font-weight: 500; color: var(--ink);
         }
-
-        .area-tag:hover {
-            border-color: var(--accent);
-        }
-
-        .area-dot {
-            width: 8px;
-            height: 8px;
+        .area-tag .dot {
+            width: 6px; height: 6px; border-radius: 50%;
             background: var(--accent);
-            border-radius: 50%;
-            flex-shrink: 0;
         }
 
-        /* Circulation */
-        .circulation {
-            background: var(--bg-primary);
+        /* ---------- Inquiry / Forms ---------- */
+        .inquiry-tabs {
+            display: inline-flex;
+            background: var(--paper); border: 1px solid var(--line);
+            border-radius: 4px; padding: .25rem; margin-bottom: 2rem;
         }
-
-        .circulation-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: start;
+        .inquiry-tab {
+            padding: .65rem 1.4rem;
+            background: transparent; border: none; cursor: pointer;
+            font-family: inherit; font-size: .9rem; font-weight: 500;
+            color: var(--muted); border-radius: 3px; transition: all .2s;
         }
-
-        .circulation-text p {
-            color: var(--text-secondary);
-            line-height: 1.8;
-            margin-bottom: 1rem;
+        .inquiry-tab.active {
+            background: var(--ink); color: #fff;
         }
+        .inquiry-panel { display: none; }
+        .inquiry-panel.active { display: block; }
 
-        .circulation-text ul {
-            list-style: none;
-            padding: 0;
-            margin-top: 1.5rem;
+        .form {
+            background: var(--paper); border: 1px solid var(--line);
+            padding: 2.5rem; border-radius: 4px;
         }
-
-        .circulation-text li {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            padding: 0.4rem 0;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+        .form h3 {
+            font-size: 1.15rem; font-weight: 600;
+            color: var(--ink); margin-bottom: 1.5rem;
         }
-
-        .circulation-text li::before {
-            content: '';
-            width: 6px;
-            height: 6px;
-            background: var(--accent);
-            border-radius: 50%;
-            flex-shrink: 0;
-        }
-
-        .circ-form {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 2rem;
-        }
-
-        .circ-form h3 {
-            font-size: 1.1rem;
-            font-weight: 600;
+        .form-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;
             margin-bottom: 1.25rem;
         }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.35rem;
-        }
-
-        .form-group.full {
-            grid-column: 1 / -1;
-        }
-
+        .form-row.single { grid-template-columns: 1fr; }
+        .form-group { display: flex; flex-direction: column; }
+        .form-group.full { grid-column: 1 / -1; }
         .form-group label {
-            font-size: 0.78rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--text-secondary);
+            font-size: .8rem; font-weight: 500;
+            color: var(--ink); margin-bottom: .45rem;
+            letter-spacing: .01em;
         }
-
         .form-group input,
         .form-group select,
         .form-group textarea {
-            background: var(--bg-primary);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 0.7rem 0.9rem;
-            color: var(--text-primary);
-            font-family: inherit;
-            font-size: 0.9rem;
-            transition: border-color 0.2s;
+            font-family: inherit; font-size: .95rem;
+            padding: .75rem .9rem;
+            background: var(--paper-alt);
+            border: 1px solid var(--line); border-radius: 3px;
+            color: var(--ink);
+            transition: border-color .2s, background .2s;
         }
-
         .form-group input:focus,
         .form-group select:focus,
         .form-group textarea:focus {
-            outline: none;
-            border-color: var(--accent);
+            outline: none; border-color: var(--accent);
+            background: var(--paper);
         }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 80px;
-        }
-
-        .form-group select {
-            cursor: pointer;
-            -webkit-appearance: none;
-            appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%238b95a8' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 0.75rem center;
-            padding-right: 2rem;
-        }
-
+        .form-group textarea { min-height: 110px; resize: vertical; }
         .form-submit {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--accent);
-            color: #fff;
-            border: none;
-            padding: 0.75rem 1.6rem;
-            border-radius: 8px;
-            font-family: inherit;
-            font-weight: 600;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: background 0.2s, transform 0.2s;
-            margin-top: 0.5rem;
+            display: inline-flex; align-items: center; gap: .5rem;
+            background: var(--accent); color: #fff;
+            border: none; padding: .9rem 1.6rem;
+            font-family: inherit; font-size: .92rem; font-weight: 600;
+            border-radius: 3px; cursor: pointer;
+            margin-top: .5rem; transition: background .2s;
         }
-
-        .form-submit:hover {
-            background: var(--accent-hover);
-            transform: translateY(-1px);
-        }
-
+        .form-submit:hover { background: var(--accent-hi); }
         .form-note {
-            margin-top: 1rem;
-            font-size: 0.78rem;
-            color: var(--text-secondary);
-            line-height: 1.5;
+            font-size: .82rem; color: var(--muted);
+            margin-top: 1rem; line-height: 1.55;
         }
 
-        /* News Feed */
-        .news {
-            background: var(--bg-secondary);
-        }
-
+        /* ---------- Market Pulse ---------- */
         .news-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1rem;
-            max-height: 600px;
-            overflow-y: auto;
-            padding-right: 0.5rem;
+            display: grid; grid-template-columns: 1fr; gap: 1rem;
+            margin-bottom: 3rem;
         }
-
-        .news-grid::-webkit-scrollbar { width: 6px; }
-        .news-grid::-webkit-scrollbar-track { background: var(--bg-primary); border-radius: 3px; }
-        .news-grid::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
-        .news-grid::-webkit-scrollbar-thumb:hover { background: var(--accent); }
-
         .news-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 1.25rem 1.5rem;
-            transition: border-color 0.2s;
+            background: var(--paper); border: 1px solid var(--line);
+            padding: 1.5rem 1.75rem; border-radius: 4px;
+            border-left: 3px solid var(--line);
+            transition: border-left-color .2s;
         }
-
-        .news-card:hover {
-            border-color: var(--accent);
-        }
-
+        .news-card:hover { border-left-color: var(--accent); }
         .news-date {
-            font-size: 0.75rem;
-            color: var(--accent);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.5rem;
+            font-size: .75rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: .15em;
+            color: var(--accent); margin-bottom: .5rem;
         }
-
         .news-text {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-            white-space: pre-line;
+            color: var(--text); line-height: 1.65;
+            font-size: .98rem;
+            white-space: pre-wrap;
         }
-
-        .news-link {
-            display: inline-block;
-            margin-top: 0.75rem;
-            font-size: 0.8rem;
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .news-link:hover {
-            color: var(--text-primary);
-        }
-
-        .news-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.4rem;
-            margin-top: 0.75rem;
-        }
-
+        .news-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .75rem; }
         .news-tag {
-            font-size: 0.7rem;
-            font-weight: 500;
-            color: var(--accent);
-            background: var(--accent-dim);
-            padding: 0.2rem 0.6rem;
-            border-radius: 100px;
+            font-size: .7rem; font-weight: 600;
+            color: var(--accent); background: var(--accent-soft);
+            padding: .25rem .6rem; border-radius: 100px;
+            text-transform: lowercase;
         }
-
         .news-toggle {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.35rem;
-            margin-top: 0.6rem;
-            padding: 0;
-            background: none;
-            border: none;
-            color: var(--text-secondary);
-            font-family: inherit;
-            font-size: 0.78rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: color 0.2s;
+            display: inline-flex; align-items: center; gap: .35rem;
+            background: none; border: none; cursor: pointer;
+            color: var(--muted); font-family: inherit; font-size: .85rem;
+            padding: .5rem 0; margin-top: .5rem;
         }
-
-        .news-toggle:hover {
-            color: var(--accent);
-        }
-
-        .news-toggle svg {
-            width: 14px;
-            height: 14px;
-            transition: transform 0.2s;
-        }
-
-        .news-toggle.open svg {
-            transform: rotate(90deg);
-        }
-
+        .news-toggle:hover { color: var(--accent); }
+        .news-toggle svg { width: 12px; height: 12px; transition: transform .2s; }
+        .news-toggle.open svg { transform: rotate(90deg); }
         .news-original {
             display: none;
-            margin-top: 0.75rem;
-            padding-top: 0.75rem;
-            border-top: 1px solid var(--border);
-            font-size: 0.82rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-            white-space: pre-line;
-            opacity: 0.7;
+            margin-top: .5rem; padding: 1rem;
+            background: var(--paper-alt); border-radius: 3px;
+            font-size: .92rem; color: var(--muted);
+            line-height: 1.6; white-space: pre-wrap;
         }
-
-        .news-original.show {
-            display: block;
-        }
-
-        /* Team */
-        .team {
-            background: var(--bg-primary);
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-
-        .team-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 2.5rem;
-            transition: border-color 0.2s;
-        }
-
-        .team-card:hover {
-            border-color: var(--accent);
-        }
-
-        .team-card .team-role {
-            font-size: 0.7rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--accent);
-            margin-bottom: 0.5rem;
-        }
-
-        .team-card h3 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 0.35rem;
-        }
-
-        .team-card .team-email {
-            display: inline-block;
-            color: var(--accent);
-            text-decoration: none;
-            font-size: 0.92rem;
-            font-weight: 500;
-            margin-bottom: 0.4rem;
-        }
-
-        .team-card .team-email:hover {
-            color: var(--text-primary);
-        }
-
-        .team-card .team-phone {
-            display: block;
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.88rem;
-            margin-bottom: 0.95rem;
-        }
-
-        .team-card .team-phone:hover {
-            color: var(--text-primary);
-        }
-
-        .team-card p {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
-
-        .team-card .team-duties {
-            margin: 1rem 0 0;
-            padding-left: 1.1rem;
-            color: var(--text-secondary);
-        }
-
-        .team-card .team-duties li {
-            margin-bottom: 0.45rem;
-            line-height: 1.6;
-        }
-
-        .team-card .team-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1.25rem;
-        }
-
-        .team-card .team-tag {
-            font-size: 0.75rem;
-            font-weight: 500;
-            color: var(--text-secondary);
-            background: var(--bg-primary);
-            border: 1px solid var(--border);
-            padding: 0.3rem 0.75rem;
-            border-radius: 100px;
-        }
-
-        /* Contact */
-        .contact {
-            background: var(--bg-secondary);
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-        }
-
-        .contact-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 2rem;
-            text-align: center;
-            transition: border-color 0.2s;
-        }
-
-        .contact-card:hover {
-            border-color: var(--accent);
-        }
-
-        .contact-card .icon {
-            width: 48px;
-            height: 48px;
-            background: var(--accent-dim);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.25rem;
-        }
-
-        .contact-card .icon svg {
-            width: 22px;
-            height: 22px;
+        .news-original.show { display: block; }
+        .news-link {
+            display: inline-block; margin-top: .75rem;
+            font-size: .85rem; font-weight: 600;
             color: var(--accent);
         }
 
-        .contact-card h3 {
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--text-secondary);
-            margin-bottom: 0.5rem;
+        .pulse-subscribe {
+            background: var(--ink); color: #fff;
+            padding: 2.25rem; border-radius: 4px;
+        }
+        .pulse-subscribe .lbl {
+            font-size: .75rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: .2em;
+            color: #6fb8cc; margin-bottom: .75rem;
+        }
+        .pulse-subscribe h3 {
+            font-size: 1.35rem; font-weight: 600;
+            color: #fff; margin-bottom: .6rem;
+        }
+        .pulse-subscribe p {
+            color: #a3b0c4; font-size: .95rem;
+            margin-bottom: 1.5rem; line-height: 1.6;
+        }
+        .pulse-form {
+            display: flex; flex-wrap: wrap; gap: .6rem;
+        }
+        .pulse-form input {
+            flex: 1 1 220px; min-width: 0;
+            font-family: inherit; font-size: .95rem;
+            padding: .8rem 1rem;
+            background: rgba(255,255,255,.06);
+            border: 1px solid rgba(255,255,255,.15);
+            border-radius: 3px; color: #fff;
+        }
+        .pulse-form input::placeholder { color: rgba(255,255,255,.5); }
+        .pulse-form input:focus {
+            outline: none; border-color: #6fb8cc;
+            background: rgba(255,255,255,.1);
+        }
+        .pulse-form button {
+            background: var(--accent); color: #fff;
+            border: none; padding: .8rem 1.5rem;
+            font-family: inherit; font-size: .9rem; font-weight: 600;
+            border-radius: 3px; cursor: pointer;
+            white-space: nowrap; transition: background .2s;
+        }
+        .pulse-form button:hover { background: var(--accent-hi); }
+        .pulse-subscribe .note {
+            color: rgba(255,255,255,.45); font-size: .78rem;
+            margin-top: .9rem;
         }
 
-        .contact-card a,
-        .contact-card p.value {
-            color: var(--text-primary);
-            text-decoration: none;
-            font-size: 1rem;
-            font-weight: 500;
+        /* ---------- Circulars ---------- */
+        .circ-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+            align-items: start;
+        }
+        .circ-text p {
+            color: var(--text); margin-bottom: 1.1rem;
+            font-size: 1rem; line-height: 1.7;
+        }
+        .circ-text ul { list-style: none; margin-top: 1rem; }
+        .circ-text ul li {
+            padding: .55rem 0 .55rem 1.5rem;
+            position: relative; color: var(--text);
+            font-size: .95rem;
+        }
+        .circ-text ul li::before {
+            content: ''; position: absolute;
+            left: 0; top: 1.05rem;
+            width: 10px; height: 1px; background: var(--accent);
         }
 
-        .contact-card a:hover {
-            color: var(--accent);
-        }
-
-        .contact-stack {
-            display: flex;
-            flex-direction: column;
-            gap: 0.45rem;
-            align-items: center;
-        }
-
-        .contact-stack a span {
-            color: var(--text-secondary);
-        }
-
-        /* Footer */
-        footer {
-            border-top: 1px solid var(--border);
-            padding: 2rem;
-            text-align: center;
-        }
-
-        footer p {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-        }
-
-        /* Inquiry Forms */
-        .inquiry {
-            background: var(--bg-primary);
+        /* ---------- Intelligence promo ---------- */
+        .intel-promo {
+            background: var(--ink);
             padding: 5rem 2rem;
         }
-
-        .inquiry-tabs {
-            display: flex;
-            gap: 0;
-            margin-bottom: 2.5rem;
-            border-bottom: 2px solid var(--border);
-        }
-
-        .inquiry-tab {
-            padding: 0.875rem 1.75rem;
-            background: none;
-            border: none;
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            font-weight: 600;
-            cursor: pointer;
-            border-bottom: 2px solid transparent;
-            margin-bottom: -2px;
-            transition: all 0.2s;
-        }
-
-        .inquiry-tab:hover {
-            color: var(--text-primary);
-        }
-
-        .inquiry-tab.active {
-            color: var(--accent);
-            border-bottom-color: var(--accent);
-        }
-
-        .inquiry-panel {
-            display: none;
-        }
-
-        .inquiry-panel.active {
-            display: block;
-        }
-
-        .inquiry-form {
-            max-width: 720px;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .form-group.full {
-            grid-column: 1 / -1;
-        }
-
-        .form-group label {
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--text-secondary);
-            margin-bottom: 0.4rem;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            padding: 0.7rem 0.85rem;
-            color: var(--text-primary);
-            font-size: 0.9rem;
-            font-family: inherit;
-            transition: border-color 0.2s;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--accent);
-        }
-
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: var(--text-secondary);
-            opacity: 0.5;
-        }
-
-        .form-group select {
-            appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%238b95a8' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 0.85rem center;
-            padding-right: 2.2rem;
-        }
-
-        .form-group textarea {
-            min-height: 90px;
-            resize: vertical;
-        }
-
-        .form-submit {
-            display: inline-flex;
+        .intel-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: grid; grid-template-columns: 1fr auto; gap: 3rem;
             align-items: center;
-            gap: 0.5rem;
-            margin-top: 0.75rem;
-            padding: 0.75rem 2rem;
-            background: var(--accent);
-            color: #fff;
-            font-size: 0.9rem;
-            font-weight: 600;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background 0.2s;
+        }
+        .intel-text .lbl {
+            font-size: .75rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: .22em;
+            color: #6fb8cc; margin-bottom: 1rem;
+        }
+        .intel-text h2 {
+            font-size: clamp(1.5rem, 2.5vw, 2rem);
+            font-weight: 600; color: #fff;
+            margin-bottom: 1rem; letter-spacing: -0.015em;
+        }
+        .intel-text p {
+            color: #a3b0c4; font-size: 1rem;
+            line-height: 1.65; max-width: 60ch;
         }
 
-        .form-submit:hover {
-            background: var(--accent-hover);
+        /* ---------- Team ---------- */
+        .team-grid {
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.75rem;
+        }
+        .team-card {
+            background: var(--paper); border: 1px solid var(--line);
+            padding: 2.25rem; border-radius: 4px;
+        }
+        .team-role {
+            font-size: .72rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: .18em;
+            color: var(--accent); margin-bottom: .75rem;
+        }
+        .team-card h3 {
+            font-size: 1.3rem; font-weight: 600;
+            color: var(--ink); margin-bottom: 1rem;
+        }
+        .team-contact { margin-bottom: 1rem; }
+        .team-contact a {
+            display: block; font-size: .92rem;
+            color: var(--text); padding: .15rem 0;
+        }
+        .team-contact a:hover { color: var(--accent); }
+        .team-contact a span { color: var(--muted); margin-right: .35rem; }
+        .team-card p {
+            color: var(--muted); font-size: .94rem;
+            line-height: 1.65; margin-bottom: 1rem;
+        }
+        .team-duties { list-style: none; margin-bottom: 1rem; }
+        .team-duties li {
+            padding: .35rem 0 .35rem 1.25rem;
+            position: relative;
+            font-size: .9rem; color: var(--text);
+        }
+        .team-duties li::before {
+            content: ''; position: absolute;
+            left: 0; top: 1rem;
+            width: 6px; height: 1px; background: var(--accent);
+        }
+        .team-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: 1rem; }
+        .team-tag {
+            font-size: .72rem; font-weight: 500;
+            color: var(--muted); background: var(--paper-alt);
+            border: 1px solid var(--line);
+            padding: .3rem .65rem; border-radius: 3px;
         }
 
-        .form-submit svg {
-            width: 18px;
-            height: 18px;
+        /* ---------- Contact ---------- */
+        .contact-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
         }
-
-        .form-note {
-            margin-top: 1rem;
-            font-size: 0.8rem;
-            color: var(--text-secondary);
+        .contact-card {
+            background: var(--paper); border: 1px solid var(--line);
+            padding: 2rem; border-radius: 4px;
         }
+        .contact-card .icon {
+            width: 36px; height: 36px;
+            color: var(--accent); margin-bottom: 1rem;
+        }
+        .contact-card .icon svg { width: 100%; height: 100%; }
+        .contact-card h3 {
+            font-size: .8rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: .15em;
+            color: var(--muted); margin-bottom: .75rem;
+        }
+        .contact-card a, .contact-card .value {
+            display: block; color: var(--ink); font-size: .95rem;
+            padding: .15rem 0; line-height: 1.5;
+        }
+        .contact-card a:hover { color: var(--accent); }
+        .contact-card a span { color: var(--muted); margin-right: .3rem; font-size: .85rem; }
+        .contact-stack a { padding: .25rem 0; }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero-logo {
-                max-width: 280px;
-            }
+        /* ---------- Footer ---------- */
+        footer {
+            background: var(--ink); color: #a3b0c4;
+            padding: 4rem 2rem 2rem;
+        }
+        .footer-inner { max-width: 1200px; margin: 0 auto; }
+        .footer-grid {
+            display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem;
+            margin-bottom: 3rem; padding-bottom: 3rem;
+            border-bottom: 1px solid rgba(255,255,255,.1);
+        }
+        .footer-brand img { height: 38px; margin-bottom: 1.25rem; filter: brightness(0) invert(1); }
+        .footer-brand p { font-size: .9rem; line-height: 1.65; max-width: 36ch; }
+        .footer-col h4 {
+            font-size: .75rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: .18em;
+            color: #fff; margin-bottom: 1rem;
+        }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: .55rem; }
+        .footer-col a {
+            color: #a3b0c4; font-size: .9rem;
+        }
+        .footer-col a:hover { color: #6fb8cc; }
+        .footer-bottom {
+            display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap; gap: 1rem;
+            font-size: .82rem; color: rgba(255,255,255,.45);
+        }
+        .footer-bottom a { color: rgba(255,255,255,.6); }
+        .footer-bottom a:hover { color: #6fb8cc; }
 
-            .hero h1 {
-                font-size: 2.2rem;
+        /* ---------- Responsive ---------- */
+        @media (max-width: 900px) {
+            .about-grid, .circ-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .services-grid, .team-grid, .segments-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+            .stat { border-left: none; padding-left: 0; }
+            .contact-grid { grid-template-columns: 1fr 1fr; }
+            .intel-inner { grid-template-columns: 1fr; gap: 2rem; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 700px) {
+            .nav-inner { padding: .9rem 1.25rem; }
+            .nav-menu {
+                display: none; position: absolute;
+                top: 70px; left: 0; right: 0;
+                flex-direction: column; gap: 0;
+                background: var(--paper); padding: 1rem 1.25rem;
+                border-bottom: 1px solid var(--line);
             }
-
-            .hero-subtitle {
-                font-size: 1.1rem;
+            .nav-menu.active { display: flex; }
+            .nav-menu li {
+                padding: .75rem 0; border-bottom: 1px solid var(--line);
             }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .services-grid,
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-
-            .news-grid {
-                max-height: 400px;
-            }
-
-            .segments-grid,
-            .team-grid,
-            .circulation-content {
-                grid-template-columns: 1fr;
-            }
-
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-
-            nav ul {
-                display: none;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                right: 0;
-                background: rgba(10, 14, 23, 0.95);
-                backdrop-filter: blur(12px);
-                flex-direction: column;
-                padding: 1rem 2rem;
-                gap: 0;
-                border-bottom: 1px solid var(--border);
-            }
-
-            nav ul.active {
-                display: flex;
-            }
-
-            nav ul li {
-                padding: 0.75rem 0;
-                border-bottom: 1px solid var(--border);
-            }
-
-            nav ul li:last-child {
-                border-bottom: none;
-            }
-
-            .menu-toggle {
-                display: block;
-            }
-
-            nav a {
-                font-size: 0.95rem;
-            }
-
-            section {
-                padding: 3.5rem 1.25rem;
-            }
+            .nav-menu li:last-child { border-bottom: none; }
+            .nav-cta { display: inline-block; align-self: flex-start; }
+            .menu-toggle { display: block; }
+            .hero { padding: 7rem 1.25rem 4rem; min-height: 80vh; }
+            section { padding: 4rem 1.25rem; }
+            .stats-band { padding: 3rem 1.25rem; }
+            .stats-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .form-row { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .form { padding: 1.75rem; }
         }
     </style>
 </head>
 <body>
 
     <!-- Navigation -->
-    <nav>
+    <nav class="site-nav">
         <div class="nav-inner">
-            <a href="#home" class="logo"><img src="logo.png" alt="Montline Chartering"></a>
-            <button class="menu-toggle" aria-label="Toggle menu" onclick="document.querySelector('nav ul').classList.toggle('active')">
+            <a href="#home" class="nav-logo"><img src="logo.png" alt="Montline Chartering"></a>
+            <button class="menu-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-menu').classList.toggle('active')">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
             </button>
-            <ul>
-                <li><a href="#news">Market Pulse</a></li>
+            <ul class="nav-menu">
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#segments">Segments</a></li>
-                <li><a href="#trading-area">Trading Area</a></li>
+                <li><a href="#news">Market Pulse</a></li>
                 <li><a href="#circulation">Circulars</a></li>
                 <li><a href="#team">Team</a></li>
-                <li><a href="#inquiry">Inquiry</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#inquiry" class="nav-cta">Submit Enquiry</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- Hero -->
     <section class="hero" id="home">
-        <div class="hero-content">
-            <div class="hero-label">Dry Bulk Chartering</div>
-            <img src="logo.png" alt="Montline Chartering" class="hero-logo">
-            <div class="hero-subtitle">Dry Bulk Chartering Expertise</div>
-            <p>Black Sea, Mediterranean, Baltic — connecting cargo with tonnage through market knowledge and direct owner relationships.</p>
-            <div class="hero-actions">
-                <a href="#contact" class="hero-cta">
-                    Contact Us
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/></svg>
+        <div class="hero-inner">
+            <div class="hero-eyebrow">Independent Dry Bulk Brokerage</div>
+            <h1>Dry cargo, every ocean — chartered by mariners.</h1>
+            <p class="hero-lead">Montline Chartering connects cargo with the right tonnage across the Black Sea, Mediterranean, Baltic and beyond. Founded by Master Mariners, run as a hands-on commercial desk.</p>
+            <div class="hero-ctas">
+                <a href="#inquiry" class="btn btn-primary">
+                    Submit Enquiry
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/></svg>
                 </a>
-                <a href="company-profile.html" class="hero-cta secondary">
-                    Company Profile
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-5.625a2.625 2.625 0 00-2.625-2.625H8.625A2.625 2.625 0 006 8.625v9.75A2.625 2.625 0 008.625 21h5.625"/><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75l2.25 2.25 4.5-4.5"/></svg>
+                <a href="#news" class="btn btn-ghost">
+                    See Market Pulse
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Inquiry -->
-    <section class="inquiry" id="inquiry">
+    <!-- About + Heritage -->
+    <section id="about">
         <div class="section-inner">
-            <div class="section-label">Submit Enquiry</div>
-            <h2 class="section-title">Chartering Inquiry</h2>
-            <p class="section-desc">Looking for tonnage or have a vessel open? Submit your enquiry below and we will revert with competitive options.</p>
+            <span class="eyebrow">Who We Are</span>
+            <h2 class="section-title">A chartering desk built on the bridge.</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>Montline Chartering is an independent dry bulk brokerage founded by two Master Mariners who served as commanding officers on cargo vessels.</p>
+                    <p>We didn't learn shipping from a textbook — we lived it on the bridge, in the holds, and through every weather the sea could throw at us. We know how cargo is loaded, how vessels perform in real conditions, and what actually matters when it comes to safe and efficient fixture execution.</p>
+                    <p>We connect cargo with the right tonnage through direct owner relationships, real-time market intelligence and a straightforward approach built on trust and operational expertise.</p>
+                </div>
+                <div class="heritage-card">
+                    <div class="year">2024</div>
+                    <div class="year-label">Founded · Tbilisi</div>
+                    <p>Founded by Master Mariners with decades of seagoing command experience. Independent, owner-aligned, and built around a direct chartering desk — not a mailing list.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats band -->
+    <div class="stats-band">
+        <div class="stats-grid">
+            <div class="stat"><div class="num">767</div><div class="lbl">Vessels in Database</div></div>
+            <div class="stat"><div class="num">50</div><div class="lbl">Vessel Owners</div></div>
+            <div class="stat"><div class="num">6</div><div class="lbl">Trading Regions</div></div>
+            <div class="stat"><div class="num">24/7</div><div class="lbl">Availability</div></div>
+        </div>
+    </div>
+
+    <!-- Services -->
+    <section class="section-alt" id="services">
+        <div class="section-inner">
+            <span class="eyebrow">What We Do</span>
+            <h2 class="section-title">Commercial and post-fixture support.</h2>
+            <p class="section-desc">From cargo enquiry and vessel search to recap and voyage follow-up — handled end to end by people who have stood the bridge watch themselves.</p>
+            <div class="services-grid">
+                <div class="service">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5"/></svg>
+                    </div>
+                    <h3>Dry Bulk Freight Brokerage</h3>
+                    <p>Matching cargo stems with suitable coasters, river-sea vessels, Handysize and larger dry bulk tonnage across Black Sea, Mediterranean, Baltic, Continent and Caspian.</p>
+                </div>
+                <div class="service">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg>
+                    </div>
+                    <h3>Voyage &amp; Time Charter Negotiation</h3>
+                    <p>Handling the commercial track from freight indication and firm offer to recap — laycan windows, cargo terms, rate negotiations, charter party follow-up for voyage and time charter business.</p>
+                </div>
+                <div class="service">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/></svg>
+                    </div>
+                    <h3>Post-Fixture Coordination</h3>
+                    <p>Keeping owners, charterers, agents and documents aligned after fixture — NOR &amp; laytime monitoring, SoF review, freight invoicing support and demurrage/despatch follow-up.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Segments + Trading Area -->
+    <section id="segments">
+        <div class="section-inner">
+            <span class="eyebrow">Specialisation</span>
+            <h2 class="section-title">Market segments and trading area.</h2>
+            <p class="section-desc">Covering the full spectrum of dry bulk tonnage — from river-sea coasters to ocean-going Handysize vessels — with focused regional coverage.</p>
+            <div class="segments-grid">
+                <div class="segment">
+                    <div class="segment-badge">Up to ~10,000 DWT</div>
+                    <h3>Coasters &amp; River-Sea</h3>
+                    <p>Small-to-medium tonnage for regional trades, river-sea navigation and short-sea shipping across inland waterways and coastal routes.</p>
+                    <ul>
+                        <li>Single-deck general cargo vessels</li>
+                        <li>River-sea class tonnage</li>
+                        <li>Short-sea and coastal trades</li>
+                        <li>Grains, steel, fertilizers, project cargo</li>
+                    </ul>
+                </div>
+                <div class="segment">
+                    <div class="segment-badge">20,000+ DWT</div>
+                    <h3>Handysize &amp; Above</h3>
+                    <p>Ocean-going dry bulk tonnage for intercontinental trades, deep-sea grain flows and larger parcel shipments.</p>
+                    <ul>
+                        <li>Handysize &amp; Supramax bulkers</li>
+                        <li>Deep-sea and intercontinental routes</li>
+                        <li>Bulk grains, coal, minerals</li>
+                        <li>Large parcel and full-cargo lots</li>
+                    </ul>
+                </div>
+            </div>
+            <div style="margin-top: 3rem;">
+                <span class="eyebrow" style="margin-bottom: 1rem;">Trading Area</span>
+                <div class="area-tags">
+                    <span class="area-tag"><span class="dot"></span> Black Sea</span>
+                    <span class="area-tag"><span class="dot"></span> Sea of Azov</span>
+                    <span class="area-tag"><span class="dot"></span> Mediterranean</span>
+                    <span class="area-tag"><span class="dot"></span> Continent</span>
+                    <span class="area-tag"><span class="dot"></span> Baltic Sea</span>
+                    <span class="area-tag"><span class="dot"></span> Caspian Sea</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inquiry -->
+    <section class="section-alt" id="inquiry">
+        <div class="section-inner">
+            <span class="eyebrow">Submit Enquiry</span>
+            <h2 class="section-title">Chartering enquiry.</h2>
+            <p class="section-desc">Looking for tonnage or have a vessel open? Submit your enquiry below — we typically respond within 2-4 hours.</p>
 
             <div class="inquiry-tabs">
-                <button class="inquiry-tab active" onclick="switchTab('owner')">I have a Vessel</button>
-                <button class="inquiry-tab" onclick="switchTab('cargo')">I have Cargo</button>
+                <button class="inquiry-tab active" onclick="switchTab(event, 'owner')">I have a Vessel</button>
+                <button class="inquiry-tab" onclick="switchTab(event, 'cargo')">I have Cargo</button>
             </div>
 
             <!-- Shipowner Form -->
             <div class="inquiry-panel active" id="panel-owner">
-                <form class="inquiry-form" id="form-owner" onsubmit="return submitVessel(this)">
+                <form class="form" id="form-owner" onsubmit="return submitVessel(this)">
                     <div class="form-row">
-                        <div class="form-group">
-                            <label>Company Name *</label>
-                            <input type="text" name="Company" required placeholder="e.g. Oceanic Shipping Ltd">
-                        </div>
-                        <div class="form-group">
-                            <label>Contact Person *</label>
-                            <input type="text" name="Contact" required placeholder="Full name">
-                        </div>
+                        <div class="form-group"><label>Company Name *</label><input type="text" name="Company" required placeholder="e.g. Oceanic Shipping Ltd"></div>
+                        <div class="form-group"><label>Contact Person *</label><input type="text" name="Contact" required placeholder="Full name"></div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group">
-                            <label>Email *</label>
-                            <input type="email" name="Email" required placeholder="chartering@company.com">
-                        </div>
-                        <div class="form-group">
-                            <label>Phone / WhatsApp</label>
-                            <input type="tel" name="Phone" placeholder="+country code number">
-                        </div>
+                        <div class="form-group"><label>Email *</label><input type="email" name="Email" required placeholder="chartering@company.com"></div>
+                        <div class="form-group"><label>Phone / WhatsApp</label><input type="tel" name="Phone" placeholder="+country code number"></div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group">
-                            <label>Vessel Name *</label>
-                            <input type="text" name="Vessel" required placeholder="M/V ...">
-                        </div>
-                        <div class="form-group">
-                            <label>Vessel Type *</label>
+                        <div class="form-group"><label>Vessel Name *</label><input type="text" name="Vessel" required placeholder="M/V ..."></div>
+                        <div class="form-group"><label>Vessel Type *</label>
                             <select name="Type" required>
                                 <option value="" disabled selected>Select type</option>
                                 <option>Bulk Carrier</option>
@@ -1227,101 +822,51 @@
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group">
-                            <label>DWT *</label>
-                            <input type="text" name="DWT" required placeholder="e.g. 35,000 MT">
-                        </div>
-                        <div class="form-group">
-                            <label>Built Year</label>
-                            <input type="text" name="Built" placeholder="e.g. 2012">
-                        </div>
+                        <div class="form-group"><label>DWT *</label><input type="text" name="DWT" required placeholder="e.g. 35,000 MT"></div>
+                        <div class="form-group"><label>Built Year</label><input type="text" name="Built" placeholder="e.g. 2012"></div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group">
-                            <label>Open Area / Port *</label>
-                            <input type="text" name="OpenArea" required placeholder="e.g. Canakkale, Black Sea">
-                        </div>
-                        <div class="form-group">
-                            <label>Open Date *</label>
-                            <input type="text" name="OpenDate" required placeholder="e.g. 25-30 March 2026">
-                        </div>
+                        <div class="form-group"><label>Open Area / Port *</label><input type="text" name="OpenArea" required placeholder="e.g. Canakkale, Black Sea"></div>
+                        <div class="form-group"><label>Open Date *</label><input type="text" name="OpenDate" required placeholder="e.g. 25-30 March 2026"></div>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group full">
-                            <label>Additional Details</label>
-                            <textarea name="Details" placeholder="Last cargo, gear/gearless, holds, ice class, special features, trading restrictions..."></textarea>
-                        </div>
+                    <div class="form-row single">
+                        <div class="form-group full"><label>Additional Details</label><textarea name="Details" placeholder="Last cargo, gear/gearless, holds, ice class, special features, trading restrictions..."></textarea></div>
                     </div>
-                    <button type="submit" class="form-submit">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"/></svg>
-                        Submit Vessel Position
+                    <button type="submit" class="form-submit">Submit Vessel Position
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/></svg>
                     </button>
                     <p class="form-note">Opens your email client with pre-filled enquiry. We typically respond within 2-4 hours.</p>
                 </form>
             </div>
 
-            <!-- Cargo / Broker Form -->
+            <!-- Cargo Form -->
             <div class="inquiry-panel" id="panel-cargo">
-                <form class="inquiry-form" id="form-cargo" onsubmit="return submitCargo(this)">
+                <form class="form" id="form-cargo" onsubmit="return submitCargo(this)">
                     <div class="form-row">
-                        <div class="form-group">
-                            <label>Company Name *</label>
-                            <input type="text" name="Company" required placeholder="e.g. Global Commodities SA">
-                        </div>
-                        <div class="form-group">
-                            <label>Contact Person *</label>
-                            <input type="text" name="Contact" required placeholder="Full name">
-                        </div>
+                        <div class="form-group"><label>Company Name *</label><input type="text" name="Company" required placeholder="e.g. Global Commodities SA"></div>
+                        <div class="form-group"><label>Contact Person *</label><input type="text" name="Contact" required placeholder="Full name"></div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group">
-                            <label>Email *</label>
-                            <input type="email" name="Email" required placeholder="chartering@company.com">
-                        </div>
-                        <div class="form-group">
-                            <label>Phone / WhatsApp</label>
-                            <input type="tel" name="Phone" placeholder="+country code number">
-                        </div>
+                        <div class="form-group"><label>Email *</label><input type="email" name="Email" required placeholder="chartering@company.com"></div>
+                        <div class="form-group"><label>Phone / WhatsApp</label><input type="tel" name="Phone" placeholder="+country code number"></div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group">
-                            <label>Cargo Type *</label>
-                            <input type="text" name="Cargo" required placeholder="e.g. Wheat, Clinker, HRC Coils">
-                        </div>
-                        <div class="form-group">
-                            <label>Quantity (MT) *</label>
-                            <input type="text" name="Quantity" required placeholder="e.g. 25,000 MT +/- 10%">
-                        </div>
+                        <div class="form-group"><label>Cargo Type *</label><input type="text" name="Cargo" required placeholder="e.g. Wheat, Clinker, HRC Coils"></div>
+                        <div class="form-group"><label>Quantity (MT) *</label><input type="text" name="Quantity" required placeholder="e.g. 25,000 MT +/- 10%"></div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group">
-                            <label>Loading Port / Area *</label>
-                            <input type="text" name="LoadPort" required placeholder="e.g. Novorossiysk, Russia">
-                        </div>
-                        <div class="form-group">
-                            <label>Discharge Port / Area *</label>
-                            <input type="text" name="DischPort" required placeholder="e.g. Mersin, Turkey">
-                        </div>
+                        <div class="form-group"><label>Loading Port / Area *</label><input type="text" name="LoadPort" required placeholder="e.g. Novorossiysk, Russia"></div>
+                        <div class="form-group"><label>Discharge Port / Area *</label><input type="text" name="DischPort" required placeholder="e.g. Mersin, Turkey"></div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group">
-                            <label>Laycan *</label>
-                            <input type="text" name="Laycan" required placeholder="e.g. 01-10 April 2026">
-                        </div>
-                        <div class="form-group">
-                            <label>Freight Idea</label>
-                            <input type="text" name="FreightIdea" placeholder="e.g. USD 18 PMT or USD 15,000/day">
-                        </div>
+                        <div class="form-group"><label>Laycan *</label><input type="text" name="Laycan" required placeholder="e.g. 01-10 April 2026"></div>
+                        <div class="form-group"><label>Freight Idea</label><input type="text" name="FreightIdea" placeholder="e.g. USD 18 PMT or USD 15,000/day"></div>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group full">
-                            <label>Additional Details</label>
-                            <textarea name="Details" placeholder="Stowage factor, loading/discharge rates, draft restrictions, special terms..."></textarea>
-                        </div>
+                    <div class="form-row single">
+                        <div class="form-group full"><label>Additional Details</label><textarea name="Details" placeholder="Stowage factor, loading/discharge rates, draft restrictions, special terms..."></textarea></div>
                     </div>
-                    <button type="submit" class="form-submit">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"/></svg>
-                        Submit Cargo Enquiry
+                    <button type="submit" class="form-submit">Submit Cargo Enquiry
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/></svg>
                     </button>
                     <p class="form-note">Opens your email client with pre-filled enquiry. We typically respond within 2-4 hours.</p>
                 </form>
@@ -1329,155 +874,43 @@
         </div>
     </section>
 
-    <!-- Market News -->
-    <section class="news" id="news">
+    <!-- Market Pulse -->
+    <section id="news">
         <div class="section-inner">
-            <div class="section-label">Market Pulse</div>
-            <h2 class="section-title">Market Pulse</h2>
-            <p class="section-desc">Daily flow from dry bulk channels — cargoes, tonnage and market gossip, translated for our network.</p>
-            <div style="background: #1a2236; border: 1px solid #1e293b; border-left: 3px solid #0b5c75; border-radius: 12px; padding: 1.4rem 1.6rem; margin-bottom: 2rem;">
-                <div style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.15em; color: #0b5c75; font-weight: 600; margin-bottom: 0.5rem;">Captain Tymur Intelligence</div>
-                <div style="color: #e8edf5; font-size: 1.05rem; font-weight: 600; line-height: 1.35; margin-bottom: 0.5rem;">Looking for structured maritime intelligence?</div>
-                <p style="color: #8b95a8; font-size: 0.9rem; margin-bottom: 1rem; line-height: 1.5;">Route risk, sanctions-aware signals, decision memos and a weekly intelligence memo for owners, brokers and operators — published as a separate advisory product.</p>
-                <a href="https://intelligence.capt-tymur.com/" target="_blank" rel="noopener" style="display: inline-block; color: #e8edf5; background: #0b5c75; padding: 0.55rem 1.1rem; border-radius: 6px; text-decoration: none; font-size: 0.88rem; font-weight: 600;">Visit Captain Tymur Intelligence →</a>
-            </div>
+            <span class="eyebrow">Market Pulse</span>
+            <h2 class="section-title">Daily flow from our desk.</h2>
+            <p class="section-desc">Cargoes, tonnage and market chatter from across the dry bulk world — curated and translated for our network.</p>
             <div id="news-feed" class="news-grid">
-                <p style="color: var(--text-secondary);">Loading latest news...</p>
+                <p style="color: var(--muted);">Loading latest news...</p>
             </div>
-            <div style="text-align: center; margin-top: 2rem;">
-                <a href="https://t.me/shipping_commercial" target="_blank" rel="noopener" class="hero-cta" style="font-size: 0.85rem; padding: 0.6rem 1.4rem;">
-                    Follow on Telegram
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- About (hidden from main flow, accessible via nav) -->
-    <section class="about" id="about" style="display:none">
-        <div class="section-inner">
-            <div class="section-label">Who We Are</div>
-            <h2 class="section-title">About Montline Chartering</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Montline Chartering is an independent dry bulk brokerage founded by two Master Mariners who served as commanding officers on cargo vessels. We didn't learn shipping from a textbook — we lived it on the bridge, in the holds, and through every weather the sea could throw at us.</p>
-                    <p>This is our edge. We know how cargo is loaded, how vessels perform in real conditions, and what actually matters when it comes to safe and efficient fixture execution. That hands-on experience translates into better decisions for both owners and charterers.</p>
-                    <p>We connect cargo with the right tonnage through direct owner relationships, real-time market intelligence, and a straightforward approach built on trust and operational expertise.</p>
-                </div>
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="number">767</div>
-                        <div class="label">Vessels in Database</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="number">50</div>
-                        <div class="label">Vessel Owners</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="number">6</div>
-                        <div class="label">Trading Regions</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="number">24/7</div>
-                        <div class="label">Availability</div>
-                    </div>
-                </div>
+            <div class="pulse-subscribe">
+                <div class="lbl">Market Pulse Digest</div>
+                <h3>Get Market Pulse in your inbox</h3>
+                <p>Curated dry bulk signals delivered straight from our chartering desk.</p>
+                <form class="pulse-form" action="https://formsubmit.co/broker@capt-tymur.com" method="POST">
+                    <input type="hidden" name="_subject" value="New Market Pulse Subscription">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://www.montlinechartering.com/#news">
+                    <input type="hidden" name="source" value="Market Pulse">
+                    <input type="email" name="email" placeholder="your@company.com" required>
+                    <input type="text" name="company" placeholder="Company (optional)">
+                    <button type="submit">Subscribe →</button>
+                </form>
+                <p class="note">No spam. Unsubscribe anytime. Sent only when there is something worth your attention.</p>
             </div>
         </div>
     </section>
 
-    <!-- Services -->
-    <section class="services" id="services" style="display:none">
+    <!-- Circulars -->
+    <section class="section-alt" id="circulation">
         <div class="section-inner">
-            <div class="section-label">What We Do</div>
-            <h2 class="section-title">Services</h2>
-            <p class="section-desc">Commercial and post-fixture support for dry bulk fixtures, from cargo enquiry and vessel search to recap and voyage follow-up.</p>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5"/></svg>
-                    </div>
-                    <h3>Dry Bulk Freight Brokerage</h3>
-                    <p>Matching cargo stems with suitable coasters, river-sea vessels, Handysize, and larger dry bulk tonnage across the Black Sea, Mediterranean, Baltic, Continent, and Caspian trading areas.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg>
-                    </div>
-                    <h3>Voyage &amp; Time Charter Negotiation</h3>
-                    <p>Handling the commercial track from freight indication and firm offer to recap, covering laycan windows, cargo terms, rate negotiations, and charter party follow-up for voyage and time charter business.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/></svg>
-                    </div>
-                    <h3>Post-Fixture Coordination</h3>
-                    <p>Keeping owners, charterers, agents, and documents aligned after fixture, including NOR and laytime monitoring, statement-of-facts review, freight invoicing support, and demurrage or despatch follow-up.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Market Segments -->
-    <section class="segments" id="segments">
-        <div class="section-inner">
-            <div class="section-label">Specialization</div>
-            <h2 class="section-title">Market Segments</h2>
-            <p class="section-desc">Covering the full spectrum of dry bulk tonnage — from river-sea coasters to ocean-going Handysize vessels.</p>
-            <div class="segments-grid">
-                <div class="segment-card">
-                    <div class="segment-badge">Up to ~10,000 DWT</div>
-                    <h3>Coasters &amp; River-Sea</h3>
-                    <p>Small-to-medium tonnage for regional trades, river-sea navigation, and short-sea shipping across inland waterways and coastal routes.</p>
-                    <ul>
-                        <li>Single-deck general cargo vessels</li>
-                        <li>River-sea class tonnage</li>
-                        <li>Short-sea and coastal trades</li>
-                        <li>Grains, steel, fertilizers, project cargo</li>
-                    </ul>
-                </div>
-                <div class="segment-card">
-                    <div class="segment-badge">20,000+ DWT</div>
-                    <h3>Handysize &amp; Above</h3>
-                    <p>Ocean-going dry bulk tonnage for intercontinental trades, deep-sea grain flows, and larger parcel shipments.</p>
-                    <ul>
-                        <li>Handysize &amp; Supramax bulkers</li>
-                        <li>Deep-sea and intercontinental routes</li>
-                        <li>Bulk grains, coal, minerals</li>
-                        <li>Large parcel and full-cargo lots</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Trading Area -->
-    <section class="trading-area" id="trading-area" style="display:none">
-        <div class="section-inner">
-            <div class="section-label">Geography</div>
-            <h2 class="section-title">Trading Area</h2>
-            <p class="section-desc">Focused coverage of key shipping regions with established contacts among owners, charterers, and local agents.</p>
-            <div class="area-list">
-                <div class="area-tag"><span class="area-dot"></span> Black Sea</div>
-                <div class="area-tag"><span class="area-dot"></span> Sea of Azov</div>
-                <div class="area-tag"><span class="area-dot"></span> Mediterranean</div>
-                <div class="area-tag"><span class="area-dot"></span> Continent</div>
-                <div class="area-tag"><span class="area-dot"></span> Baltic Sea</div>
-                <div class="area-tag"><span class="area-dot"></span> Caspian Sea</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Circulation -->
-    <section class="circulation" id="circulation">
-        <div class="section-inner">
-            <div class="section-label">Stay Informed</div>
-            <h2 class="section-title">Market Circulars</h2>
-            <p class="section-desc">Receive exclusive cargo and tonnage circulars directly from our desk — real fixtures, not aggregator noise.</p>
-            <div class="circulation-content">
-                <div class="circulation-text">
-                    <p>When we receive an exclusive cargo enquiry or have a vessel open for prompt positioning, we distribute targeted circulars to our network of shipowners, commercial managers, traders, and brokers.</p>
-                    <p>Our circulars are concise, actionable, and sent only when we have genuine business to share — no spam, no recycled market data.</p>
+            <span class="eyebrow">Stay Informed</span>
+            <h2 class="section-title">Market Circulars.</h2>
+            <p class="section-desc">Exclusive cargo and tonnage circulars direct from our desk — real fixtures, not aggregator noise.</p>
+            <div class="circ-grid">
+                <div class="circ-text">
+                    <p>When we receive an exclusive cargo enquiry or have a vessel open for prompt positioning, we distribute targeted circulars to our network of shipowners, commercial managers, traders and brokers.</p>
+                    <p>Concise, actionable, sent only when we have genuine business to share — no spam, no recycled market data.</p>
                     <ul>
                         <li>Exclusive cargo stems with laycan and rate indication</li>
                         <li>Open tonnage positions with vessel particulars</li>
@@ -1485,29 +918,19 @@
                         <li>Direct from our chartering desk — not a mailing list</li>
                     </ul>
                 </div>
-                <form class="circ-form" action="https://formsubmit.co/broker@capt-tymur.com" method="POST">
+                <form class="form" action="https://formsubmit.co/broker@capt-tymur.com" method="POST">
                     <input type="hidden" name="_subject" value="New Circulation Subscription">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_next" value="https://www.montlinechartering.com/#circulation">
                     <h3>Subscribe to Our Circulars</h3>
                     <div class="form-row">
-                        <div class="form-group">
-                            <label for="company">Company</label>
-                            <input type="text" id="company" name="company" placeholder="Company name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="contact">Contact Person</label>
-                            <input type="text" id="contact" name="contact" placeholder="Full name" required>
-                        </div>
+                        <div class="form-group"><label>Company</label><input type="text" name="company" placeholder="Company name" required></div>
+                        <div class="form-group"><label>Contact Person</label><input type="text" name="contact" placeholder="Full name" required></div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" placeholder="chartering@company.com" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="type">Type</label>
-                            <select id="type" name="type" required>
+                        <div class="form-group"><label>Email</label><input type="email" name="email" placeholder="chartering@company.com" required></div>
+                        <div class="form-group"><label>Role</label>
+                            <select name="type" required>
                                 <option value="" disabled selected>Select your role</option>
                                 <option value="Shipowner">Shipowner</option>
                                 <option value="Commercial Manager">Commercial Manager</option>
@@ -1517,40 +940,51 @@
                             </select>
                         </div>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group full">
-                            <label for="area">Trading Area</label>
-                            <input type="text" id="area" name="trading_area" placeholder="e.g. Black Sea, Med, Baltic">
-                        </div>
+                    <div class="form-row single">
+                        <div class="form-group full"><label>Trading Area</label><input type="text" name="trading_area" placeholder="e.g. Black Sea, Med, Baltic"></div>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group full">
-                            <label for="interest">Fleet / Cargo Interest</label>
-                            <textarea id="interest" name="interest" placeholder="Brief description of your fleet or cargo interest"></textarea>
-                        </div>
+                    <div class="form-row single">
+                        <div class="form-group full"><label>Fleet / Cargo Interest</label><textarea name="interest" placeholder="Brief description of your fleet or cargo interest"></textarea></div>
                     </div>
-                    <button type="submit" class="form-submit">
-                        Subscribe
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
+                    <button type="submit" class="form-submit">Subscribe
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
                     </button>
-                    <p class="form-note">We respect your inbox. Circulars are sent only when we have exclusive business relevant to your profile. You can unsubscribe at any time.</p>
+                    <p class="form-note">We respect your inbox. Circulars are sent only when relevant to your profile. Unsubscribe anytime.</p>
                 </form>
             </div>
         </div>
     </section>
 
+    <!-- Intelligence promo -->
+    <div class="intel-promo">
+        <div class="intel-inner">
+            <div class="intel-text">
+                <div class="lbl">Captain Tymur Intelligence</div>
+                <h2>Looking for structured maritime intelligence?</h2>
+                <p>Route risk, sanctions-aware signals, decision memos and a weekly intelligence memo for owners, brokers and operators — published as a separate advisory product.</p>
+            </div>
+            <a href="https://intelligence.capt-tymur.com/" target="_blank" rel="noopener" class="btn btn-primary">
+                Visit Intelligence
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
+            </a>
+        </div>
+    </div>
+
     <!-- Team -->
-    <section class="team" id="team" style="display:none">
+    <section class="section-alt" id="team">
         <div class="section-inner">
-            <div class="section-label">Team &amp; Support</div>
-            <h2 class="section-title">Team</h2>
-            <p class="section-desc">Experienced maritime and post-fixture professionals with hands-on operational background, supported by a shared company inbox for administrative requests.</p>
+            <span class="eyebrow">Team &amp; Support</span>
+            <h2 class="section-title">Our broker team.</h2>
+            <p class="section-desc">Experienced maritime and post-fixture professionals with hands-on operational background, supported by a shared inbox for administrative requests.</p>
             <div class="team-grid">
                 <div class="team-card">
                     <div class="team-role">Co-Founder</div>
                     <h3>Capt. Tymur Rudov</h3>
-                    <a class="team-email" href="mailto:broker@capt-tymur.com">broker@capt-tymur.com</a>
-                    <p>Master Mariner with extensive seagoing experience on dry cargo vessels in the Black Sea and Mediterranean trades. Combines operational knowledge with commercial expertise to deliver value for owners and charterers alike.</p>
+                    <div class="team-contact">
+                        <a href="mailto:broker@capt-tymur.com">broker@capt-tymur.com</a>
+                        <a href="tel:+35797617412"><span>WhatsApp:</span>+357 97 617 412</a>
+                    </div>
+                    <p>Master Mariner with extensive seagoing experience on dry cargo vessels in Black Sea and Mediterranean trades. Combines operational knowledge with commercial expertise to deliver value for owners and charterers alike.</p>
                     <div class="team-tags">
                         <span class="team-tag">Master Mariner</span>
                         <span class="team-tag">Coasters &amp; River-Sea</span>
@@ -1560,16 +994,17 @@
                 <div class="team-card">
                     <div class="team-role">Post-Fixture Manager</div>
                     <h3>Viktoria Vasilyeva</h3>
-                    <a class="team-email" href="mailto:vd@montlinechartering.com">vd@montlinechartering.com</a>
-                    <a class="team-phone" href="tel:+995591056973">+995 591 056973</a>
-                    <p>Handles post-fixture management across the voyage cycle, keeping owners, charterers, documents, and time-related exposure aligned after fixture.</p>
+                    <div class="team-contact">
+                        <a href="mailto:vd@montlinechartering.com">vd@montlinechartering.com</a>
+                        <a href="tel:+995591056973">+995 591 056 973</a>
+                    </div>
+                    <p>Handles post-fixture management across the voyage cycle, keeping owners, charterers, documents and time-related exposure aligned after fixture.</p>
                     <ul class="team-duties">
                         <li>Coordination between owners and charterers</li>
                         <li>Monitoring NOR and laytime</li>
-                        <li>Reviewing Statements of Facts</li>
-                        <li>Laytime, demurrage, and despatch calculations</li>
-                        <li>Coordinating freight invoicing and cargo documentation</li>
-                        <li>Assisting with disputes during the voyage</li>
+                        <li>Statement-of-Facts review</li>
+                        <li>Laytime, demurrage and despatch calculations</li>
+                        <li>Freight invoicing and cargo documentation</li>
                     </ul>
                     <div class="team-tags">
                         <span class="team-tag">Post-Fixture</span>
@@ -1580,10 +1015,12 @@
                 <div class="team-card">
                     <div class="team-role">Freight Broker</div>
                     <h3>Alexander Chernev</h3>
-                    <a class="team-email" href="mailto:alexander@montlinechartering.com">alexander@montlinechartering.com</a>
-                    <a class="team-phone" href="tel:+79110056843">+7 911 005 68 43</a>
-                    <a class="team-phone" href="https://wa.me/79113198001">WhatsApp / Telegram: +7 911 319 80 01</a>
-                    <p>Local representative in the Russian Federation, supporting first meetings, field qualification, and direct contact transfer into Montline’s commercial follow-up loop. Available for Saint Petersburg meetings by appointment during field trips.</p>
+                    <div class="team-contact">
+                        <a href="mailto:alexander@montlinechartering.com">alexander@montlinechartering.com</a>
+                        <a href="tel:+79110056843">+7 911 005 68 43</a>
+                        <a href="https://wa.me/79113198001"><span>WhatsApp / Telegram:</span>+7 911 319 80 01</a>
+                    </div>
+                    <p>Local representative in the Russian Federation, supporting first meetings, field qualification and direct contact transfer into Montline's commercial follow-up loop. Available for Saint Petersburg meetings by appointment.</p>
                     <div class="team-tags">
                         <span class="team-tag">Freight Broker</span>
                         <span class="team-tag">Dry Bulk</span>
@@ -1593,8 +1030,10 @@
                 <div class="team-card">
                     <div class="team-role">Shared Inbox</div>
                     <h3>Accounts &amp; Administration</h3>
-                    <a class="team-email" href="mailto:info@montlinechartering.com">info@montlinechartering.com</a>
-                    <p>Shared company inbox for invoices, paperwork, and administrative requests. Messages are routed internally by the Montline team and are not presented as a dedicated individual employee.</p>
+                    <div class="team-contact">
+                        <a href="mailto:info@montlinechartering.com">info@montlinechartering.com</a>
+                    </div>
+                    <p>Shared company inbox for invoices, paperwork and administrative requests. Messages are routed internally by the Montline team and are not presented as a dedicated individual employee.</p>
                     <div class="team-tags">
                         <span class="team-tag">Invoices</span>
                         <span class="team-tag">Documents</span>
@@ -1606,11 +1045,11 @@
     </section>
 
     <!-- Contact -->
-    <section class="contact" id="contact">
+    <section id="contact">
         <div class="section-inner">
-            <div class="section-label">Get in Touch</div>
-            <h2 class="section-title">Contact</h2>
-            <p class="section-desc">Available around the clock for chartering enquiries. Reach us via email, phone, or WhatsApp.</p>
+            <span class="eyebrow">Get in Touch</span>
+            <h2 class="section-title">Contact.</h2>
+            <p class="section-desc">Available around the clock for chartering enquiries. Reach us via email, phone or WhatsApp.</p>
             <div class="contact-grid">
                 <div class="contact-card">
                     <div class="icon">
@@ -1625,8 +1064,8 @@
                     </div>
                     <h3>Direct Lines</h3>
                     <div class="contact-stack">
-                        <a href="tel:+35797617412"><span>Timur / WhatsApp:</span> +357 97 617 412</a>
-                        <a href="tel:+79110056843"><span>Alexander:</span> +7 911 005 68 43</a>
+                        <a href="tel:+35797617412"><span>Tymur / WhatsApp:</span>+357 97 617 412</a>
+                        <a href="tel:+79110056843"><span>Alexander:</span>+7 911 005 68 43</a>
                     </div>
                 </div>
                 <div class="contact-card">
@@ -1634,49 +1073,77 @@
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 0115 0z"/></svg>
                     </div>
                     <h3>Location</h3>
-                    <p class="value">Gorgasali Str. 51/53, Office 9, Tbilisi 0114, Georgia</p>
+                    <p class="value">Gorgasali Str. 51/53, Office 9<br>Tbilisi 0114, Georgia</p>
                 </div>
                 <div class="contact-card">
                     <div class="icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                     </div>
                     <h3>LinkedIn</h3>
-                    <a href="https://www.linkedin.com/in/rudovtimur/">Connect with Us</a>
+                    <a href="https://www.linkedin.com/in/rudovtimur/" target="_blank" rel="noopener">Connect with Us</a>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Footer -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="logo.png" alt="Montline Chartering">
+                    <p>Independent dry bulk freight brokerage. Connecting cargo with tonnage across the Black Sea, Mediterranean, Baltic and beyond.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#team">Team</a></li>
+                        <li><a href="company-profile.html">Company Profile</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">What We Do</a></li>
+                        <li><a href="#segments">Segments</a></li>
+                        <li><a href="#inquiry">Submit Enquiry</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Intelligence</h4>
+                    <ul>
+                        <li><a href="#news">Market Pulse</a></li>
+                        <li><a href="#circulation">Circulars</a></li>
+                        <li><a href="https://intelligence.capt-tymur.com/" target="_blank" rel="noopener">Captain Tymur Intelligence</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>&copy; <span id="year"></span> Montline Chartering. All rights reserved.</div>
+                <div><a href="mailto:info@montlinechartering.com">info@montlinechartering.com</a></div>
+            </div>
+        </div>
+    </footer>
+
     <script>
-    // Hidden sections toggle (About, Team)
-    ['about','services','trading-area','team'].forEach(function(id) {
-        document.querySelectorAll('a[href="#'+id+'"]').forEach(function(link) {
-            link.addEventListener('click', function() {
-                var section = document.getElementById(id);
-                if (section.style.display === 'none') section.style.display = '';
-            });
-        });
-        if (window.location.hash === '#'+id) {
-            var s = document.getElementById(id);
-            if (s) s.style.display = '';
-        }
-    });
+    document.getElementById('year').textContent = new Date().getFullYear();
 
     var INQUIRY_EMAIL = 'broker@capt-tymur.com';
 
-    function switchTab(type) {
+    function switchTab(e, type) {
         document.querySelectorAll('.inquiry-tab').forEach(function(t) { t.classList.remove('active'); });
         document.querySelectorAll('.inquiry-panel').forEach(function(p) { p.classList.remove('active'); });
         document.getElementById('panel-' + type).classList.add('active');
-        event.target.classList.add('active');
+        e.target.classList.add('active');
     }
 
     function val(form, name) { var el = form.elements[name]; return el ? el.value.trim() : ''; }
 
     function submitVessel(form) {
         var subj = 'Vessel Position: ' + val(form,'Vessel') + ' / ' + val(form,'DWT') + ' DWT';
-        var body = 'VESSEL POSITION ENQUIRY\n'
-            + '========================\n\n'
+        var body = 'VESSEL POSITION ENQUIRY\n========================\n\n'
             + 'Company: ' + val(form,'Company') + '\n'
             + 'Contact: ' + val(form,'Contact') + '\n'
             + 'Email: ' + val(form,'Email') + '\n'
@@ -1697,8 +1164,7 @@
 
     function submitCargo(form) {
         var subj = 'Cargo Enquiry: ' + val(form,'Cargo') + ' / ' + val(form,'Quantity') + ' / ' + val(form,'LoadPort');
-        var body = 'CARGO ENQUIRY\n'
-            + '========================\n\n'
+        var body = 'CARGO ENQUIRY\n========================\n\n'
             + 'Company: ' + val(form,'Company') + '\n'
             + 'Contact: ' + val(form,'Contact') + '\n'
             + 'Email: ' + val(form,'Email') + '\n'
@@ -1716,6 +1182,7 @@
             + '&body=' + encodeURIComponent(body);
         return false;
     }
+
     (function() {
         var feed = document.getElementById('news-feed');
         if (!feed) return;
@@ -1724,7 +1191,7 @@
             .then(function(r) { return r.ok ? r.json() : Promise.reject(r.status); })
             .then(function(data) {
                 if (!data.posts || data.posts.length === 0) {
-                    feed.innerHTML = '<p style="color:var(--text-secondary)">No news available at the moment.</p>';
+                    feed.innerHTML = '<p style="color:var(--muted)">No news available at the moment.</p>';
                     return;
                 }
                 var html = '';
@@ -1758,15 +1225,9 @@
                 feed.innerHTML = html;
             })
             .catch(function() {
-                feed.innerHTML = '<p style="color:var(--text-secondary)">Unable to load news feed.</p>';
+                feed.innerHTML = '<p style="color:var(--muted)">Unable to load news feed.</p>';
             });
     })();
     </script>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Montline Chartering. All rights reserved.</p>
-    </footer>
-
 </body>
 </html>
