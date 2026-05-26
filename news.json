@@ -1,8 +1,21 @@
 {
-  "updated_at": "2026-05-26T03:00:02.437067+00:00",
+  "updated_at": "2026-05-26T05:00:02.542528+00:00",
   "channel": "Capt_tymur",
   "channel_url": "https://t.me/Capt_tymur",
   "posts": [
+    {
+      "id": 3180,
+      "text_en": "According to the Seaplify Salary Guide 2026 and Maritime-Zone analytics, the wage premium for officers with alternative-fuel certifications, including LNG, methanol and ammonia, on gas carriers is currently 20-30% above the equivalent role on conventional dry cargo. This is not a bonus or a temporary allowance; it is becoming the new base rate.\n\nDrewry and IMO-linked reports also point to a shortage of competent Masters, Chief Engineers and Chief Officers for the dual-fuel fleet. The cadet pipeline at leading maritime academies in the Philippines, India and Ukraine is not meeting demand through 2028. Between the current orderbook for scrubber-fitted ECO newbuilds scheduled for delivery in 2027-2028 and the point at which a fully certified academy graduate enters the market, the four-year cadet-to-officer cycle is already too slow.",
+      "text_ru": "По данным Seaplify Salary Guide 2026 и Maritime-Zone analytics, wage premium для officers с alt-fuel сертификациями (LNG, methanol, ammonia) на gas carriers сейчас составляет 20-30% над эквивалентной    должностью на conventional dry cargo. Это не bonus и не временная компенсация — это новая базовая ставка.\n\nDrewry и IMO-linked reports подтверждают shortage competent Masters, Chief Engineers и Chief Officers для dual-fuel флота. Cadet pipeline в топовых maritime academies — Philippines, India, Ukraine — не покрывает demand до 2028 года. Между текущим заказом scrubber-fitted ECO newbuild с поставкой 2027-2028 и появлением полностью сертифицированного выпускника академии — 4-year cadet-to-officer цикл уже  не успевает.\n\nЧто-то попахивает пизжедом...",
+      "tags": [
+        "#azov",
+        "#bunkering",
+        "#ports",
+        "#india"
+      ],
+      "date": "2026-05-25T17:00:52+00:00",
+      "url": "https://t.me/Capt_tymur/3180"
+    },
     {
       "id": 3179,
       "text_en": "OOCL Wisdom was named on 8 May 2026 at Nantong at Nantong COSCO KHI (NACKS). The vessel is a 24,168 TEU, 225,000 dwt container ship, 399.99 metres in length, and is the world’s largest methanol dual-fuel container vessel. The main engines, auxiliary engines and boilers all run on methanol. Seven sister vessels of the same series are under construction at NACKS for OOCL.",
@@ -194,17 +207,6 @@
       "tags": [],
       "date": "2026-04-06T08:31:59+00:00",
       "url": "https://t.me/Capt_tymur/3083"
-    },
-    {
-      "id": 3071,
-      "text_en": "The Strait of Hormuz has moved into a selective, militarised passage regime. For the seafarers stranded there, no active humanitarian action is being observed.",
-      "text_ru": "Ормуз перешел в режим выборочного и военизированного прохода. По застрявшим там морякам - активных действий гумманитарного характера не наблюдается.",
-      "tags": [
-        "#war",
-        "#crew"
-      ],
-      "date": "2026-03-31T10:45:55+00:00",
-      "url": "https://t.me/Capt_tymur/3071"
     }
   ]
 }
