@@ -1,8 +1,18 @@
 {
-  "updated_at": "2026-06-13T17:00:02.998796+00:00",
+  "updated_at": "2026-06-14T03:00:02.153370+00:00",
   "channel": "Capt_tymur",
   "channel_url": "https://t.me/Capt_tymur",
   "posts": [
+    {
+      "id": 3247,
+      "text_en": "DNV surveyed 500 respondents. Thirty-one per cent said they had seen a cyberattack in the past 12 months at the company where they work.\n\nAcross the industry there are 2 million seafarers and 80,000 office staff.",
+      "text_ru": "DNV сделали опрос 500 респондентов - 31 процент сказали что имели видеть кибератаку за послдение 12 месяцев в конторе на которую работают. \n\nВсего в отрасли 2млн плавсостава и 80к офисных.",
+      "tags": [
+        "#war"
+      ],
+      "date": "2026-06-13T16:50:23+00:00",
+      "url": "https://t.me/Capt_tymur/3247"
+    },
     {
       "id": 3208,
       "text_en": "97.9 per cent of vessels run on conventional fuel.",
