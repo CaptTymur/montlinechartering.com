@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /deck.html
+
+Sitemap: https://montlinechartering.com/sitemap.xml

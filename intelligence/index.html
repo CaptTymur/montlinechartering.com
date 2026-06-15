@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intelligence Archive — Montline Chartering</title>
+    <meta name="description" content="Maritime intelligence briefs from Montline Chartering — VLCC bifurcation, methanol shipping, ammonia bunkering, Hormuz disruption, cyber risk and structural shifts in dry bulk and tanker markets.">
+    <link rel="canonical" href="https://montlinechartering.com/intelligence/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Intelligence Archive — Montline Chartering">
+    <meta property="og:description" content="Maritime intelligence briefs: VLCC bifurcation, methanol shipping, ammonia bunkering, Hormuz disruption, cyber risk and structural shifts.">
+    <meta property="og:image" content="https://montlinechartering.com/og-image.png">
+    <meta property="og:url" content="https://montlinechartering.com/intelligence/">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9875;</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --ink: #0a1628; --paper: #ffffff; --paper-alt: #f5f7fa;
+            --line: #e1e6ee; --text: #1c2d44; --muted: #5d6b80;
+            --accent: #0b5c75; --accent-hi: #0a4d62;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--paper); color: var(--text);
+            line-height: 1.65; font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+        a { color: var(--accent); text-decoration: none; transition: color .2s; }
+        a:hover { color: var(--accent-hi); }
+        img { max-width: 100%; display: block; }
+
+        .site-nav {
+            position: fixed; top: 0; left: 0; right: 0;
+            background: rgba(255,255,255,.96);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--line); z-index: 100;
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 1rem 2rem; height: 70px;
+        }
+        .nav-logo img { height: 34px; }
+        .nav-menu { list-style: none; display: flex; gap: 2.25rem; }
+        .nav-menu a {
+            color: var(--ink); font-size: .88rem; font-weight: 500;
+        }
+        .nav-menu a:hover { color: var(--accent); }
+        .nav-cta {
+            background: var(--accent); color: #fff !important;
+            padding: .55rem 1.1rem; border-radius: 3px;
+            font-size: .85rem; font-weight: 600;
+        }
+        .nav-cta:hover { background: var(--accent-hi); }
+
+        .page-header {
+            padding: 9rem 2rem 4rem;
+            background: var(--ink); color: #fff;
+        }
+        .page-header-inner { max-width: 1200px; margin: 0 auto; }
+        .page-header .eyebrow {
+            display: block; font-size: .78rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: .25em;
+            color: #6fb8cc; margin-bottom: 1rem;
+        }
+        .page-header h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 600; line-height: 1.1;
+            letter-spacing: -0.02em; margin-bottom: 1rem;
+            max-width: 24ch;
+        }
+        .page-header p {
+            color: #a3b0c4; font-size: 1.05rem;
+            max-width: 64ch; line-height: 1.65;
+        }
+
+        .archive {
+            padding: 5rem 2rem 7rem;
+            background: var(--paper-alt);
+        }
+        .archive-inner {
+            max-width: 1000px; margin: 0 auto;
+        }
+        .brief-list {
+            display: flex; flex-direction: column; gap: 1.25rem;
+        }
+        .brief {
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-left: 3px solid var(--line);
+            border-radius: 4px;
+            padding: 2rem 2.25rem;
+            transition: border-left-color .2s, transform .15s;
+        }
+        .brief:hover {
+            border-left-color: var(--accent);
+            transform: translateY(-1px);
+        }
+        .brief a { color: inherit; }
+        .brief-date {
+            font-size: .75rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: .15em;
+            color: var(--accent); margin-bottom: .5rem;
+        }
+        .brief h2 {
+            font-size: 1.3rem; font-weight: 600;
+            color: var(--ink); margin-bottom: .75rem;
+            letter-spacing: -0.01em; line-height: 1.3;
+        }
+        .brief p {
+            color: var(--muted); font-size: .95rem;
+            line-height: 1.6;
+        }
+        .brief-more {
+            display: inline-block; margin-top: .9rem;
+            font-size: .85rem; font-weight: 600;
+            color: var(--accent);
+        }
+
+        footer {
+            background: var(--ink); color: #a3b0c4;
+            padding: 3rem 2rem 2rem;
+            text-align: center; font-size: .85rem;
+        }
+        footer a { color: #6fb8cc; }
+        footer .footer-line { margin-bottom: .5rem; }
+
+        @media (max-width: 700px) {
+            .nav-inner { padding: .9rem 1.25rem; }
+            .nav-menu { display: none; }
+            .page-header { padding: 7rem 1.25rem 3rem; }
+            .archive { padding: 3rem 1.25rem 5rem; }
+            .brief { padding: 1.5rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="site-nav">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo"><img src="../logo.png" alt="Montline Chartering"></a>
+            <ul class="nav-menu">
+                <li><a href="/#about">About</a></li>
+                <li><a href="/#services">Services</a></li>
+                <li><a href="/intelligence/">Intelligence</a></li>
+                <li><a href="/#news">Market Pulse</a></li>
+                <li><a href="/#inquiry" class="nav-cta">Submit Enquiry</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="page-header-inner">
+            <span class="eyebrow">Intelligence Archive</span>
+            <h1>Structural analysis from the chartering desk.</h1>
+            <p>In-depth briefs on shifts in dry bulk, tanker, and container markets — written for owners, brokers and operators who need more than headlines.</p>
+        </div>
+    </header>
+
+    <section class="archive">
+        <div class="archive-inner">
+            <div class="brief-list">
+
+                <article class="brief">
+                    <a href="2026-06-13-maritime-cyber-risk-paradox.html">
+                        <div class="brief-date">13 June 2026</div>
+                        <h2>Maritime Cyber Risk: The DNV False Sense of Security Paradox</h2>
+                        <p>DNV's 2024/25 Maritime Cyber Priority surveyed close to 500 maritime professionals. The headline finding is paradox — 83 percent confidence vs four operational gaps that drive charter approval implications.</p>
+                        <span class="brief-more">Read brief →</span>
+                    </a>
+                </article>
+
+                <article class="brief">
+                    <a href="2026-06-12-iran-war-quadruple-chokepoint.html">
+                        <div class="brief-date">12 June 2026</div>
+                        <h2>Iran War 2026: Five Greek CEOs Confirm Hormuz as Structural Rate Driver</h2>
+                        <p>Frangou, Michalopoulos, Pittas, Hadjipateras and Kanellos on quadruple-chokepoint pricing and structural disruption to tanker and dry bulk flows in mid-2026.</p>
+                        <span class="brief-more">Read brief →</span>
+                    </a>
+                </article>
+
+                <article class="brief">
+                    <a href="2026-05-25-methanol-shipping-operational-reality.html">
+                        <div class="brief-date">25 May 2026</div>
+                        <h2>Methanol Shipping Goes Operational: OOCL Wisdom and Grimaldi's Ro-Pax Cluster</h2>
+                        <p>OOCL Wisdom — world's largest methanol dual-fuel container vessel (24,168 TEU) — was named at Nantong COSCO KHI. Combined with Grimaldi's Mediterranean Ro-Pax cluster, methanol moves from pilot to fleet reality.</p>
+                        <span class="brief-more">Read brief →</span>
+                    </a>
+                </article>
+
+                <article class="brief">
+                    <a href="2026-05-25-frontline-vlcc-fleet-renewal.html">
+                        <div class="brief-date">25 May 2026</div>
+                        <h2>VLCC Asset Bifurcation: Frontline's $2.05B Fleet Renewal</h2>
+                        <p>Frontline sold eight 2015-2016 VLCCs for $831.5M and bought nine scrubber-fitted newbuilds at Hengli and Dalian — a structural repricing event for tanker tonnage.</p>
+                        <span class="brief-more">Read brief →</span>
+                    </a>
+                </article>
+
+                <article class="brief">
+                    <a href="2026-05-24-singapore-ammonia.html">
+                        <div class="brief-date">24 May 2026</div>
+                        <h2>Singapore's First Ammonia Bunkering Trial: 2027-2028 Bulk Economics</h2>
+                        <p>MPA Singapore authorised ITOCHU's ZETA Bunkering for the first ship-to-ship ammonia trial. What 15 May 2026 means for bulk carrier economics over the next two years.</p>
+                        <span class="brief-more">Read brief →</span>
+                    </a>
+                </article>
+
+                <article class="brief">
+                    <a href="2026-04-15-retrofit.html">
+                        <div class="brief-date">15 April 2026</div>
+                        <h2>The Quiet Revolution: Retrofit vs Newbuild Economics</h2>
+                        <p>Why $3M retrofit beats $65M dual-fuel newbuild on ROI. Rotor sails, Mewis Ducts, bulbous bow upgrades — the real economics of decarbonising existing tonnage.</p>
+                        <span class="brief-more">Read brief →</span>
+                    </a>
+                </article>
+
+                <article class="brief">
+                    <a href="2026-04-09.html">
+                        <div class="brief-date">9 April 2026</div>
+                        <h2>Alpha Signals Brief</h2>
+                        <p>Brent speculative flush, GSCPI supply chain warning, private credit mispricing, CMBS distress — alpha signals for maritime-adjacent macro.</p>
+                        <span class="brief-more">Read brief →</span>
+                    </a>
+                </article>
+
+                <article class="brief">
+                    <a href="2026-04-08.html">
+                        <div class="brief-date">8 April 2026</div>
+                        <h2>Daily Intelligence Brief</h2>
+                        <p>Hormuz ceasefire, Black Sea enforcement, tanker rate collapse, central bank pivot — Montline daily market intelligence.</p>
+                        <span class="brief-more">Read brief →</span>
+                    </a>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-line">Montline Chartering — Independent Dry Bulk Freight Brokerage</div>
+        <div><a href="/">Home</a> · <a href="/#inquiry">Submit Enquiry</a> · <a href="mailto:info@montlinechartering.com">info@montlinechartering.com</a></div>
+    </footer>
+
+</body>
+</html>
