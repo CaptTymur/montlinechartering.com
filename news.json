@@ -1,8 +1,18 @@
 {
-  "updated_at": "2026-07-27T09:00:03.213249+00:00",
+  "updated_at": "2026-07-27T09:05:11.975737+00:00",
   "channel": "Capt_tymur",
   "channel_url": "https://t.me/Capt_tymur",
   "posts": [
+    {
+      "id": 3292,
+      "text_en": "The IMO has once again issued a communication to ship operators.",
+      "text_ru": "ИМО очередной раз обратилось. К операторам судов",
+      "tags": [
+        "#legal"
+      ],
+      "date": "2026-07-26T12:41:04+00:00",
+      "url": "https://t.me/Capt_tymur/3292"
+    },
     {
       "id": 3247,
       "text_en": "DNV surveyed 500 respondents. Thirty-one per cent said they had seen a cyberattack in the past 12 months at the company where they work.\n\nAcross the industry there are 2 million seafarers and 80,000 office staff.",
